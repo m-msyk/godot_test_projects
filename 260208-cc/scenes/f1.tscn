@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://wc1k66hgdu2y"]
+
+[ext_resource type="PackedScene" uid="uid://w8e61707f30u" path="res://scenes/player.tscn" id="1_anvyr"]
+[ext_resource type="Texture2D" uid="uid://c3wsjhhyipwr3" path="res://images/sample_room.png" id="2_3yxhr"]
+[ext_resource type="PackedScene" uid="uid://cjiaxn4wt7a0c" path="res://scenes/npc.tscn" id="3_npr0n"]
+[ext_resource type="PackedScene" uid="uid://bqou2j8yajan4" path="res://scenes/quest_item.tscn" id="4_aenxq"]
+[ext_resource type="Texture2D" uid="uid://cvwxgwpug1aq5" path="res://images/wall_elevatorposter.png" id="4_cibrc"]
+
+[node name="F1" type="Node2D" unique_id=1996609949]
+
+[node name="BG" type="ColorRect" parent="." unique_id=2047566925]
+offset_left = -182.0
+offset_top = -138.0
+offset_right = 542.0
+offset_bottom = 378.0
+color = Color(0.16862746, 0.15686275, 0.20784314, 1)
+metadata/_edit_lock_ = true
+
+[node name="Room" type="Sprite2D" parent="." unique_id=1792610277]
+position = Vector2(179.5, 119.5)
+texture = ExtResource("2_3yxhr")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=64452286 instance=ExtResource("1_anvyr")]
+y_sort_enabled = true
+position = Vector2(112, 166)
+
+[node name="RoomBounds" type="StaticBody2D" parent="." unique_id=147479619]
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBounds" unique_id=1327127674]
+build_mode = 1
+polygon = PackedVector2Array(42, 115, 42, 74, 62, 74, 62, 64, 140, 64, 140, 74, 160, 74, 160, 96, 199, 96, 199, 74, 219, 74, 219, 64, 297, 64, 297, 74, 317, 74, 317, 115, 232, 115, 232, 154, 297, 154, 297, 164, 317, 164, 317, 193, 42, 193, 42, 164, 62, 164, 62, 154, 127, 154, 127, 115)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RoomBounds" unique_id=1674133141]
+build_mode = 1
+polygon = PackedVector2Array(140, 164, 140, 115, 219, 115, 219, 164, 199, 164, 199, 186, 160, 186, 160, 164)
+metadata/_edit_lock_ = true
+
+[node name="Wall" type="ColorRect" parent="RoomBounds" unique_id=1464877083]
+offset_left = 42.0
+offset_top = 103.0
+offset_right = 127.0
+offset_bottom = 115.0
+color = Color(0.16862746, 0.15686275, 0.20784314, 1)
+metadata/_edit_lock_ = true
+
+[node name="Wall2" type="ColorRect" parent="RoomBounds" unique_id=855000089]
+offset_left = 140.0
+offset_top = 103.0
+offset_right = 219.0
+offset_bottom = 115.0
+color = Color(0.16862746, 0.15686275, 0.20784314, 1)
+metadata/_edit_lock_ = true
+
+[node name="Wall3" type="ColorRect" parent="RoomBounds" unique_id=1208514975]
+offset_left = 232.0
+offset_top = 103.0
+offset_right = 317.0
+offset_bottom = 115.0
+color = Color(0.16862746, 0.15686275, 0.20784314, 1)
+metadata/_edit_lock_ = true
+
+[node name="QuestItem" parent="." unique_id=915489349 instance=ExtResource("4_aenxq")]
+position = Vector2(105, 73)
+id = "elevator_poster"
+item_icon = ExtResource("4_cibrc")
+
+[node name="NPC" parent="." unique_id=1021928318 instance=ExtResource("3_npr0n")]
+y_sort_enabled = true
+position = Vector2(244, 83)
+npc_id = "npc_1"
+
+[node name="NPC2" parent="." unique_id=65796493 instance=ExtResource("3_npr0n")]
+y_sort_enabled = true
+position = Vector2(253, 180)
+npc_id = "npc_2"
+npc_name = "Cole"

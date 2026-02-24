@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://brim43js8x6ws"]
+
+[ext_resource type="FontFile" uid="uid://dsesm6vo075hm" path="res://fonts/PixelOperator.ttf" id="1_dfri7"]
+[ext_resource type="Script" uid="uid://qgqne78i7d04" path="res://scripts/quests/quest_ui.gd" id="1_npuir"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npuir"]
+bg_color = Color(0.14117648, 0.13333334, 0.1764706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubyec"]
+bg_color = Color(0.16862746, 0.15686275, 0.20784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ceyf"]
+bg_color = Color(0.14117648, 0.13333334, 0.1764706, 1)
+
+[node name="Control" type="Control" unique_id=4789061]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_npuir")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=630452039]
+layer = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=769664081]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_npuir")
+
+[node name="Backgrounds" type="HBoxContainer" parent="CanvasLayer/Panel" unique_id=681445336]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background1" type="Panel" parent="CanvasLayer/Panel/Backgrounds" unique_id=1921902152]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubyec")
+
+[node name="Background2" type="Panel" parent="CanvasLayer/Panel/Backgrounds" unique_id=1123318341]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ceyf")
+
+[node name="Contents" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=2039907060]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Headings" type="HBoxContainer" parent="CanvasLayer/Panel/Contents" unique_id=572118489]
+layout_mode = 2
+
+[node name="List" type="Label" parent="CanvasLayer/Panel/Contents/Headings" unique_id=772172698]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_dfri7")
+text = "Available Quests"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Details" type="Label" parent="CanvasLayer/Panel/Contents/Headings" unique_id=640206160]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_dfri7")
+text = "Task Details"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Details" type="HBoxContainer" parent="CanvasLayer/Panel/Contents" unique_id=1522793142]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="QuestList" type="VBoxContainer" parent="CanvasLayer/Panel/Contents/Details" unique_id=252948068]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="QuestDetails" type="VBoxContainer" parent="CanvasLayer/Panel/Contents/Details" unique_id=2031263390]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="QuestTitle" type="Label" parent="CanvasLayer/Panel/Contents/Details/QuestDetails" unique_id=1740178465]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dfri7")
+theme_override_font_sizes/font_size = 14
+text = "Task Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestDescription" type="Label" parent="CanvasLayer/Panel/Contents/Details/QuestDetails" unique_id=2101154768]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dfri7")
+theme_override_font_sizes/font_size = 10
+text = "Task description"
+
+[node name="QuestObjectives" type="VBoxContainer" parent="CanvasLayer/Panel/Contents/Details/QuestDetails" unique_id=815982943]
+layout_mode = 2
+
+[node name="QuestRewards" type="VBoxContainer" parent="CanvasLayer/Panel/Contents/Details/QuestDetails" unique_id=1106513944]
+layout_mode = 2
+
+[node name="Close" type="Button" parent="CanvasLayer/Panel" unique_id=158377006]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -17.0
+offset_top = -8.0
+offset_bottom = 21.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_dfri7")
+theme_override_font_sizes/font_size = 20
+text = "x"
+flat = true

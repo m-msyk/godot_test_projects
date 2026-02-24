@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bqou2j8yajan4"]
+
+[ext_resource type="Script" uid="uid://cj7jp1h00twxs" path="res://scripts/quests/quest_item.gd" id="1_5hayv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p7op5"]
+
+[node name="QuestItem" type="Area2D" unique_id=915489349 groups=["item"]]
+script = ExtResource("1_5hayv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1311645137]
+shape = SubResource("CircleShape2D_p7op5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=275546448]

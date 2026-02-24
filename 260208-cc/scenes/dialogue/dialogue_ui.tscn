@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://ccuw2io2et1gb"]
+
+[ext_resource type="Script" uid="uid://duo5npnc3mr7k" path="res://scripts/dialogue/dialogue_ui.gd" id="1_c5aah"]
+[ext_resource type="FontFile" uid="uid://dsesm6vo075hm" path="res://fonts/PixelOperator.ttf" id="1_y20y4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jka2"]
+bg_color = Color(0.16862746, 0.15686275, 0.20784314, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="DialogueUI" type="Control" unique_id=848221898]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c5aah")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2011558094]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1500706231]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -90.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1jka2")
+
+[node name="DialogueBox" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=1261169695]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="DialogueSpeaker" type="Label" parent="CanvasLayer/Panel/DialogueBox" unique_id=1882543867]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y20y4")
+theme_override_font_sizes/font_size = 16
+text = "NPC Name"
+
+[node name="DialogueText" type="Label" parent="CanvasLayer/Panel/DialogueBox" unique_id=1690490251]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_y20y4")
+theme_override_font_sizes/font_size = 16
+text = "Dialogue text."
+vertical_alignment = 1
+
+[node name="DialogueOptions" type="HBoxContainer" parent="CanvasLayer/Panel/DialogueBox" unique_id=134706743]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CloseButton" type="Button" parent="CanvasLayer/Panel" unique_id=2110002004]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -23.0
+offset_right = -6.0
+offset_bottom = 29.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_y20y4")
+theme_override_font_sizes/font_size = 20
+text = "x"
+flat = true
+
+[connection signal="pressed" from="CanvasLayer/Panel/CloseButton" to="." method="_on_close_button_pressed"]
