@@ -111,7 +111,7 @@ layout_mode = 2
 [node name="QuestRewards" type="VBoxContainer" parent="CanvasLayer/Panel/Contents/Details/QuestDetails" unique_id=1106513944]
 layout_mode = 2
 
-[node name="Close" type="Button" parent="CanvasLayer/Panel" unique_id=158377006]
+[node name="CloseButton" type="Button" parent="CanvasLayer/Panel" unique_id=158377006]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -124,3 +124,5 @@ theme_override_fonts/font = ExtResource("1_dfri7")
 theme_override_font_sizes/font_size = 20
 text = "x"
 flat = true
+
+[connection signal="pressed" from="CanvasLayer/Panel/CloseButton" to="." method="_on_close_button_pressed"]

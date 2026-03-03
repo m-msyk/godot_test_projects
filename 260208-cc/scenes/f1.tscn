@@ -2,9 +2,71 @@
 
 [ext_resource type="PackedScene" uid="uid://w8e61707f30u" path="res://scenes/player.tscn" id="1_anvyr"]
 [ext_resource type="Texture2D" uid="uid://c3wsjhhyipwr3" path="res://images/sample_room.png" id="2_3yxhr"]
+[ext_resource type="Script" uid="uid://b7ruwq0ua0fxy" path="res://resources/quests/quests.gd" id="3_5j50b"]
 [ext_resource type="PackedScene" uid="uid://cjiaxn4wt7a0c" path="res://scenes/npc.tscn" id="3_npr0n"]
+[ext_resource type="Script" uid="uid://b846ydm8dqpfe" path="res://resources/quests/objectives.gd" id="4_6fqsl"]
 [ext_resource type="PackedScene" uid="uid://bqou2j8yajan4" path="res://scenes/quest_item.tscn" id="4_aenxq"]
-[ext_resource type="Texture2D" uid="uid://cvwxgwpug1aq5" path="res://images/wall_elevatorposter.png" id="4_cibrc"]
+[ext_resource type="Script" uid="uid://bpyrfh7b0y76i" path="res://resources/quests/rewards.gd" id="5_wkq6p"]
+[ext_resource type="Script" uid="uid://cj7jp1h00twxs" path="res://scripts/quests/quest_item.gd" id="8_wkq6p"]
+[ext_resource type="Texture2D" uid="uid://cvwxgwpug1aq5" path="res://images/wall_elevatorposter.png" id="9_vadke"]
+[ext_resource type="Texture2D" uid="uid://dcplaexf4ip7y" path="res://images/researcher_02_idle_down.png" id="10_wkq6p"]
+
+[sub_resource type="Resource" id="Resource_vadke"]
+script = ExtResource("4_6fqsl")
+id = "npc_talk_01"
+description = "Talk to Will"
+target_id = "npc_2"
+target_type = "talk_to"
+objective_dialogue = "Oh hey man"
+metadata/_custom_type_script = "uid://b846ydm8dqpfe"
+
+[sub_resource type="Resource" id="Resource_2k25a"]
+script = ExtResource("4_6fqsl")
+id = "obj_collect_01"
+description = "Collect chili recipe"
+target_id = "item_regular"
+target_type = "collection"
+required_quantity = 5
+metadata/_custom_type_script = "uid://b846ydm8dqpfe"
+
+[sub_resource type="Resource" id="Resource_pcb5c"]
+script = ExtResource("5_wkq6p")
+reward_type = "signatures"
+metadata/_custom_type_script = "uid://bpyrfh7b0y76i"
+
+[sub_resource type="Resource" id="Resource_irvuv"]
+script = ExtResource("3_5j50b")
+quest_id = "npc_quest_01"
+quest_name = "Chili Dog"
+quest_description = "Ask Will about his imfamous chili recipe"
+unlock_id = "npc_1_1"
+objectives = Array[ExtResource("4_6fqsl")]([SubResource("Resource_vadke"), SubResource("Resource_2k25a")])
+rewards = Array[ExtResource("5_wkq6p")]([SubResource("Resource_pcb5c")])
+metadata/_custom_type_script = "uid://b7ruwq0ua0fxy"
+
+[sub_resource type="Resource" id="Resource_txd38"]
+script = ExtResource("4_6fqsl")
+id = "talk_npc_1"
+description = "Talk to Cole"
+target_id = "npc_1"
+target_type = "talk_to"
+objective_dialogue = "Brother my code is cooked. Thanks for asking though."
+metadata/_custom_type_script = "uid://b846ydm8dqpfe"
+
+[sub_resource type="Resource" id="Resource_r7owp"]
+script = ExtResource("5_wkq6p")
+reward_type = "signatures"
+metadata/_custom_type_script = "uid://bpyrfh7b0y76i"
+
+[sub_resource type="Resource" id="Resource_c07ig"]
+script = ExtResource("3_5j50b")
+quest_id = "npc_2_quest_01"
+quest_name = "Cole's Code"
+quest_description = "Ask Cole about his code"
+unlock_id = "npc_default"
+objectives = Array[ExtResource("4_6fqsl")]([SubResource("Resource_txd38")])
+rewards = Array[ExtResource("5_wkq6p")]([SubResource("Resource_r7owp")])
+metadata/_custom_type_script = "uid://b7ruwq0ua0fxy"
 
 [node name="F1" type="Node2D" unique_id=1996609949]
 
@@ -22,8 +84,7 @@ texture = ExtResource("2_3yxhr")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=64452286 instance=ExtResource("1_anvyr")]
-y_sort_enabled = true
-position = Vector2(112, 166)
+position = Vector2(110, 164)
 
 [node name="RoomBounds" type="StaticBody2D" parent="." unique_id=147479619]
 metadata/_edit_lock_ = true
@@ -62,18 +123,27 @@ offset_bottom = 115.0
 color = Color(0.16862746, 0.15686275, 0.20784314, 1)
 metadata/_edit_lock_ = true
 
-[node name="QuestItem" parent="." unique_id=915489349 instance=ExtResource("4_aenxq")]
-position = Vector2(105, 73)
-id = "elevator_poster"
-item_icon = ExtResource("4_cibrc")
-
 [node name="NPC" parent="." unique_id=1021928318 instance=ExtResource("3_npr0n")]
 y_sort_enabled = true
 position = Vector2(244, 83)
 npc_id = "npc_1"
+npc_name = "Cole"
+quests = Array[ExtResource("3_5j50b")]([SubResource("Resource_irvuv")])
 
 [node name="NPC2" parent="." unique_id=65796493 instance=ExtResource("3_npr0n")]
 y_sort_enabled = true
 position = Vector2(253, 180)
 npc_id = "npc_2"
-npc_name = "Cole"
+quests = Array[ExtResource("3_5j50b")]([SubResource("Resource_c07ig")])
+
+[node name="QuestItem" parent="." unique_id=915489349 instance=ExtResource("4_aenxq")]
+position = Vector2(105, 73)
+script = ExtResource("8_wkq6p")
+item_id = "item_regular"
+item_quantity = 5
+item_icon = ExtResource("9_vadke")
+
+[node name="QuestItem2" parent="." unique_id=1406194358 instance=ExtResource("4_aenxq")]
+position = Vector2(276, 83)
+script = ExtResource("8_wkq6p")
+item_icon = ExtResource("10_wkq6p")

@@ -312,8 +312,7 @@ collide_with_areas = true
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=233993740]
 
-[node name="Coins" type="ColorRect" parent="HUD" unique_id=333622955]
-visible = false
+[node name="Signatures" type="ColorRect" parent="HUD" unique_id=333622955]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -324,13 +323,13 @@ offset_bottom = 50.0
 grow_horizontal = 0
 color = Color(0.16862746, 0.15686275, 0.20784314, 1)
 
-[node name="Icon" type="TextureRect" parent="HUD/Coins" unique_id=635344004]
+[node name="Icon" type="TextureRect" parent="HUD/Signatures" unique_id=635344004]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("3_dqkch")
 
-[node name="Amount" type="Label" parent="HUD/Coins" unique_id=651919684]
+[node name="Amount" type="Label" parent="HUD/Signatures" unique_id=651919684]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -348,7 +347,6 @@ text = "0"
 vertical_alignment = 1
 
 [node name="QuestTracker" type="ColorRect" parent="HUD" unique_id=429139602]
-visible = false
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 110.0

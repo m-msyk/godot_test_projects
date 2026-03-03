@@ -8,7 +8,7 @@ extends Control
 @onready var dialogue_options = $CanvasLayer/Panel/DialogueBox/DialogueOptions
 
 func _ready() -> void:
-	hide_dialogue()
+	panel.visible = false
 
 # Show dialogue box
 func show_dialogue(speaker, text, options):
@@ -18,8 +18,8 @@ func show_dialogue(speaker, text, options):
 	dialogue_text.text = text
 	
 	# Remove existing options
-	for option in dialogue_options.get_children():
-		dialogue_options.remove_child(option)
+	for child in dialogue_options.get_children():
+		dialogue_options.remove_child(child)
 	
 	# Populate options
 	for option in options.keys():

@@ -2,21 +2,31 @@
 
 extends Control
 
-@onready var panel: Panel = $CanvasLayer/Panel
-@onready var quest_list: VBoxContainer = $CanvasLayer/Panel/Contents/Details/QuestList
-@onready var quest_title: Label = $CanvasLayer/Panel/Contents/Details/QuestDetails/QuestTitle
-@onready var quest_description: Label = $CanvasLayer/Panel/Contents/Details/QuestDetails/QuestDescription
-@onready var quest_objectives: VBoxContainer = $CanvasLayer/Panel/Contents/Details/QuestDetails/QuestObjectives
-@onready var quest_rewards: VBoxContainer = $CanvasLayer/Panel/Contents/Details/QuestDetails/QuestRewards
+@onready var panel = $CanvasLayer/Panel
+@onready var quest_list = $CanvasLayer/Panel/Contents/Details/QuestList
+@onready var quest_title = $CanvasLayer/Panel/Contents/Details/QuestDetails/QuestTitle
+@onready var quest_description = $CanvasLayer/Panel/Contents/Details/QuestDetails/QuestDescription
+@onready var quest_objectives = $CanvasLayer/Panel/Contents/Details/QuestDetails/QuestObjectives
+@onready var quest_rewards = $CanvasLayer/Panel/Contents/Details/QuestDetails/QuestRewards
 
 var selected_quest: Quest = null
+var quest_manager
 
 func _ready():
 	panel.visible = false
+	clear_quest_details()
+	
+	# Quest Manager/UI connection
+	quest_manager = get_parent()
+	quest_manager.quest_updated.connect(_on_quest_updated)
+	quest_manager.objective_updated.connect(_on_objectives_updated)
 
 # Show/hide quest log
 func show_hide_log():
 	panel.visible = !panel.visible
+	update_quest_list()
+	if selected_quest:
+		_on_quest_selected(selected_quest)
 
 # Populate quest list
 func update_quest_list():
@@ -26,10 +36,10 @@ func update_quest_list():
 	
 	# Populate with new items
 	var active_quests = get_parent().get_active_quests()
-	if active_quests.size():
+	if active_quests.size() == 0:
 		clear_quest_details()
-		# Global.player.selected_quest = null
-		# Global.player.update_quest_tracker(null)
+		Global.player.selected_quest = null
+		Global.player.update_quest_tracker(null)
 	else:
 		for quest in active_quests:
 			var button = Button.new()
@@ -38,9 +48,15 @@ func update_quest_list():
 			button.add_theme_font_size_override("font_size", 16)
 			button.pressed.connect(_on_quest_selected.bind(quest))
 			quest_list.add_child(button)
+	
+	# Update quest tracker
+	Global.player.update_quest_tracker(selected_quest)
+	
 
 func _on_quest_selected(quest: Quest):
 	selected_quest = quest
+	Global.player.selected_quest = quest
+	
 	# Populate details
 	quest_title.text = quest.quest_name
 	quest_description.text = quest.quest_description
@@ -93,6 +109,23 @@ func clear_quest_details():
 	for child in quest_rewards.get_children():
 		quest_rewards.remove_child(child)
 		
-		
-		
-		
+# Trigger to update quest list
+func _on_quest_updated(quest_id: String):
+	if selected_quest and selected_quest.quest_id == quest_id:
+		_on_quest_selected(selected_quest)
+	else:
+		update_quest_list()
+	selected_quest = null
+	Global.player.selected_quest = null
+
+# Trigger to update quest details
+func _on_objectives_updated(quest_id: String, objectives_id: String):
+	if selected_quest and selected_quest.quest_id == quest_id:
+		_on_quest_selected(selected_quest)
+	else:
+		update_quest_list()
+	selected_quest = null
+	Global.player.selected_quest = null
+
+func _on_close_button_pressed():
+	show_hide_log()

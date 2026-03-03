@@ -2,6 +2,9 @@
 
 extends Node2D
 
+class_name QuestManager
+
+# Node references
 @onready var quest_ui: Control = $QuestUI
 
 # Signals
@@ -50,5 +53,5 @@ func complete_objective(quest_id: String, objective_id: String):
 		objective_updated.emit(quest_id, objective_id)
 		
 # Show/hide quest log
-func show_hide_log():
+func show_quest_log():
 	quest_ui.show_hide_log()

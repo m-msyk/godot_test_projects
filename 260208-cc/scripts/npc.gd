@@ -2,12 +2,12 @@
 
 extends CharacterBody2D
 
-@export var npc_id: String
-@export var npc_name: String
+@onready var dialogue_manager = $DialogueManager
 
 # Dialogue variables
+@export var npc_id: String
+@export var npc_name: String
 @export var dialogue_resource: Dialogue
-@export var dialogue_manager: Node2D
 var current_state = "start"
 var current_branch_index = 0
 
@@ -23,7 +23,7 @@ func _ready() -> void:
 	dialogue_manager.npc = self
 	# Get quest manager
 	quest_manager = Global.player.quest_manager
-	print("NPC ready, Quests loaded: ", quests.size())
+	print("NPC ready. Quests loaded: ", quests.size())
 	
 func start_dialogue():
 	var npc_dialogues = dialogue_resource.get_npc_dialogue(npc_id)
@@ -41,7 +41,7 @@ func get_current_dialogue():
 	return null
 
 # Update dialogue branch
-func set_dialogue_tree(branch_index):
+func set_dialogue_branch(branch_index):
 	current_branch_index = branch_index
 	current_state = "start"
 
@@ -69,7 +69,6 @@ func get_quest_dialogue() -> Dictionary:
 			if objective.target_id == npc_id and objective.target_type == "talk_to" and not objective.is_completed:
 				if current_state == "start":
 					return {"text": objective.objective_dialogue, "options": {}}
-	
 	return {"text": "", "options": {}}
 	
 	
