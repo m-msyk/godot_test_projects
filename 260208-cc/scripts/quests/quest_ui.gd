@@ -123,7 +123,7 @@ func _on_objectives_updated(quest_id: String, objectives_id: String):
 	if selected_quest and selected_quest.quest_id == quest_id:
 		_on_quest_selected(selected_quest)
 	else:
-		update_quest_list()
+		clear_quest_details()
 	selected_quest = null
 	Global.player.selected_quest = null
 
