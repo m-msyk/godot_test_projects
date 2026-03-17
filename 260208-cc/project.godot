@@ -27,6 +27,10 @@ window/size/window_height_override=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[gui]
+
+theme/custom_font="uid://dsesm6vo075hm"
+
 [input]
 
 left={
