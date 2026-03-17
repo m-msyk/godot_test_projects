@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbl16aiud2xes"]
+
+[ext_resource type="ArrayMesh" uid="uid://bmbw6qad8uc84" path="res://Assets/Synty/PolygonStarter/Models/extracted/SM_PolygonPrototype_Buildings_Block_1x1_01P.res" id="1_rdctf"]
+[ext_resource type="Material" uid="uid://bprw8jx500qd0" path="res://Assets/Synty/PolygonStarter/Materials/PolygonStarter_Mat_01_mat.tres" id="2_kvils"]
+[ext_resource type="Shape3D" uid="uid://dpb60jrxosspi" path="res://Assets/Synty/PolygonStarter/Models/Collision/extracted/SM_Buildings_Block_1x1_01.res" id="3_kvils"]
+
+[node name="SM_PolygonPrototype_Buildings_Block_1x1_01P" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0036557317, 0, 0)
+gi_mode = 2
+mesh = ExtResource("1_rdctf")
+surface_material_override/0 = ExtResource("2_kvils")
+
+[node name="BoxCollider" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004822761, -0.0062907264, 0.0044995546)
+shape = ExtResource("3_kvils")
+metadata/_edit_group_ = true
