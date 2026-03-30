@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c8500wjdqxb15"]
+
+[ext_resource type="Script" uid="uid://ruyvbn703svf" path="res://floors/main.gd" id="1_ha184"]
+[ext_resource type="PackedScene" uid="uid://crgdwxljeexsv" path="res://dialogue/dialogue_ui.tscn" id="1_s0162"]
+
+[node name="Main" type="Node" unique_id=282989696]
+script = ExtResource("1_ha184")
+
+[node name="DialogueUI" parent="." unique_id=1397312990 instance=ExtResource("1_s0162")]
+
+[node name="CurrentLevel" type="Node" parent="." unique_id=194349175]

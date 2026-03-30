@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dsnq7fum1ass8"]
+
+[ext_resource type="Script" uid="uid://dv2j88er72vhs" path="res://ui/resolution_option.gd" id="1_qmfmq"]
+[ext_resource type="Texture2D" uid="uid://cdfwbtcy60pw7" path="res://assets/ui/drop_down.png" id="2_1b610"]
+[ext_resource type="Texture2D" uid="uid://bpiq35ont6rv0" path="res://assets/ui/drop_down_highlight.png" id="3_3m0xw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qmfmq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kq2qp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_04oat"]
+
+[node name="ResolutionOption" type="HBoxContainer" unique_id=568983405]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qmfmq")
+drop_down = ExtResource("2_1b610")
+drop_down_highlight = ExtResource("3_3m0xw")
+
+[node name="Label" type="Label" parent="." unique_id=253329671]
+layout_mode = 2
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="." unique_id=555182157]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qmfmq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kq2qp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_04oat")
+theme_override_icons/arrow = ExtResource("2_1b610")

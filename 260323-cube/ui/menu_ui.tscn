@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://wxy2iefjdjte"]
+
+[ext_resource type="StyleBox" uid="uid://qpyslwhsntqr" path="res://assets/styles/default_panel.tres" id="1_1g3ck"]
+[ext_resource type="PackedScene" uid="uid://b778bog3nm08q" path="res://ui/mouse_sensitivity_option.tscn" id="1_ss6ke"]
+[ext_resource type="PackedScene" uid="uid://dsnq7fum1ass8" path="res://ui/resolution_option.tscn" id="2_d1qld"]
+[ext_resource type="PackedScene" uid="uid://c1wg54mkftaqf" path="res://ui/exit_option.tscn" id="3_rduqd"]
+
+[node name="MenuUI" type="Control" unique_id=331454349]
+custom_minimum_size = Vector2(216, 144)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=855910631]
+layout_mode = 0
+offset_right = 216.0
+offset_bottom = 144.0
+theme_override_styles/panel = ExtResource("1_1g3ck")
+
+[node name="OptionsContainer" type="VBoxContainer" parent="Panel" unique_id=522908853]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MouseSensitivityOption" parent="Panel/OptionsContainer" unique_id=1718623433 instance=ExtResource("1_ss6ke")]
+layout_mode = 2
+
+[node name="ResolutionOption" parent="Panel/OptionsContainer" unique_id=568983405 instance=ExtResource("2_d1qld")]
+layout_mode = 2
+
+[node name="ExitOption" parent="Panel/OptionsContainer" unique_id=1998191692 instance=ExtResource("3_rduqd")]
+layout_mode = 2
