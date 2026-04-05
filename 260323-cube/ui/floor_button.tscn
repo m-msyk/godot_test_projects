@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dnttuh7av0n0t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ywuf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d13qq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gg4rd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjls4"]
+
+[node name="FloorButton" type="Button" unique_id=1909310485]
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7ywuf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d13qq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_gg4rd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cjls4")

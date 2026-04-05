@@ -1,11 +1,21 @@
 [gd_scene format=3 uid="uid://c8500wjdqxb15"]
 
 [ext_resource type="Script" uid="uid://ruyvbn703svf" path="res://floors/main.gd" id="1_ha184"]
-[ext_resource type="PackedScene" uid="uid://crgdwxljeexsv" path="res://dialogue/dialogue_ui.tscn" id="1_s0162"]
+[ext_resource type="PackedScene" uid="uid://b4m4bjslo071m" path="res://ui/elevator_ui.tscn" id="2_ha184"]
 
 [node name="Main" type="Node" unique_id=282989696]
 script = ExtResource("1_ha184")
 
-[node name="DialogueUI" parent="." unique_id=1397312990 instance=ExtResource("1_s0162")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=271358657]
+
+[node name="FadeOverlay" type="ColorRect" parent="." unique_id=834497600]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
 
 [node name="CurrentLevel" type="Node" parent="." unique_id=194349175]
+
+[node name="ElevatorUI" parent="." unique_id=1800600892 instance=ExtResource("2_ha184")]

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://bl2a6swltci4s"]
+
+[ext_resource type="Script" uid="uid://bulc65caybomy" path="res://quests/objectives.gd" id="1_m8g8v"]
+[ext_resource type="Script" uid="uid://dfan1wl5a813k" path="res://quests/rewards.gd" id="2_2tjls"]
+[ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="3_7ykl8"]
+
+[sub_resource type="Resource" id="Resource_m8g8v"]
+script = ExtResource("1_m8g8v")
+id = "talk_to_perkins_objective"
+description = "Find Perkins"
+target_id = "perkins"
+target_type = "talk_to"
+metadata/_custom_type_script = "uid://bulc65caybomy"
+
+[resource]
+script = ExtResource("3_7ykl8")
+quest_id = "talk_to_perkins"
+quest_name = "Talk to Perkins"
+quest_description = "Find the boss"
+objectives = Array[ExtResource("1_m8g8v")]([SubResource("Resource_m8g8v")])
+metadata/_custom_type_script = "uid://bt8alh5pghjl5"

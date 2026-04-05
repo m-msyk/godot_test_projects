@@ -1,0 +1,21 @@
+if QuestManager.is_quest_completed("talk_to_perkins")  ==  true:
+	benebolant: You're talking to me after you've completed a quest.
+	[end_timeline]
+elif QuestManager.is_quest_in_progress("talk_to_perkins") == true:
+	benebolant: You're talking to me after you've gotten a quest.
+else:
+	benebolant: You're talking to me before you've gotten a quest.
+	benebolant: Are you ready to receive a quest?
+	- Yes
+		benebolant: This is my response when you say yes.
+		- What if I say this?
+			benebolant: Here's my response to that.
+		- Or this?
+			benebolant: Here's a slightly different response.
+	- No, but yes
+		benebolant: This is my response when you say no but yes.
+	benebolant: I'm now giving you explanatory dialogue about the quest.
+	benebolant: Or maybe just some additional dialogue for fun.
+	You now feel ready to take on the quest.
+	[signal arg="quest_started:talk_to_perkins"]
+	[signal arg="floor_unlocked:b2"]

@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://clni3qdxarl63" path="res://floors/cube.tscn" id="1_yxngq"]
 [ext_resource type="PackedScene" uid="uid://6kmj85gjwl3q" path="res://characters/player/player.tscn" id="2_in3r1"]
 [ext_resource type="PackedScene" uid="uid://k0oyw5vr6fg6" path="res://characters/npc/npc.tscn" id="3_8h27v"]
+[ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="4_1cchm"]
+[ext_resource type="Resource" uid="uid://bl2a6swltci4s" path="res://quests/talk_to_perkins.tres" id="5_vtjup"]
+[ext_resource type="PackedScene" uid="uid://c1hdahcd2l5bv" path="res://assets/objects/elevator.tscn" id="6_vtjup"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_in3r1"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -23,7 +26,7 @@ ambient_light_source = 3
 reflected_light_source = 2
 volumetric_fog_density = 0.0
 
-[node name="Node3D" type="Node3D" unique_id=1651748059]
+[node name="B1" type="Node3D" unique_id=1651748059]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2022721108]
 environment = SubResource("Environment_in3r1")
@@ -36,6 +39,10 @@ transform = Transform3D(0.58070296, -0.64153177, 0.5012196, 0, 0.6156615, 0.7880
 [node name="Player" parent="." unique_id=878661318 instance=ExtResource("2_in3r1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39361572, 0.040405273, -0.5563965)
 
-[node name="NPC" parent="." unique_id=1894040314 instance=ExtResource("3_8h27v")]
+[node name="BenebolantNPC" parent="." unique_id=1894040314 instance=ExtResource("3_8h27v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7614746, 0, -0.26953125)
-npc_name = "npc_1"
+npc_name = "Benebolant"
+quests = Array[ExtResource("4_1cchm")]([ExtResource("5_vtjup")])
+
+[node name="Elevator" parent="." unique_id=1808230940 instance=ExtResource("6_vtjup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 0.15, -0.5)
