@@ -1,16 +1,14 @@
-extends Camera3D
+class_name CameraComponent extends Camera3D
 
 @export var rotation_speed: float = 0.3
 @export var orbit_distance: float = 10.0
 @export var orbit_height: float = 10.0
 
 var orbit_angle: float = 0.0
-var input: InputComponent
-var menu: MenuComponent
+@export var input: InputComponent
+@export var menu: MenuComponent
 
 func _ready() -> void:
-	input = get_parent().get_node("%InputComponent")
-	menu = get_parent().get_node("%MenuComponent")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	_update_camera_transform()
 	_connect_signals()

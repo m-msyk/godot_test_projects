@@ -6,8 +6,6 @@
 [node name="Main" type="Node" unique_id=282989696]
 script = ExtResource("1_ha184")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=271358657]
-
 [node name="FadeOverlay" type="ColorRect" parent="." unique_id=834497600]
 anchors_preset = 15
 anchor_right = 1.0

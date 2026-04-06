@@ -3,7 +3,7 @@ class_name Player extends CharacterBody3D
 @onready var input_component: InputComponent = %InputComponent
 @onready var movement_component: MovementComponent = %MovementComponent
 @onready var interaction_component: InteractionComponent = %InteractionComponent
-@onready var camera: Camera3D = %Camera3D
+@onready var camera: CameraComponent = %CameraComponent
 
 func _physics_process(delta: float) -> void:
 	input_component.update()
