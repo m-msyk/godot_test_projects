@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://clni3qdxarl63" path="res://floors/cube.tscn" id="1_w4b41"]
 [ext_resource type="PackedScene" uid="uid://6kmj85gjwl3q" path="res://characters/player/player.tscn" id="2_mym4b"]
-[ext_resource type="PackedScene" uid="uid://k0oyw5vr6fg6" path="res://characters/npc/npc.tscn" id="3_gdt8k"]
-[ext_resource type="Resource" uid="uid://bfto5201u3lxl" path="res://dialogue/npc_2_01.dtl" id="4_tjo00"]
+[ext_resource type="PackedScene" uid="uid://c5w4sxvio01y" path="res://characters/npc/perkins.tscn" id="2_w4b41"]
+[ext_resource type="PackedScene" uid="uid://b6itwxano1ri1" path="res://characters/npc/aylisha.tscn" id="4_mym4b"]
 [ext_resource type="PackedScene" uid="uid://c1hdahcd2l5bv" path="res://assets/objects/elevator.tscn" id="5_w4b41"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_in3r1"]
@@ -35,13 +35,14 @@ environment = SubResource("Environment_in3r1")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=345770663]
 transform = Transform3D(0.58070296, -0.64153177, 0.5012196, 0, 0.6156615, 0.7880107, -0.8141155, -0.45760015, 0.35751647, 0, 3.64, 0)
 
+[node name="Perkins" parent="." unique_id=1894040314 instance=ExtResource("2_w4b41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35013747, 0, -0.13618624)
+
+[node name="Aylisha" parent="." unique_id=1348445039 instance=ExtResource("4_mym4b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8665174, 0, -0.70460564)
+
 [node name="Player" parent="." unique_id=878661318 instance=ExtResource("2_mym4b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39361572, 0.040405273, -0.5563965)
-
-[node name="PerkinsNPC" parent="." unique_id=1894040314 instance=ExtResource("3_gdt8k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14577156, 0.040405273, -0.12647122)
-npc_name = "Perkins"
-timeline = ExtResource("4_tjo00")
 
 [node name="Elevator" parent="." unique_id=1808230940 instance=ExtResource("5_w4b41")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.5)

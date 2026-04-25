@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bh44pq583iwq8"]
+
+[ext_resource type="PackedScene" uid="uid://k0oyw5vr6fg6" path="res://characters/npc/npc.tscn" id="1_kppvj"]
+[ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="2_kpoja"]
+[ext_resource type="Resource" uid="uid://bl2a6swltci4s" path="res://quests/talk_to_perkins.tres" id="3_hadnd"]
+
+[node name="Benebolant" unique_id=1894040314 instance=ExtResource("1_kppvj")]
+npc_name = "Benebolant"
+quests = Array[ExtResource("2_kpoja")]([ExtResource("3_hadnd")])

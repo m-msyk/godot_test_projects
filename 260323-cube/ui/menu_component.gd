@@ -4,9 +4,9 @@ signal sensitivity_changed(value: float)
 signal resolution_changed(size: Vector2i, fullscreen: bool)
 
 @onready var menu_ui: Control = $MenuUI
-@onready var sensitivity_option: MouseSensitivityOption = $MenuUI/Panel/OptionsContainer/MouseSensitivityOption
-@onready var resolution_option: ResolutionOption = $MenuUI/Panel/OptionsContainer/ResolutionOption
-@onready var exit_option: ExitOption = $MenuUI/Panel/OptionsContainer/ExitOption
+@onready var sensitivity_option: MouseSensitivityOption = $MenuUI/Panel/TabContainer/Settings/MouseSensitivityOption
+@onready var resolution_option: ResolutionOption = $MenuUI/Panel/TabContainer/Settings/ResolutionOption
+@onready var exit_option: ExitOption = $MenuUI/Panel/TabContainer/Settings/ExitOption
 
 var is_paused := false
 

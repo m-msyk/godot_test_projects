@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c5w4sxvio01y"]
+
+[ext_resource type="PackedScene" uid="uid://k0oyw5vr6fg6" path="res://characters/npc/npc.tscn" id="1_xc2co"]
+[ext_resource type="Resource" uid="uid://bfto5201u3lxl" path="res://dialogue/npc_2_01.dtl" id="2_th1ku"]
+[ext_resource type="Shader" uid="uid://dpmeckvtx4aq" path="res://assets/materials/cel_shader.gdshader" id="3_g5qpt"]
+[ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="3_hlkeu"]
+[ext_resource type="Resource" uid="uid://whl0iomtgfu0" path="res://quests/talk_to_hatch_41.tres" id="4_0xorm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g5qpt"]
+render_priority = 0
+shader = ExtResource("3_g5qpt")
+shader_parameter/albedo = Color(0, 0.735357, 0.46015894, 1)
+shader_parameter/shading_steps = 2.0
+shader_parameter/shadow_softness = 0.05
+shader_parameter/ambient_light = 0.2000000095
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xc2co"]
+material = SubResource("ShaderMaterial_g5qpt")
+radius = 0.05
+height = 0.2
+
+[node name="Perkins" unique_id=1894040314 instance=ExtResource("1_xc2co")]
+npc_name = "Perkins"
+timeline = ExtResource("2_th1ku")
+quests = Array[ExtResource("3_hlkeu")]([ExtResource("4_0xorm")])
+
+[node name="MeshInstance3D" parent="." index="0" unique_id=780699291]
+mesh = SubResource("CapsuleMesh_xc2co")

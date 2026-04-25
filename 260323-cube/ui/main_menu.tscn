@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://yxw144axgrns"]
+
+[ext_resource type="StyleBox" uid="uid://dju6jjih4557o" path="res://assets/styles/menu_ui_panel_style.tres" id="1_t7e0r"]
+[ext_resource type="Script" uid="uid://droeyxo2d0odm" path="res://ui/main_menu.gd" id="1_wk0pr"]
+[ext_resource type="PackedScene" uid="uid://dnttuh7av0n0t" path="res://ui/floor_button.tscn" id="2_0dkrt"]
+
+[node name="MainMenu" type="Control" unique_id=1495048823]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wk0pr")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1822764025]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -40.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_t7e0r")
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Panel" unique_id=942485178]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StartButton" parent="Panel/ButtonContainer" unique_id=1909310485 instance=ExtResource("2_0dkrt")]
+layout_mode = 2
+text = "Start Game"
+
+[node name="ExitButton" parent="Panel/ButtonContainer" unique_id=662591015 instance=ExtResource("2_0dkrt")]
+layout_mode = 2
+text = "Exit"

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://b1ornu4cctwuh"]
+
+[ext_resource type="Script" uid="uid://bulc65caybomy" path="res://quests/objectives.gd" id="1_c0dis"]
+[ext_resource type="Script" uid="uid://dfan1wl5a813k" path="res://quests/rewards.gd" id="2_od1nw"]
+[ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="3_o0adw"]
+
+[sub_resource type="Resource" id="Resource_c0dis"]
+script = ExtResource("1_c0dis")
+id = "talk_to_blockid_objective"
+description = "Find Blockid"
+target_id = "blockid"
+target_type = "talk_to"
+metadata/_custom_type_script = "uid://bulc65caybomy"
+
+[resource]
+script = ExtResource("3_o0adw")
+quest_id = "talk_to_blockid"
+quest_name = "Talk to Blockid"
+quest_description = "Find Blockid"
+objectives = Array[ExtResource("1_c0dis")]([SubResource("Resource_c0dis")])
+metadata/_custom_type_script = "uid://bt8alh5pghjl5"

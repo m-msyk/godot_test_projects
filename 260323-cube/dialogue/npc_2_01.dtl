@@ -1,7 +1,17 @@
-if QuestManager.is_quest_in_progress("talk_to_perkins") == true:
+if QuestManager.is_quest_completed("talk_to_hatch_41") and not PlayerData.has_received_signature_from("perkins"):
+	perkins: Thanks for talking to that hunk of metal.
+	perkins: In return I'll give you my signature.
+	[signal arg="signature_received:perkins"]
+elif QuestManager.is_quest_in_progress("talk_to_hatch_41") == true:
+	perkins: Find Hatch.
+elif QuestManager.is_quest_completed("talk_to_perkins") and not QuestManager.is_quest_completed("talk_to_hatch_41"):
+	perkins: Now that you've completed Benebolant's task of talking to me, I'll give you my task.
+	perkins: I'll give you the key to B3. Go talk to the robot down there.
+	[signal arg="quest_started:talk_to_hatch_41"]
+	[signal arg="floor_unlocked:b3"]
+elif QuestManager.is_quest_in_progress("talk_to_perkins") == true:
 	perkins: This dialogue shows if you're currently on the "talk to Perkins" quest.
 	perkins: Because the condition for completing the quest is talking to me, you've just completed it.
-	perkins: That means the next time you talk to me will be will be my default dialogue.
 	You feel that you now understand Dialogic a little better.
 	[signal arg="objective_completed:talk_to_perkins:talk_to_perkins_objective"]
 else:

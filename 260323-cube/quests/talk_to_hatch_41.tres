@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://whl0iomtgfu0"]
+
+[ext_resource type="Script" uid="uid://bulc65caybomy" path="res://quests/objectives.gd" id="1_i72o2"]
+[ext_resource type="Script" uid="uid://dfan1wl5a813k" path="res://quests/rewards.gd" id="2_y560m"]
+[ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="3_18olq"]
+
+[sub_resource type="Resource" id="Resource_i72o2"]
+script = ExtResource("1_i72o2")
+id = "talk_to_hatch_41_objective"
+description = "Find Hatch 41"
+target_id = "hatch_41"
+target_type = "talk_to"
+metadata/_custom_type_script = "uid://bulc65caybomy"
+
+[resource]
+script = ExtResource("3_18olq")
+quest_id = "talk_to_hatch_41"
+quest_name = "Talk to the Hatch 41"
+quest_description = "Find the robot"
+objectives = Array[ExtResource("1_i72o2")]([SubResource("Resource_i72o2")])
+metadata/_custom_type_script = "uid://bt8alh5pghjl5"

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b6itwxano1ri1"]
+
+[ext_resource type="PackedScene" uid="uid://k0oyw5vr6fg6" path="res://characters/npc/npc.tscn" id="1_idq0e"]
+[ext_resource type="Resource" uid="uid://chdtsfrmh2s4j" path="res://dialogue/npc_3_01.dtl" id="2_ldi2x"]
+[ext_resource type="Shader" uid="uid://dpmeckvtx4aq" path="res://assets/materials/cel_shader.gdshader" id="2_ob3ea"]
+[ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="3_erjnm"]
+[ext_resource type="Resource" uid="uid://b1ornu4cctwuh" path="res://quests/talk_to_blockid.tres" id="4_wtrk7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldi2x"]
+render_priority = 0
+shader = ExtResource("2_ob3ea")
+shader_parameter/albedo = Color(0.6893704, 0, 1, 1)
+shader_parameter/shading_steps = 2.0
+shader_parameter/shadow_softness = 0.05
+shader_parameter/ambient_light = 0.2000000095
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ob3ea"]
+material = SubResource("ShaderMaterial_ldi2x")
+radius = 0.05
+height = 0.2
+
+[node name="Aylisha" unique_id=1894040314 instance=ExtResource("1_idq0e")]
+npc_name = "Aylisha"
+timeline = ExtResource("2_ldi2x")
+quests = Array[ExtResource("3_erjnm")]([ExtResource("4_wtrk7")])
+
+[node name="MeshInstance3D" parent="." index="0" unique_id=780699291]
+mesh = SubResource("CapsuleMesh_ob3ea")

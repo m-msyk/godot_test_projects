@@ -16,10 +16,10 @@ func _connect_signals() -> void:
 
 func _on_dialogic_signal(argument: String) -> void:
 	var parts = argument.split(":")
-	if parts.size() < 2:
+	if parts.size() < 1:
 		return
 	var signal_type = parts[0]
-	var signal_value = parts[1]
+	var signal_value = parts[1] if parts.size() >= 2 else ""
 	match signal_type:
 		"quest_started":
 			_start_quest(signal_value)
@@ -28,6 +28,8 @@ func _on_dialogic_signal(argument: String) -> void:
 				QuestManager.complete_objective(signal_value, parts[2])
 		"floor_unlocked":
 			FloorManager.unlock_floor(signal_value)
+		"signature_received":
+			PlayerData.add_signature(signal_value)
 
 func _start_quest(quest_id: String) -> void:
 	for quest in quests:

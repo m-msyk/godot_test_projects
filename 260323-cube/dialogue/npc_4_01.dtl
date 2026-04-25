@@ -1,0 +1,21 @@
+if QuestManager.is_quest_in_progress("talk_to_hatch_41") == true:
+	hatch_41: THAT PERKINS WANTED ME TO COME UP THERE DID HE
+	hatch_41: FINE
+	[signal arg="objective_completed:talk_to_hatch_41:talk_to_hatch_41_objective"]
+	elif QuestManager.is_quest_not_started("talk_to_benebolant"):
+		hatch_41: BUT FIRST
+		hatch_41: PLEASE TELL MY CREATOR TO COME REPAIR ME
+		[signal arg="quest_started:talk_to_benebolant"]
+
+elif QuestManager.is_quest_not_started("talk_to_benebolant") == true:
+	hatch_41: HELLO THERE
+	hatch_41: PLEASE TELL MY CREATOR TO COME REPAIR ME
+	[signal arg="quest_started:talk_to_benebolant"]
+elif QuestManager.is_quest_in_progress("talk_to_benebolant") == true:
+	hatch_41: YOU MUST BRING ME MY CREATOR
+elif QuestManager.is_quest_completed("talk_to_benebolant") and not PlayerData.has_received_signature_from("hatch_41"):
+	hatch_41: THANK YOU FOR TELLING MY CREATOR TO COME REPAIR ME
+	hatch_41: PRINTING SIGNATURE
+	[signal arg="signature_received:hatch_41"]
+else:
+	hatch_41: IM CHILLING NOW

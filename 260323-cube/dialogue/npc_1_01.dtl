@@ -1,9 +1,4 @@
-if QuestManager.is_quest_completed("talk_to_perkins")  ==  true:
-	benebolant: You're talking to me after you've completed a quest.
-	[end_timeline]
-elif QuestManager.is_quest_in_progress("talk_to_perkins") == true:
-	benebolant: You're talking to me after you've gotten a quest.
-else:
+if QuestManager.is_quest_not_started("talk_to_perkins"):
 	benebolant: You're talking to me before you've gotten a quest.
 	benebolant: Are you ready to receive a quest?
 	- Yes
@@ -19,3 +14,14 @@ else:
 	You now feel ready to take on the quest.
 	[signal arg="quest_started:talk_to_perkins"]
 	[signal arg="floor_unlocked:b2"]
+elif QuestManager.is_quest_in_progress("talk_to_benebolant") == true:
+	benebolant: Oh Hatch 41 needs me? I'll bring my toolkit.
+	[signal arg="objective_completed:talk_to_benebolant:talk_to_benebolant_objective"]
+elif QuestManager.is_quest_in_progress("talk_to_perkins") == true:
+	benebolant: You're talking to me after you've gotten a quest.
+elif QuestManager.is_quest_completed("talk_to_perkins") and not PlayerData.has_received_signature_from("benebolant"):
+	benebolant: Thank you for talking to Perkins.
+	benebolant: I'll give you my signature now.
+	[signal arg="signature_received:benebolant"]
+else:
+	benebolant: No more talking, phew!

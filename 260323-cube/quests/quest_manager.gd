@@ -1,6 +1,7 @@
 extends Node
 
 signal quest_added(quest: Quest)
+signal quest_started(quest: Quest)
 signal quest_completed(quest: Quest)
 signal objective_updated(quest: Quest)
 
@@ -9,6 +10,8 @@ var completed_quests: Dictionary = {}
 
 func add_quest(quest: Quest) -> void:
 	if active_quests.has(quest.quest_id):
+		return
+	if completed_quests.has(quest.quest_id):
 		return
 	quest.state = "in_progress"
 	active_quests[quest.quest_id] = quest
@@ -33,8 +36,12 @@ func _complete_quest(quest: Quest) -> void:
 func get_active_quests() -> Array:
 	return active_quests.values()
 
-func is_quest_completed(quest_id: String) -> bool:
-	return completed_quests.has(quest_id)
+func is_quest_not_started(quest_id: String) -> bool:
+	return not active_quests.has(quest_id) \
+	and not completed_quests.has(quest_id)
 
 func is_quest_in_progress(quest_id: String) -> bool:
 	return active_quests.has(quest_id)
+
+func is_quest_completed(quest_id: String) -> bool:
+	return completed_quests.has(quest_id)
