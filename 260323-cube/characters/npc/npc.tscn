@@ -1,35 +1,9 @@
 [gd_scene format=3 uid="uid://k0oyw5vr6fg6"]
 
 [ext_resource type="Script" uid="uid://dvmfxwqhfwvjb" path="res://characters/npc/npc.gd" id="1_4apfu"]
-[ext_resource type="Shader" uid="uid://dpmeckvtx4aq" path="res://assets/materials/cel_shader.gdshader" id="2_71267"]
 [ext_resource type="Resource" uid="uid://cfvgakgssu10g" path="res://dialogue/npc_1_01.dtl" id="2_vb8yn"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vb8yn"]
-render_priority = 0
-shader = ExtResource("2_71267")
-shader_parameter/albedo = Color(0, 0, 1, 1)
-shader_parameter/shading_steps = 2.0
-shader_parameter/shadow_softness = 0.05
-shader_parameter/ambient_light = 0.2000000095
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_nh2m4"]
-material = SubResource("ShaderMaterial_vb8yn")
-radius = 0.05
-height = 0.2
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tcuxl"]
-radius = 0.05
-height = 0.2
 
 [node name="NPC" type="CharacterBody3D" unique_id=1894040314 groups=["interactable"]]
 script = ExtResource("1_4apfu")
 npc_name = "npc_1"
 timeline = ExtResource("2_vb8yn")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=780699291]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-mesh = SubResource("CapsuleMesh_nh2m4")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1418530947]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-shape = SubResource("CapsuleShape3D_tcuxl")

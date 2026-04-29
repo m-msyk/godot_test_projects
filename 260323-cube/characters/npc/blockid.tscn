@@ -2,20 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://k0oyw5vr6fg6" path="res://characters/npc/npc.tscn" id="1_c8xql"]
 [ext_resource type="Resource" uid="uid://b85ljwkf8co3y" path="res://dialogue/npc_5_01.dtl" id="2_2tmul"]
-[ext_resource type="Shader" uid="uid://dpmeckvtx4aq" path="res://assets/materials/cel_shader.gdshader" id="2_dykrp"]
 [ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="3_wveog"]
 [ext_resource type="Resource" uid="uid://dqnqwxeyc2omf" path="res://quests/talk_to_aylisha.tres" id="4_u1vvr"]
+[ext_resource type="PackedScene" uid="uid://bg1xclqtoxvpb" path="res://assets/objects/fella.glb" id="5_wveog"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2tmul"]
-render_priority = 0
-shader = ExtResource("2_dykrp")
-shader_parameter/albedo = Color(0.6755825, 0, 0, 1)
-shader_parameter/shading_steps = 2.0
-shader_parameter/shadow_softness = 0.05
-shader_parameter/ambient_light = 0.2000000095
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_0j5fv"]
-material = SubResource("ShaderMaterial_2tmul")
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u1vvr"]
 radius = 0.05
 height = 0.2
 
@@ -24,5 +15,9 @@ npc_name = "Blockid"
 timeline = ExtResource("2_2tmul")
 quests = Array[ExtResource("3_wveog")]([ExtResource("4_u1vvr")])
 
-[node name="MeshInstance3D" parent="." index="0" unique_id=780699291]
-mesh = SubResource("CapsuleMesh_0j5fv")
+[node name="fella" parent="." index="0" unique_id=969446320 instance=ExtResource("5_wveog")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1179143907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("CapsuleShape3D_u1vvr")

@@ -1,31 +1,31 @@
 [gd_scene format=3 uid="uid://clni3qdxarl63"]
 
-[ext_resource type="PackedScene" uid="uid://d1j3sm5d43lkx" path="res://assets/cube.glb" id="1_7ufek"]
+[ext_resource type="PackedScene" uid="uid://d1j3sm5d43lkx" path="res://assets/objects/cube.glb" id="1_7ufek"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ufek"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aehwe"]
 cull_mode = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ufek"]
 
 [node name="cube" unique_id=502648368 instance=ExtResource("1_7ufek")]
 
-[node name="Mesh" parent="." index="0" unique_id=940075712]
-surface_material_override/0 = SubResource("StandardMaterial3D_7ufek")
+[node name="Mesh" parent="." index="0" unique_id=870190758]
+surface_material_override/0 = SubResource("StandardMaterial3D_aehwe")
 
-[node name="Mesh2" parent="." index="1" unique_id=264251285]
-surface_material_override/0 = SubResource("StandardMaterial3D_7ufek")
+[node name="Mesh2" parent="." index="1" unique_id=2082412253]
+surface_material_override/0 = SubResource("StandardMaterial3D_aehwe")
 
-[node name="Mesh3" parent="." index="2" unique_id=153940456]
-surface_material_override/0 = SubResource("StandardMaterial3D_7ufek")
+[node name="Mesh3" parent="." index="2" unique_id=550263969]
+surface_material_override/0 = SubResource("StandardMaterial3D_aehwe")
 
-[node name="Mesh4" parent="." index="3" unique_id=1332214357]
-surface_material_override/0 = SubResource("StandardMaterial3D_7ufek")
+[node name="Mesh4" parent="." index="3" unique_id=1507791079]
+surface_material_override/0 = SubResource("StandardMaterial3D_aehwe")
 
-[node name="Mesh5" parent="." index="4" unique_id=794468495]
-surface_material_override/0 = SubResource("StandardMaterial3D_7ufek")
+[node name="Mesh5" parent="." index="4" unique_id=980435782]
+surface_material_override/0 = SubResource("StandardMaterial3D_aehwe")
 
-[node name="Mesh6" parent="." index="5" unique_id=928781174]
-surface_material_override/0 = SubResource("StandardMaterial3D_7ufek")
+[node name="Mesh6" parent="." index="5" unique_id=585275081]
+surface_material_override/0 = SubResource("StandardMaterial3D_aehwe")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="6" unique_id=2074091884]
 

@@ -3,34 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://k0oyw5vr6fg6" path="res://characters/npc/npc.tscn" id="1_duti1"]
 [ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="2_3gs2k"]
 [ext_resource type="Resource" uid="uid://bdtjuplg0u7l7" path="res://dialogue/npc_4_01.dtl" id="2_6bl8h"]
-[ext_resource type="Shader" uid="uid://dpmeckvtx4aq" path="res://assets/materials/cel_shader.gdshader" id="2_onm0w"]
 [ext_resource type="Resource" uid="uid://dqv1snsctla3" path="res://quests/talk_to_benebolant.tres" id="3_6bl8h"]
+[ext_resource type="PackedScene" uid="uid://bg1xclqtoxvpb" path="res://assets/objects/fella.glb" id="5_6bl8h"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vii1o"]
-render_priority = 0
-shader = ExtResource("2_onm0w")
-shader_parameter/albedo = Color(1, 0.6318537, 0, 1)
-shader_parameter/shading_steps = 2.0
-shader_parameter/shadow_softness = 0.05
-shader_parameter/ambient_light = 0.2000000095
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_onm0w"]
-material = SubResource("ShaderMaterial_vii1o")
-top_radius = 0.05
-bottom_radius = 0.1
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6mi46"]
+radius = 0.05
 height = 0.2
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_onm0w"]
-height = 0.2
-radius = 0.1
 
 [node name="Hatch41" unique_id=1894040314 instance=ExtResource("1_duti1")]
 npc_name = "Hatch 41"
 timeline = ExtResource("2_6bl8h")
 quests = Array[ExtResource("2_3gs2k")]([ExtResource("3_6bl8h")])
 
-[node name="MeshInstance3D" parent="." index="0" unique_id=780699291]
-mesh = SubResource("CylinderMesh_onm0w")
+[node name="fella" parent="." index="0" unique_id=969446320 instance=ExtResource("5_6bl8h")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
 
-[node name="CollisionShape3D" parent="." index="1" unique_id=1418530947]
-shape = SubResource("CylinderShape3D_onm0w")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=97012096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("CapsuleShape3D_6mi46")

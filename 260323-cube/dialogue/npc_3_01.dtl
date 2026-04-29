@@ -1,15 +1,17 @@
 if QuestManager.is_quest_not_started("talk_to_blockid") and QuestManager.is_quest_not_started("talk_to_aylisha"):
 	aylisha: Talk to Blockid.
 	[signal arg="quest_started:talk_to_blockid"]
-	aylisha: Here, I'll give you access to B3.
-	[signal arg="floor_unlocked:b3"]
-	aylisha: Best of luck.
-elif QuestManager.is_quest_in_progress("talk_to_aylisha") and QuestManager.is_quest_not_started("talk_to_blockid"):
-	aylisha: : Oh, Blockid wanted you to see me?
-	aylisha: : Thanks for letting me know.
+	if QuestManager.is_quest_not_started("talk_to_hatch_41")
+		aylisha: Here, I'll give you access to B3.
+		aylisha: Best of luck.
+		[signal arg="floor_unlocked:b3"]
+elif QuestManager.is_quest_in_progress("talk_to_aylisha"):
+	aylisha: Oh, Blockid wanted you to see me?
+	aylisha: Thanks for letting me know.
 	[signal arg="objective_completed:talk_to_aylisha:talk_to_aylisha_objective"]
-	aylisha: : Actually, do you mind going back and asking them to come see me?
-	[signal arg="quest_started:talk_to_blockid"]
+	if QuestManager.is_quest_not_started("talk_to_blockid") == true:
+		aylisha: Actually, do you mind going back and asking them to come see me?
+		[signal arg="quest_started:talk_to_blockid"]
 elif QuestManager.is_quest_in_progress("talk_to_blockid"):
 	aylisha: You're talking to me after starting the quest.
 elif QuestManager.is_quest_completed("talk_to_blockid") and not PlayerData.has_received_signature_from("aylisha"):

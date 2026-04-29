@@ -1,9 +1,41 @@
 [gd_scene format=3 uid="uid://wxy2iefjdjte"]
 
 [ext_resource type="StyleBox" uid="uid://dju6jjih4557o" path="res://assets/styles/menu_ui_panel_style.tres" id="1_1g3ck"]
+[ext_resource type="Script" uid="uid://cg55g88f8hy2u" path="res://ui/menu_ui.gd" id="1_2ptix"]
 [ext_resource type="PackedScene" uid="uid://b778bog3nm08q" path="res://ui/mouse_sensitivity_option.tscn" id="1_ss6ke"]
 [ext_resource type="PackedScene" uid="uid://dsnq7fum1ass8" path="res://ui/resolution_option.tscn" id="2_d1qld"]
 [ext_resource type="PackedScene" uid="uid://c1wg54mkftaqf" path="res://ui/exit_option.tscn" id="3_rduqd"]
+[ext_resource type="StyleBox" uid="uid://ld4235sl6muv" path="res://assets/styles/tooltip_panel_style.tres" id="6_vq5kd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g3ck"]
+bg_color = Color(0.004024883, 0.004024883, 0.004024883, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ptix"]
+bg_color = Color(0.004024883, 0.004024883, 0.004024883, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq5kd"]
+bg_color = Color(0.004024883, 0.004024883, 0.004024883, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ck7k3"]
+bg_color = Color(0.004024883, 0.004024883, 0.004024883, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ceemc"]
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 1
+border_color = Color(1, 1, 0, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlhdk"]
+bg_color = Color(0.004024883, 0.004024883, 0.004024883, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8sdg"]
+bg_color = Color(0.004024883, 0.004024883, 0.004024883, 1)
+border_width_top = 1
+anti_aliasing = false
 
 [node name="MenuUI" type="Control" unique_id=331454349]
 custom_minimum_size = Vector2(216, 144)
@@ -15,6 +47,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2ptix")
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=855910631]
 layout_mode = 0
@@ -24,15 +57,45 @@ theme_override_styles/panel = ExtResource("1_1g3ck")
 
 [node name="TabContainer" type="TabContainer" parent="Panel" unique_id=1184710817]
 layout_mode = 2
-current_tab = 0
+theme_override_colors/font_selected_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hovered_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_unselected_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_constants/side_margin = 8
+theme_override_constants/tab_separation = 30
+theme_override_styles/panel = SubResource("StyleBoxFlat_1g3ck")
+theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_2ptix")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_vq5kd")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_ck7k3")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_ceemc")
+theme_override_styles/tab_disabled = SubResource("StyleBoxFlat_jlhdk")
+theme_override_styles/tab_focus = SubResource("StyleBoxFlat_r8sdg")
+current_tab = 2
 tab_0/title = "TASKS"
 tab_1/title = "ITEMS"
 tab_2/title = "SETTINGS"
 
 [node name="Tasks" type="Control" parent="Panel/TabContainer" unique_id=581804312]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 metadata/_tab_name = "TASKS"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/TabContainer/Tasks" unique_id=469150617]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 1
+
+[node name="TaskList" type="VBoxContainer" parent="Panel/TabContainer/Tasks" unique_id=1889869329]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Items" type="Control" parent="Panel/TabContainer" unique_id=1441269794]
 visible = false
@@ -40,12 +103,22 @@ layout_mode = 2
 metadata/_tab_index = 1
 metadata/_tab_name = "ITEMS"
 
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/TabContainer/Items" unique_id=2144601943]
+layout_mode = 0
+anchor_right = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 1
+
 [node name="Settings" type="VBoxContainer" parent="Panel/TabContainer" unique_id=522908853]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 metadata/_tab_index = 2
 metadata/_tab_name = "SETTINGS"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/TabContainer/Settings" unique_id=888009526]
+layout_mode = 2
+theme_override_constants/margin_top = 1
 
 [node name="MouseSensitivityOption" parent="Panel/TabContainer/Settings" unique_id=1718623433 instance=ExtResource("1_ss6ke")]
 layout_mode = 2
@@ -55,3 +128,15 @@ layout_mode = 2
 
 [node name="ExitOption" parent="Panel/TabContainer/Settings" unique_id=1998191692 instance=ExtResource("3_rduqd")]
 layout_mode = 2
+
+[node name="TooltipPanel" type="PanelContainer" parent="." unique_id=1382529777]
+visible = false
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 18.0
+theme_override_styles/panel = ExtResource("6_vq5kd")
+
+[node name="TooltipLabel" type="Label" parent="TooltipPanel" unique_id=1788689396]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0

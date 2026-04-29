@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://8hccs5l8lfjs"]
+
+[ext_resource type="Script" uid="uid://380v2i410u5o" path="res://ui/task_entry.gd" id="1_gai7r"]
+
+[node name="TaskEntry" type="VBoxContainer" unique_id=1175965745]
+script = ExtResource("1_gai7r")
+
+[node name="QuestName" type="Label" parent="." unique_id=1274530980]
+layout_mode = 2
+
+[node name="QuestDescription" type="Label" parent="." unique_id=464064820]
+visible = false
+layout_mode = 2

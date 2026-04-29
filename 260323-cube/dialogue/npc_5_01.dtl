@@ -8,10 +8,10 @@ elif QuestManager.is_quest_in_progress("talk_to_blockid") and QuestManager.is_qu
 	blockid: Actually, do you mind going back and asking her to come see me?
 	[signal arg="quest_started:talk_to_aylisha"]
 elif QuestManager.is_quest_in_progress("talk_to_aylisha"):
-	blockid: : You're talking to me after starting the quest.
+	blockid: You're talking to me after starting the quest.
 elif QuestManager.is_quest_completed("talk_to_aylisha") and not PlayerData.has_received_signature_from("blockid"):
-	blockid: : Thanks for talking to Aylisha.
-	blockid: : Here's the signature you need.
+	blockid: Thanks for talking to Aylisha.
+	blockid: Here's the signature you need.
 	[signal arg="signature_received:blockid"]
 else:
 	blockid: No more talking, phew.

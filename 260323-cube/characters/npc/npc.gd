@@ -4,9 +4,27 @@ class_name NPC extends CharacterBody3D
 @export var timeline: DialogicTimeline
 @export var quests: Array[Quest] = []
 
+@export var shading_steps: float = 2.0
+@export var shadow_softness: float = 0.05
+@export var ambient_light: float = 0.25
+@export var rim_strength: float = 0.0
+@export var rim_sharpness: float = 3.0
+
 func _ready() -> void:
+	_apply_shader_params()
 	add_to_group("interactable")
 	_connect_signals()
+
+func _apply_shader_params() -> void:
+	for mesh in find_children("*", "MeshInstance3D"):
+		for i in mesh.get_surface_override_material_count():
+			var mat = mesh.get_surface_override_material(i)
+			if mat is ShaderMaterial:
+				mat.set_shader_parameter("shading_steps", shading_steps)
+				mat.set_shader_parameter("shadow_softness", shadow_softness)
+				mat.set_shader_parameter("ambient_light", ambient_light)
+				mat.set_shader_parameter("rim_strength", rim_strength)
+				mat.set_shader_parameter("rim_sharpness", rim_sharpness)
 
 func start_dialogue() -> void:
 	Dialogic.start(timeline)

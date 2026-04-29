@@ -6,43 +6,46 @@
 [ext_resource type="PackedScene" uid="uid://b6itwxano1ri1" path="res://characters/npc/aylisha.tscn" id="4_mym4b"]
 [ext_resource type="PackedScene" uid="uid://c1hdahcd2l5bv" path="res://assets/objects/elevator.tscn" id="5_w4b41"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_in3r1"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0, 0, 0, 1)
-sky_curve = 1e-05
-sky_energy_multiplier = 0.0
-ground_bottom_color = Color(0.40392157, 0, 1, 1)
-ground_horizon_color = Color(0, 0, 0, 1)
-ground_curve = 1e-05
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w4b41"]
+sky_top_color = Color(0.81017333, 0.48672557, 0.22553805, 1)
+sky_horizon_color = Color(0.8117647, 0.4862745, 0.22745098, 1)
+ground_bottom_color = Color(0.02648956, 0.08384999, 0.18250525, 1)
+ground_horizon_color = Color(0.8117647, 0.4862745, 0.22745098, 1)
 
-[sub_resource type="Sky" id="Sky_8h27v"]
-sky_material = SubResource("ProceduralSkyMaterial_in3r1")
+[sub_resource type="Sky" id="Sky_w4b41"]
+sky_material = SubResource("ProceduralSkyMaterial_w4b41")
 
-[sub_resource type="Environment" id="Environment_in3r1"]
+[sub_resource type="Environment" id="Environment_mym4b"]
 background_mode = 2
-sky = SubResource("Sky_8h27v")
-ambient_light_source = 3
+sky = SubResource("Sky_w4b41")
+ambient_light_color = Color(0.16470589, 0.47843137, 0.87058824, 1)
 reflected_light_source = 2
-volumetric_fog_density = 0.0
+tonemap_mode = 2
+glow_enabled = true
+glow_bloom = 0.1
 
 [node name="B2" type="Node3D" unique_id=1651748059]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2022721108]
-environment = SubResource("Environment_in3r1")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=399377419]
+environment = SubResource("Environment_mym4b")
 
 [node name="cube" parent="." unique_id=502648368 instance=ExtResource("1_w4b41")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=345770663]
-transform = Transform3D(0.58070296, -0.64153177, 0.5012196, 0, 0.6156615, 0.7880107, -0.8141155, -0.45760015, 0.35751647, 0, 3.64, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=552258782]
+transform = Transform3D(0.58070296, -0.64153177, 0.5012196, 0, 0.6156615, 0.7880107, -0.8141155, -0.45760018, 0.35751647, 0, 3.64, 0)
+light_color = Color(1, 0.9607843, 0.8784314, 1)
+light_energy = 1.2
+shadow_enabled = true
+shadow_blur = 0.5
 
 [node name="Perkins" parent="." unique_id=1894040314 instance=ExtResource("2_w4b41")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35013747, 0, -0.13618624)
+transform = Transform3D(-0.9659258, 0, 0.25881913, 0, 1, 0, -0.25881913, 0, -0.9659258, 0.35013747, 0, -0.13618624)
 
 [node name="Aylisha" parent="." unique_id=1348445039 instance=ExtResource("4_mym4b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8665174, 0, -0.70460564)
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 0.8665174, 0, -0.70460564)
 
 [node name="Player" parent="." unique_id=878661318 instance=ExtResource("2_mym4b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39361572, 0.040405273, -0.5563965)
 
 [node name="Elevator" parent="." unique_id=1808230940 instance=ExtResource("5_w4b41")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04782164, 0.15, -0.5)

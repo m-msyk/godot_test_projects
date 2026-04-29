@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6kmj85gjwl3q"]
 
 [ext_resource type="Script" uid="uid://tbn0x5v8mwy8" path="res://characters/player/player.gd" id="1_6t5aa"]
+[ext_resource type="Shader" uid="uid://dpmeckvtx4aq" path="res://assets/materials/cel_shader.gdshader" id="2_idpv6"]
 [ext_resource type="Script" uid="uid://cl830i8dbho3e" path="res://components/input_component.gd" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://c33kxgd6y8dsa" path="res://components/interaction_component.gd" id="4_dirf7"]
 [ext_resource type="Script" uid="uid://cc4jtpufjx5" path="res://components/camera_component.gd" id="4_dqkch"]
@@ -8,44 +9,15 @@
 [ext_resource type="Script" uid="uid://dmjcduwvhj50c" path="res://ui/menu_component.gd" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://wxy2iefjdjte" path="res://ui/menu_ui.tscn" id="5_tuyoq"]
 
-[sub_resource type="Shader" id="Shader_dirf7"]
-code = "shader_type spatial;
-
-// Color and texture
-uniform vec4 albedo : source_color = vec4(1.0, 1.0, 1.0, 1.0);
-uniform sampler2D texture_albedo : source_color, filter_nearest;
-
-// Cel shading settings
-uniform float shading_steps : hint_range(2, 8) = 3.0;
-uniform float shadow_softness : hint_range(0.0, 0.5) = 0.05;
-uniform float ambient_light : hint_range(0.0, 1.0) = 0.3;
-
-void fragment() {
-    vec4 tex = texture(texture_albedo, UV);
-    ALBEDO = albedo.rgb * tex.rgb;
-}
-
-void light() {
-    // Calculate how much light hits the surface
-    float NdotL = dot(NORMAL, LIGHT);
-    
-    // Quantize (step) the lighting into discrete bands
-    float stepped_light = floor((NdotL + shadow_softness) * shading_steps) / shading_steps;
-    
-    // Clamp to minimum ambient lighting
-    stepped_light = max(stepped_light, ambient_light);
-    
-    // Apply the cel-shaded lighting
-    DIFFUSE_LIGHT += stepped_light * ALBEDO * ATTENUATION * LIGHT_COLOR;
-}"
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_idpv6"]
 render_priority = 0
-shader = SubResource("Shader_dirf7")
+shader = ExtResource("2_idpv6")
 shader_parameter/albedo = Color(1, 0, 0, 1)
 shader_parameter/shading_steps = 2.0
 shader_parameter/shadow_softness = 0.05
 shader_parameter/ambient_light = 0.250000011875
+shader_parameter/rim_strength = 0.0
+shader_parameter/rim_sharpness = 3.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qhqgy"]
 material = SubResource("ShaderMaterial_idpv6")
@@ -95,8 +67,8 @@ metadata/_custom_type_script = "uid://dmjcduwvhj50c"
 
 [node name="CameraComponent" type="Camera3D" parent="." unique_id=468448109 node_paths=PackedStringArray("input", "menu")]
 unique_name_in_owner = true
-transform = Transform3D(-1, 3.6946464e-08, -7.9231945e-08, 0, 0.9063078, 0.4226183, 8.742278e-08, 0.4226183, -0.9063078, 0, 1, -2)
-projection = 1
+transform = Transform3D(-1, 3.6946464e-08, -7.9231945e-08, 0, 0.9063078, 0.4226183, 8.742278e-08, 0.4226183, -0.9063078, 0, 0, 0)
+fov = 50.0
 size = 2.0
 script = ExtResource("4_dqkch")
 input = NodePath("../InputComponent")

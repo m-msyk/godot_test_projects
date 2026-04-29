@@ -6,43 +6,47 @@
 [ext_resource type="PackedScene" uid="uid://bbetk325coars" path="res://characters/npc/blockid.tscn" id="3_l3kjc"]
 [ext_resource type="PackedScene" uid="uid://c1hdahcd2l5bv" path="res://assets/objects/elevator.tscn" id="5_apdle"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_in3r1"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0, 0, 0, 1)
-sky_curve = 1e-05
-sky_energy_multiplier = 0.0
-ground_bottom_color = Color(0.50638646, 0.25278953, 0.27619392, 1)
-ground_horizon_color = Color(0, 0, 0, 1)
-ground_curve = 1e-05
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l3kjc"]
+sky_top_color = Color(0.40884992, 0.63746977, 0.5064003, 1)
+sky_horizon_color = Color(0.40784314, 0.6392157, 0.5058824, 1)
+ground_bottom_color = Color(0.1973334, 0.3247, 0.24187136, 1)
+ground_horizon_color = Color(0.40784314, 0.6392157, 0.5058824, 1)
 
-[sub_resource type="Sky" id="Sky_8h27v"]
-sky_material = SubResource("ProceduralSkyMaterial_in3r1")
+[sub_resource type="Sky" id="Sky_1cchm"]
+sky_material = SubResource("ProceduralSkyMaterial_l3kjc")
 
-[sub_resource type="Environment" id="Environment_in3r1"]
+[sub_resource type="Environment" id="Environment_y8mrh"]
 background_mode = 2
-sky = SubResource("Sky_8h27v")
-ambient_light_source = 3
+sky = SubResource("Sky_1cchm")
+ambient_light_color = Color(0.16470589, 0.47843137, 0.87058824, 1)
 reflected_light_source = 2
-volumetric_fog_density = 0.0
+tonemap_mode = 2
+glow_enabled = true
+glow_bloom = 0.1
 
 [node name="B3" type="Node3D" unique_id=1651748059]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2022721108]
-environment = SubResource("Environment_in3r1")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=99644531]
+environment = SubResource("Environment_y8mrh")
 
 [node name="cube" parent="." unique_id=502648368 instance=ExtResource("1_l3kjc")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=345770663]
-transform = Transform3D(0.58070296, -0.64153177, 0.5012196, 0, 0.6156615, 0.7880107, -0.8141155, -0.45760015, 0.35751647, 0, 3.64, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=898310217]
+transform = Transform3D(0.58070296, -0.64153177, 0.5012196, 0, 0.6156615, 0.7880107, -0.8141155, -0.45760018, 0.35751647, 0, 3.64, 0)
+light_color = Color(1, 0.9607843, 0.8784314, 1)
+light_energy = 1.2
+shadow_enabled = true
+shadow_opacity = 0.6
+shadow_blur = 0.5
 
 [node name="Hatch41" parent="." unique_id=1894040314 instance=ExtResource("2_o5k66")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7571554, 0, -0.21449919)
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 0.7571554, 0, -0.21449919)
 
 [node name="Blockid" parent="." unique_id=19733738 instance=ExtResource("3_l3kjc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8108457, 0, -0.67767286)
+transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 0.8108457, 0, -0.67767286)
 
 [node name="Player" parent="." unique_id=878661318 instance=ExtResource("2_y8mrh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39361572, 0.040405273, -0.5563965)
 
 [node name="Elevator" parent="." unique_id=1808230940 instance=ExtResource("5_apdle")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.046181023, 0.15, -0.5)
