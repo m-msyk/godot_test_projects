@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://cho160k1u1v36"]
 
+[ext_resource type="PackedScene" uid="uid://bc6h5ppdubfvw" path="res://characters/save_point/save_point.tscn" id="1_1cchm"]
 [ext_resource type="PackedScene" uid="uid://clni3qdxarl63" path="res://floors/cube.tscn" id="1_yxngq"]
 [ext_resource type="PackedScene" uid="uid://bh44pq583iwq8" path="res://characters/npc/benebolant.tscn" id="2_67mt2"]
 [ext_resource type="PackedScene" uid="uid://6kmj85gjwl3q" path="res://characters/player/player.tscn" id="2_in3r1"]
+[ext_resource type="Resource" uid="uid://dw07y4ojfms3u" path="res://dialogue/save_point_1_01.dtl" id="3_vtjup"]
 [ext_resource type="PackedScene" uid="uid://c1hdahcd2l5bv" path="res://assets/objects/elevator.tscn" id="6_vtjup"]
+[ext_resource type="PackedScene" uid="uid://g2awjo12ttpo" path="res://assets/objects/wooden_chair-colonly.glb" id="7_snpu7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_67mt2"]
 sky_top_color = Color(0.16481471, 0.4787498, 0.87051576, 1)
@@ -37,7 +40,13 @@ light_energy = 1.2
 shadow_enabled = true
 shadow_blur = 0.5
 
-[node name="Benebolant" parent="." unique_id=1894040314 instance=ExtResource("2_67mt2")]
+[node name="SavePoint" parent="." unique_id=1894040314 instance=ExtResource("1_1cchm")]
+transform = Transform3D(0.85613185, 0, 0.5167575, 0, 1, 0, -0.5167575, 0, 0.85613185, 0.875, 0, -0.126)
+save_point_id = "b1_savepoint_01"
+spawn_offset = 0.01
+timeline = ExtResource("3_vtjup")
+
+[node name="Benebolant" parent="." unique_id=1576881577 instance=ExtResource("2_67mt2")]
 transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 0.76484454, 0, -0.68462235)
 
 [node name="Player" parent="." unique_id=878661318 instance=ExtResource("2_in3r1")]
@@ -45,3 +54,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389909, 0.018945545, -0.619
 
 [node name="Elevator" parent="." unique_id=1808230940 instance=ExtResource("6_vtjup")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.047418952, 0.15, -0.4205583)
+
+[node name="wooden_chair-colonly" parent="." unique_id=67168505 instance=ExtResource("7_snpu7")]
+transform = Transform3D(0.05546847, 0, 0.083206065, 0, 0.1, 0, -0.083206065, 0, 0.05546847, 0.23187706, 2.992861e-07, -0.051709384)
+
+[node name="wooden_chair-colonly2" parent="." unique_id=1566941216 instance=ExtResource("7_snpu7")]
+transform = Transform3D(0.0019563884, 0, 0.099980876, 0, 0.10000002, 0, -0.099980876, 0, 0.0019563884, 0.55662274, 2.992861e-07, -0.051709384)
+
+[node name="wooden_chair-colonly3" parent="." unique_id=1474185226 instance=ExtResource("7_snpu7")]
+transform = Transform3D(-0.083211884, 0, -0.05545976, 0, 0.100000024, 0, 0.05545976, 0, -0.083211884, 0.8961123, 2.992861e-07, -0.51814914)

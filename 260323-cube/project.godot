@@ -20,6 +20,9 @@ Dialogic="*uid://ds2q0uclmolvu"
 QuestManager="*uid://did5ssdepaynk"
 FloorManager="*uid://bpph2rjmh62q7"
 PlayerData="*uid://bdchb7si7e1m7"
+ScreenFade="*uid://bai2dd8smorfe"
+SaveManager="*uid://c0o0kjge36ofj"
+StateManager="*uid://crdhc5vctws5h"
 
 [dialogic]
 
@@ -35,7 +38,10 @@ directories/dtl_directory={
 "npc_2_01": "res://dialogue/npc_2_01.dtl",
 "npc_3_01": "res://dialogue/npc_3_01.dtl",
 "npc_4_01": "res://dialogue/npc_4_01.dtl",
-"npc_5_01": "res://dialogue/npc_5_01.dtl"
+"npc_5_01": "res://dialogue/npc_5_01.dtl",
+"save_point_1_01": "res://dialogue/save_point_1_01.dtl",
+"save_point_2_01": "res://dialogue/save_point_2_01.dtl",
+"save_point_3_01": "res://dialogue/save_point_3_01.dtl"
 }
 layout/style_directory={
 "": "res://assets/styles/dialogue_style.tres",
@@ -95,10 +101,17 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [gui]
 
+theme/default_font_antialiasing=0
 theme/custom_font="uid://5t2xcsy5amb7"
 
 [input]
 
+ui_accept={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194310,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 move_left={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)

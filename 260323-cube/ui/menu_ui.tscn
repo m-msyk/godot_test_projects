@@ -128,6 +128,9 @@ layout_mode = 2
 
 [node name="ExitOption" parent="Panel/TabContainer/Settings" unique_id=1998191692 instance=ExtResource("3_rduqd")]
 layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
 
 [node name="TooltipPanel" type="PanelContainer" parent="." unique_id=1382529777]
 visible = false

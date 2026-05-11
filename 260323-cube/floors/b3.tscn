@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://ce8pwktt0j3es"]
 
 [ext_resource type="PackedScene" uid="uid://clni3qdxarl63" path="res://floors/cube.tscn" id="1_l3kjc"]
+[ext_resource type="PackedScene" uid="uid://bc6h5ppdubfvw" path="res://characters/save_point/save_point.tscn" id="2_2dtq6"]
 [ext_resource type="PackedScene" uid="uid://cmuux3u05vr0p" path="res://characters/npc/hatch_41.tscn" id="2_o5k66"]
 [ext_resource type="PackedScene" uid="uid://6kmj85gjwl3q" path="res://characters/player/player.tscn" id="2_y8mrh"]
+[ext_resource type="Resource" uid="uid://n02pl8jnnc7w" path="res://dialogue/save_point_3_01.dtl" id="3_2dtq6"]
 [ext_resource type="PackedScene" uid="uid://bbetk325coars" path="res://characters/npc/blockid.tscn" id="3_l3kjc"]
 [ext_resource type="PackedScene" uid="uid://c1hdahcd2l5bv" path="res://assets/objects/elevator.tscn" id="5_apdle"]
 
@@ -39,7 +41,13 @@ shadow_enabled = true
 shadow_opacity = 0.6
 shadow_blur = 0.5
 
-[node name="Hatch41" parent="." unique_id=1894040314 instance=ExtResource("2_o5k66")]
+[node name="SavePoint" parent="." unique_id=1894040314 instance=ExtResource("2_2dtq6")]
+transform = Transform3D(0.5866551, 0, -0.8098369, 0, 1, 0, 0.8098369, 0, 0.5866551, 0.14082277, 0, -0.126)
+save_point_id = "b3_savepoint_01"
+spawn_offset = 0.01
+timeline = ExtResource("3_2dtq6")
+
+[node name="Hatch41" parent="." unique_id=1973371176 instance=ExtResource("2_o5k66")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 0.7571554, 0, -0.21449919)
 
 [node name="Blockid" parent="." unique_id=19733738 instance=ExtResource("3_l3kjc")]
@@ -50,3 +58,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39361572, 0.040405273, -0.5
 
 [node name="Elevator" parent="." unique_id=1808230940 instance=ExtResource("5_apdle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.046181023, 0.15, -0.5)
+destination = "res://floors/b2.tscn"

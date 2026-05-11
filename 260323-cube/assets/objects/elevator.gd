@@ -8,4 +8,5 @@ func _ready() -> void:
 	add_to_group("interactable")
 
 func interact() -> void:
+	print("interact called, emitting elevator_opened")
 	elevator_opened.emit()

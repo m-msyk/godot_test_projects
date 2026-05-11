@@ -1,36 +1,20 @@
 class_name NPC extends CharacterBody3D
 
 @export var npc_name: String
-@export var timeline: DialogicTimeline
 @export var quests: Array[Quest] = []
 
-@export var shading_steps: float = 2.0
-@export var shadow_softness: float = 0.05
-@export var ambient_light: float = 0.25
-@export var rim_strength: float = 0.0
-@export var rim_sharpness: float = 3.0
+@onready var dialogic_component: DialogicComponent = $DialogicComponent
 
 func _ready() -> void:
-	_apply_shader_params()
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	add_to_group("interactable")
 	_connect_signals()
 
-func _apply_shader_params() -> void:
-	for mesh in find_children("*", "MeshInstance3D"):
-		for i in mesh.get_surface_override_material_count():
-			var mat = mesh.get_surface_override_material(i)
-			if mat is ShaderMaterial:
-				mat.set_shader_parameter("shading_steps", shading_steps)
-				mat.set_shader_parameter("shadow_softness", shadow_softness)
-				mat.set_shader_parameter("ambient_light", ambient_light)
-				mat.set_shader_parameter("rim_strength", rim_strength)
-				mat.set_shader_parameter("rim_sharpness", rim_sharpness)
+func _connect_signals() -> void:
+	dialogic_component.dialogic_signal_received.connect(_on_dialogic_signal)
 
 func start_dialogue() -> void:
-	Dialogic.start(timeline)
-
-func _connect_signals() -> void:
-	Dialogic.signal_event.connect(_on_dialogic_signal)
+	dialogic_component.start_dialogue()
 
 func _on_dialogic_signal(argument: String) -> void:
 	var parts = argument.split(":")
@@ -48,6 +32,9 @@ func _on_dialogic_signal(argument: String) -> void:
 			FloorManager.unlock_floor(signal_value)
 		"signature_received":
 			PlayerData.add_signature(signal_value)
+		"save_game":
+			if parts.size() >= 4:
+				SaveManager.save_game(parts[1], parts[2], parts[3])
 
 func _start_quest(quest_id: String) -> void:
 	for quest in quests:

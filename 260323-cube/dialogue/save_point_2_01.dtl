@@ -1,0 +1,5 @@
+Do you want to save?
+- Yes
+	[signal arg="save_game:b2_savepoint_01:B2:Management"]
+- No
+	Come back anytime.

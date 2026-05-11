@@ -33,7 +33,12 @@ func _try_interact() -> void:
 	if best == null:
 		return
 
-	if best is NPC:
-		interacted_with_npc.emit(best)
-	else:
+	print("Best interactable: ", best.name)
+	if best.has_method("start_dialogue"):
+		print("calling start_dialogue")
+		if best is NPC:
+			interacted_with_npc.emit(best)
+		best.start_dialogue()
+	elif best.has_method("interact"):
+		print("calling interact")
 		best.interact()

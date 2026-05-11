@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="2_kpoja"]
 [ext_resource type="Resource" uid="uid://bl2a6swltci4s" path="res://quests/talk_to_perkins.tres" id="3_hadnd"]
 [ext_resource type="PackedScene" uid="uid://bg1xclqtoxvpb" path="res://assets/objects/fella.glb" id="4_hadnd"]
+[ext_resource type="Script" uid="uid://cek6l3u2d1moi" path="res://components/shader_component.gd" id="5_e5rce"]
+[ext_resource type="Script" uid="uid://ccv8q7mx4d7vd" path="res://components/dialogic_component.gd" id="6_q1ka8"]
+[ext_resource type="Resource" uid="uid://cfvgakgssu10g" path="res://dialogue/npc_1_01.dtl" id="7_ih7rw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hadnd"]
 radius = 0.05
@@ -19,3 +22,13 @@ transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=2075838128]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("CapsuleShape3D_hadnd")
+
+[node name="ShaderComponent" type="Node" parent="." index="2" unique_id=2027534123 node_paths=PackedStringArray("model")]
+script = ExtResource("5_e5rce")
+model = NodePath("../fella")
+metadata/_custom_type_script = "uid://cek6l3u2d1moi"
+
+[node name="DialogicComponent" type="Node" parent="." index="3" unique_id=2002659519]
+script = ExtResource("6_q1ka8")
+timeline = ExtResource("7_ih7rw")
+metadata/_custom_type_script = "uid://ccv8q7mx4d7vd"

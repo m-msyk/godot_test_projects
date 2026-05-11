@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d3vr6ava25ug0"]
+
+[ext_resource type="PackedScene" uid="uid://d0154mp1357y1" path="res://ui/save_menu_base.tscn" id="1_yrd2v"]
+[ext_resource type="Script" uid="uid://b5ycbjuh323e1" path="res://ui/save_load_menu.gd" id="2_xqcc3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xqcc3"]
+
+[node name="SaveLoadMenu" unique_id=904528767 instance=ExtResource("1_yrd2v")]
+script = ExtResource("2_xqcc3")
+
+[node name="PrimaryButton" parent="Panel/Content/ButtonRow" parent_id_path=PackedInt32Array(1841752020) index="0" unique_id=1026665083]
+focus_neighbor_left = NodePath("../SecondaryButton")
+focus_neighbor_right = NodePath("../SecondaryButton")
+text = "Continue"
+
+[node name="SecondaryButton" parent="Panel/Content/ButtonRow" parent_id_path=PackedInt32Array(1841752020) index="1" unique_id=1225871177]
+focus_neighbor_left = NodePath("../PrimaryButton")
+focus_neighbor_right = NodePath("../PrimaryButton")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xqcc3")
+text = "Back"

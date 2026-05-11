@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://oarc68e04fwy"]
+
+[ext_resource type="PackedScene" uid="uid://d0154mp1357y1" path="res://ui/save_menu_base.tscn" id="1_p5bmc"]
+[ext_resource type="Script" uid="uid://b0x143jkaify8" path="res://ui/save_confirm_menu.gd" id="2_04y0g"]
+
+[node name="SaveConfirmMenu" unique_id=904528767 instance=ExtResource("1_p5bmc")]
+script = ExtResource("2_04y0g")
+
+[node name="PrimaryButton" parent="Panel/Content/ButtonRow" parent_id_path=PackedInt32Array(1841752020) index="0" unique_id=1026665083]
+text = "Save"
+
+[node name="SecondaryButton" parent="Panel/Content/ButtonRow" parent_id_path=PackedInt32Array(1841752020) index="1" unique_id=1225871177]
+text = "Cancel"

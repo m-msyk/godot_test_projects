@@ -2,9 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://k0oyw5vr6fg6" path="res://characters/npc/npc.tscn" id="1_duti1"]
 [ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="2_3gs2k"]
-[ext_resource type="Resource" uid="uid://bdtjuplg0u7l7" path="res://dialogue/npc_4_01.dtl" id="2_6bl8h"]
 [ext_resource type="Resource" uid="uid://dqv1snsctla3" path="res://quests/talk_to_benebolant.tres" id="3_6bl8h"]
 [ext_resource type="PackedScene" uid="uid://bg1xclqtoxvpb" path="res://assets/objects/fella.glb" id="5_6bl8h"]
+[ext_resource type="Script" uid="uid://cek6l3u2d1moi" path="res://components/shader_component.gd" id="5_6mi46"]
+[ext_resource type="Script" uid="uid://ccv8q7mx4d7vd" path="res://components/dialogic_component.gd" id="6_rh2sm"]
+[ext_resource type="Resource" uid="uid://bdtjuplg0u7l7" path="res://dialogue/npc_4_01.dtl" id="7_rh2sm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6mi46"]
 radius = 0.05
@@ -12,7 +14,6 @@ height = 0.2
 
 [node name="Hatch41" unique_id=1894040314 instance=ExtResource("1_duti1")]
 npc_name = "Hatch 41"
-timeline = ExtResource("2_6bl8h")
 quests = Array[ExtResource("2_3gs2k")]([ExtResource("3_6bl8h")])
 
 [node name="fella" parent="." index="0" unique_id=969446320 instance=ExtResource("5_6bl8h")]
@@ -21,3 +22,13 @@ transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=97012096]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("CapsuleShape3D_6mi46")
+
+[node name="ShaderComponent" type="Node" parent="." index="2" unique_id=752401553 node_paths=PackedStringArray("model")]
+script = ExtResource("5_6mi46")
+model = NodePath("../fella")
+metadata/_custom_type_script = "uid://cek6l3u2d1moi"
+
+[node name="DialogicComponent" type="Node" parent="." index="3" unique_id=1583374311]
+script = ExtResource("6_rh2sm")
+timeline = ExtResource("7_rh2sm")
+metadata/_custom_type_script = "uid://ccv8q7mx4d7vd"

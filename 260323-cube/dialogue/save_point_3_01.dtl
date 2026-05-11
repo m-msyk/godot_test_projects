@@ -1,0 +1,5 @@
+Do you want to save?
+- Yes
+	[signal arg="save_game:b3_savepoint_01:B3:Factory"]
+- No
+	Come back anytime.

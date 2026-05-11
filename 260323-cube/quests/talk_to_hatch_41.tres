@@ -15,7 +15,7 @@ metadata/_custom_type_script = "uid://bulc65caybomy"
 [resource]
 script = ExtResource("3_18olq")
 quest_id = "talk_to_hatch_41"
-quest_name = "Talk to the Hatch 41"
+quest_name = "Talk to Hatch 41"
 quest_description = "Find the robot"
 objectives = Array[ExtResource("1_i72o2")]([SubResource("Resource_i72o2")])
 metadata/_custom_type_script = "uid://bt8alh5pghjl5"

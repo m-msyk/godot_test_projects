@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://b6itwxano1ri1"]
 
 [ext_resource type="PackedScene" uid="uid://k0oyw5vr6fg6" path="res://characters/npc/npc.tscn" id="1_idq0e"]
-[ext_resource type="Resource" uid="uid://chdtsfrmh2s4j" path="res://dialogue/npc_3_01.dtl" id="2_ldi2x"]
 [ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="3_erjnm"]
 [ext_resource type="Resource" uid="uid://b1ornu4cctwuh" path="res://quests/talk_to_blockid.tres" id="4_wtrk7"]
 [ext_resource type="PackedScene" uid="uid://bg1xclqtoxvpb" path="res://assets/objects/fella.glb" id="5_erjnm"]
+[ext_resource type="Script" uid="uid://cek6l3u2d1moi" path="res://components/shader_component.gd" id="5_wtrk7"]
+[ext_resource type="Script" uid="uid://ccv8q7mx4d7vd" path="res://components/dialogic_component.gd" id="6_s0u58"]
+[ext_resource type="Resource" uid="uid://chdtsfrmh2s4j" path="res://dialogue/npc_3_01.dtl" id="7_s0u58"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wtrk7"]
 radius = 0.05
@@ -12,7 +14,6 @@ height = 0.2
 
 [node name="Aylisha" unique_id=1894040314 instance=ExtResource("1_idq0e")]
 npc_name = "Aylisha"
-timeline = ExtResource("2_ldi2x")
 quests = Array[ExtResource("3_erjnm")]([ExtResource("4_wtrk7")])
 
 [node name="fella" parent="." index="0" unique_id=969446320 instance=ExtResource("5_erjnm")]
@@ -21,3 +22,13 @@ transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1561377383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("CapsuleShape3D_wtrk7")
+
+[node name="ShaderComponent" type="Node" parent="." index="2" unique_id=2107520177 node_paths=PackedStringArray("model")]
+script = ExtResource("5_wtrk7")
+model = NodePath("../CollisionShape3D")
+metadata/_custom_type_script = "uid://cek6l3u2d1moi"
+
+[node name="DialogicComponent" type="Node" parent="." index="3" unique_id=2062338815]
+script = ExtResource("6_s0u58")
+timeline = ExtResource("7_s0u58")
+metadata/_custom_type_script = "uid://ccv8q7mx4d7vd"

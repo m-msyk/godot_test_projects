@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://clni3qdxarl63" path="res://floors/cube.tscn" id="1_w4b41"]
 [ext_resource type="PackedScene" uid="uid://6kmj85gjwl3q" path="res://characters/player/player.tscn" id="2_mym4b"]
 [ext_resource type="PackedScene" uid="uid://c5w4sxvio01y" path="res://characters/npc/perkins.tscn" id="2_w4b41"]
+[ext_resource type="Resource" uid="uid://blopl5fot874m" path="res://dialogue/save_point_2_01.dtl" id="3_gdt8k"]
+[ext_resource type="PackedScene" uid="uid://bc6h5ppdubfvw" path="res://characters/save_point/save_point.tscn" id="4_gdt8k"]
 [ext_resource type="PackedScene" uid="uid://b6itwxano1ri1" path="res://characters/npc/aylisha.tscn" id="4_mym4b"]
 [ext_resource type="PackedScene" uid="uid://c1hdahcd2l5bv" path="res://assets/objects/elevator.tscn" id="5_w4b41"]
 
@@ -37,6 +39,12 @@ light_color = Color(1, 0.9607843, 0.8784314, 1)
 light_energy = 1.2
 shadow_enabled = true
 shadow_blur = 0.5
+
+[node name="SavePoint" parent="." unique_id=1249327626 instance=ExtResource("4_gdt8k")]
+transform = Transform3D(-0.50190336, 0, -0.8649237, 0, 1, 0, 0.8649237, 0, -0.50190336, 0.17681062, 0, -0.82125133)
+save_point_id = "b2_savepoint_01"
+spawn_offset = 0.01
+timeline = ExtResource("3_gdt8k")
 
 [node name="Perkins" parent="." unique_id=1894040314 instance=ExtResource("2_w4b41")]
 transform = Transform3D(-0.9659258, 0, 0.25881913, 0, 1, 0, -0.25881913, 0, -0.9659258, 0.35013747, 0, -0.13618624)

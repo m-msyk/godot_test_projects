@@ -3,13 +3,12 @@ class_name CameraComponent extends Camera3D
 @export var rotation_speed: float = 0.3
 @export var orbit_distance: float = 1.5
 @export var orbit_height: float = 1.5
-
-var orbit_angle: float = 0.0
 @export var input: InputComponent
 @export var menu: MenuComponent
 
+var orbit_angle: float = 0.0
+
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	_update_camera_transform()
 	_connect_signals()
 
@@ -20,7 +19,7 @@ func _on_sensitivity_changed(value: float) -> void:
 	rotation_speed = value
 
 func _process(_delta: float) -> void:
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+	if StateManager.current_state == StateManager.State.FREE:
 		orbit_angle += deg_to_rad(input.mouse_delta.x * rotation_speed)
 	_update_camera_transform()
 

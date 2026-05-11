@@ -1,7 +1,6 @@
 extends Node
 
 signal quest_added(quest: Quest)
-signal quest_started(quest: Quest)
 signal quest_completed(quest: Quest)
 signal objective_updated(quest: Quest)
 

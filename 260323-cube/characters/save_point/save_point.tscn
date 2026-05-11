@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bc6h5ppdubfvw"]
+
+[ext_resource type="PackedScene" uid="uid://k0oyw5vr6fg6" path="res://characters/npc/npc.tscn" id="1_u5x8u"]
+[ext_resource type="Script" uid="uid://dlfx04qxgu5gy" path="res://characters/save_point/save_point.gd" id="2_if50t"]
+[ext_resource type="Script" uid="uid://ccv8q7mx4d7vd" path="res://components/dialogic_component.gd" id="3_1u3bb"]
+[ext_resource type="Shader" uid="uid://dpmeckvtx4aq" path="res://assets/materials/cel_shader.gdshader" id="3_oyjsd"]
+[ext_resource type="Resource" uid="uid://dw07y4ojfms3u" path="res://dialogue/save_point_1_01.dtl" id="4_s5dbg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p077b"]
+render_priority = 0
+shader = ExtResource("3_oyjsd")
+shader_parameter/albedo = Color(0.69135684, 0.6913568, 0.69135684, 1)
+shader_parameter/shading_steps = 2.0
+shader_parameter/shadow_softness = 0.270000012825
+shader_parameter/ambient_light = 0.50000002375
+shader_parameter/rim_strength = 0.0
+shader_parameter/rim_sharpness = 3.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xy5p0"]
+material = SubResource("ShaderMaterial_p077b")
+radius = 0.05
+height = 0.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u5x8u"]
+radius = 0.05
+height = 0.2
+
+[node name="SavePoint" unique_id=1894040314 instance=ExtResource("1_u5x8u")]
+script = ExtResource("2_if50t")
+save_point_id = ""
+spawn_offset = 2.0
+timeline = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=553461472]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("CapsuleMesh_xy5p0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=434259082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("CapsuleShape3D_u5x8u")
+
+[node name="DialogicComponent" type="Node" parent="." index="2" unique_id=480949643]
+script = ExtResource("3_1u3bb")
+timeline = ExtResource("4_s5dbg")
+metadata/_custom_type_script = "uid://ccv8q7mx4d7vd"

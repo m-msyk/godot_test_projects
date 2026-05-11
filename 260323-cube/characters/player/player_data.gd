@@ -7,6 +7,11 @@ const SIGNATURES_NEEDED: int = 5
 var signatures: int = 0
 var signature_givers: Array[String] = []
 
+var time_played_seconds: float = 0.0
+
+func _process(delta: float) -> void:
+	time_played_seconds += delta
+
 func add_signature(giver_id: String) -> void:
 	if signature_givers.has(giver_id):
 		return

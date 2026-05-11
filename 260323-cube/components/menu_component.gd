@@ -8,8 +8,6 @@ signal resolution_changed(size: Vector2i, fullscreen: bool)
 @onready var resolution_option: ResolutionOption = $MenuUI/Panel/TabContainer/Settings/ResolutionOption
 @onready var exit_option: ExitOption = $MenuUI/Panel/TabContainer/Settings/ExitOption
 
-var is_paused := false
-
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	menu_ui.visible = false
@@ -37,15 +35,12 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.keycode == KEY_ESCAPE and event.pressed:
 		if Dialogic.current_timeline != null:
 			return
-		if get_tree().root.get_node("Main/ElevatorUI").visible:
-			get_tree().root.get_node("Main/ElevatorUI").close()
-			return
 		toggle_pause()
 
 func toggle_pause() -> void:
-	is_paused = !is_paused
-	get_tree().paused = is_paused
-	menu_ui.visible = is_paused
-	Input.set_mouse_mode(
-		Input.MOUSE_MODE_VISIBLE if is_paused else Input.MOUSE_MODE_CAPTURED
-	)
+	if menu_ui.visible:
+		menu_ui.visible = false
+		StateManager.set_state(StateManager.State.FREE)
+	else:
+		menu_ui.visible = true
+		StateManager.set_state(StateManager.State.FROZEN)

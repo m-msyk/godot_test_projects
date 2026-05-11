@@ -19,6 +19,7 @@ func _ready() -> void:
 func open() -> void:
 	_populate_floors()
 	show()
+	StateManager.set_state(StateManager.State.PARTIAL)
 
 func close() -> void:
 	hide()
@@ -33,9 +34,8 @@ func _input(event: InputEvent) -> void:
 func _populate_floors() -> void:
 	for child in floor_list.get_children():
 		child.queue_free()
-
-	var first_enabled: Button = null
-
+	var buttons: Array = []
+	var enabled_buttons: Array = []
 	for floor_id in FLOOR_NAMES.keys():
 		var button := FLOOR_BUTTON.instantiate()
 		button.text = FLOOR_NAMES[floor_id]
@@ -45,12 +45,16 @@ func _populate_floors() -> void:
 		button.disabled = is_current or not is_unlocked
 		if not button.disabled:
 			button.pressed.connect(_on_floor_selected.bind(floor_id))
-			if first_enabled == null:
-				first_enabled = button
+			enabled_buttons.append(button)
 		floor_list.add_child(button)
-
-	if first_enabled:
-		first_enabled.grab_focus()
+		buttons.append(button)
+	for i in enabled_buttons.size():
+		var prev = enabled_buttons[(i - 1 + enabled_buttons.size()) % enabled_buttons.size()]
+		var next = enabled_buttons[(i + 1) % enabled_buttons.size()]
+		enabled_buttons[i].focus_neighbor_top = prev.get_path()
+		enabled_buttons[i].focus_neighbor_bottom = next.get_path()
+	if enabled_buttons.size() > 0:
+		enabled_buttons[0].grab_focus()
 
 func _on_floor_selected(floor_id: String) -> void:
 	floor_selected.emit(floor_id)

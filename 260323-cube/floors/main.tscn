@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ruyvbn703svf" path="res://floors/main.gd" id="1_ha184"]
 [ext_resource type="PackedScene" uid="uid://b4m4bjslo071m" path="res://ui/elevator_ui.tscn" id="2_ha184"]
+[ext_resource type="PackedScene" uid="uid://oarc68e04fwy" path="res://ui/save_confirm_menu.tscn" id="3_1t880"]
 
 [node name="Main" type="Node" unique_id=282989696]
 script = ExtResource("1_ha184")
@@ -13,6 +14,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="SaveConfirmMenu" parent="." unique_id=904528767 instance=ExtResource("3_1t880")]
 
 [node name="CurrentLevel" type="Node" parent="." unique_id=194349175]
 

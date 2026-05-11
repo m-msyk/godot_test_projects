@@ -12,10 +12,11 @@ func _physics_process(delta: float) -> void:
 	movement_component.tick(delta, camera.orbit_angle)
 
 func _ready() -> void:
+	add_to_group("player")
 	_connect_signals()
 
 func _connect_signals() -> void:
 	interaction_component.interacted_with_npc.connect(_on_interacted_with_npc)
 
-func _on_interacted_with_npc(npc: NPC) -> void:
-	npc.start_dialogue()
+func _on_interacted_with_npc(_npc: NPC) -> void:
+	pass

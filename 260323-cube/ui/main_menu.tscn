@@ -3,6 +3,7 @@
 [ext_resource type="StyleBox" uid="uid://dju6jjih4557o" path="res://assets/styles/menu_ui_panel_style.tres" id="1_t7e0r"]
 [ext_resource type="Script" uid="uid://droeyxo2d0odm" path="res://ui/main_menu.gd" id="1_wk0pr"]
 [ext_resource type="PackedScene" uid="uid://dnttuh7av0n0t" path="res://ui/floor_button.tscn" id="2_0dkrt"]
+[ext_resource type="PackedScene" uid="uid://d3vr6ava25ug0" path="res://ui/save_load_menu.tscn" id="4_rmr83"]
 
 [node name="MainMenu" type="Control" unique_id=1495048823]
 layout_mode = 3
@@ -43,8 +44,15 @@ alignment = 1
 
 [node name="StartButton" parent="Panel/ButtonContainer" unique_id=1909310485 instance=ExtResource("2_0dkrt")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
 text = "Start Game"
 
 [node name="ExitButton" parent="Panel/ButtonContainer" unique_id=662591015 instance=ExtResource("2_0dkrt")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../StartButton")
+focus_neighbor_bottom = NodePath("../StartButton")
 text = "Exit"
+
+[node name="SaveLoadMenu" parent="." unique_id=904528767 instance=ExtResource("4_rmr83")]
+layout_mode = 1
