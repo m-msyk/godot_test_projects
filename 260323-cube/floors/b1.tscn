@@ -7,6 +7,9 @@
 [ext_resource type="Resource" uid="uid://dw07y4ojfms3u" path="res://dialogue/save_point_1_01.dtl" id="3_vtjup"]
 [ext_resource type="PackedScene" uid="uid://c1hdahcd2l5bv" path="res://assets/objects/elevator.tscn" id="6_vtjup"]
 [ext_resource type="PackedScene" uid="uid://g2awjo12ttpo" path="res://assets/objects/wooden_chair-colonly.glb" id="7_snpu7"]
+[ext_resource type="PackedScene" uid="uid://bv7ut7bxvy7e0" path="res://world/music_area.tscn" id="8_or05s"]
+[ext_resource type="AudioStream" uid="uid://dc7p72lhow3" path="res://assets/audio/music/bass_01.wav" id="9_k7ked"]
+[ext_resource type="AudioStream" uid="uid://dxcqh8mpx0jqj" path="res://assets/audio/music/drums_01.wav" id="10_bb8li"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_67mt2"]
 sky_top_color = Color(0.16481471, 0.4787498, 0.87051576, 1)
@@ -25,6 +28,11 @@ reflected_light_source = 2
 tonemap_mode = 2
 glow_enabled = true
 glow_bloom = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k7ked"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bb8li"]
+size = Vector3(1.7530518, 1, 4.1114807)
 
 [node name="B1" type="Node3D" unique_id=1651748059]
 
@@ -63,3 +71,24 @@ transform = Transform3D(0.0019563884, 0, 0.099980876, 0, 0.10000002, 0, -0.09998
 
 [node name="wooden_chair-colonly3" parent="." unique_id=1474185226 instance=ExtResource("7_snpu7")]
 transform = Transform3D(-0.083211884, 0, -0.05545976, 0, 0.100000024, 0, 0.05545976, 0, -0.083211884, 0.8961123, 2.992861e-07, -0.51814914)
+
+[node name="MusicArea" parent="." unique_id=304901294 instance=ExtResource("8_or05s")]
+audio_bus_name = &"Music"
+stream = ExtResource("9_k7ked")
+blend_distance = 0.0
+
+[node name="CollisionShape3D" parent="MusicArea" index="0" unique_id=1863019559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5)
+shape = SubResource("BoxShape3D_k7ked")
+
+[node name="MusicArea2" parent="." unique_id=2088398000 instance=ExtResource("8_or05s")]
+audio_bus_name = &"Music"
+stream = ExtResource("10_bb8li")
+blend_distance = 0.5
+
+[node name="CollisionShape3D" parent="MusicArea2" index="0" unique_id=1863019559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3765259, 0.5, -0.84165955)
+shape = SubResource("BoxShape3D_bb8li")
+
+[editable path="MusicArea"]
+[editable path="MusicArea2"]

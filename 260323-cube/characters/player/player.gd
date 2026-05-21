@@ -4,12 +4,7 @@ class_name Player extends CharacterBody3D
 @onready var movement_component: MovementComponent = %MovementComponent
 @onready var interaction_component: InteractionComponent = %InteractionComponent
 @onready var camera: CameraComponent = %CameraComponent
-
-func _physics_process(delta: float) -> void:
-	input_component.update()
-	movement_component.direction = input_component.move_dir
-	movement_component.wants_jump = input_component.jump_pressed
-	movement_component.tick(delta, camera.orbit_angle)
+@onready var footsteps_component: FootstepsComponent = %FootstepsComponent
 
 func _ready() -> void:
 	add_to_group("player")
@@ -20,3 +15,10 @@ func _connect_signals() -> void:
 
 func _on_interacted_with_npc(_npc: NPC) -> void:
 	pass
+
+func _physics_process(delta: float) -> void:
+	input_component.update()
+	movement_component.direction = input_component.move_dir
+	movement_component.wants_jump = input_component.jump_pressed
+	movement_component.tick(delta, camera.orbit_angle)
+	footsteps_component.tick(delta, movement_component.body.velocity, movement_component.speed)

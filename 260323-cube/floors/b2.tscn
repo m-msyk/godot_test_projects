@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bc6h5ppdubfvw" path="res://characters/save_point/save_point.tscn" id="4_gdt8k"]
 [ext_resource type="PackedScene" uid="uid://b6itwxano1ri1" path="res://characters/npc/aylisha.tscn" id="4_mym4b"]
 [ext_resource type="PackedScene" uid="uid://c1hdahcd2l5bv" path="res://assets/objects/elevator.tscn" id="5_w4b41"]
+[ext_resource type="PackedScene" uid="uid://bv7ut7bxvy7e0" path="res://world/music_area.tscn" id="8_t26h0"]
+[ext_resource type="AudioStream" uid="uid://dc7p72lhow3" path="res://assets/audio/music/bass_01.wav" id="9_fjihw"]
+[ext_resource type="AudioStream" uid="uid://crl7r8kllghri" path="res://assets/audio/music/piano_01.wav" id="10_11512"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w4b41"]
 sky_top_color = Color(0.81017333, 0.48672557, 0.22553805, 1)
@@ -25,6 +28,11 @@ reflected_light_source = 2
 tonemap_mode = 2
 glow_enabled = true
 glow_bloom = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fjihw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_11512"]
+size = Vector3(1.5761719, 1, 2.9299622)
 
 [node name="B2" type="Node3D" unique_id=1651748059]
 
@@ -57,3 +65,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39361572, 0.040405273, -0.5
 
 [node name="Elevator" parent="." unique_id=1808230940 instance=ExtResource("5_w4b41")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04782164, 0.15, -0.5)
+
+[node name="MusicArea" parent="." unique_id=304901294 instance=ExtResource("8_t26h0")]
+stream = ExtResource("9_fjihw")
+blend_distance = 0.0
+
+[node name="CollisionShape3D" parent="MusicArea" index="0" unique_id=1863019559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5)
+shape = SubResource("BoxShape3D_fjihw")
+
+[node name="MusicArea2" parent="." unique_id=602745845 instance=ExtResource("8_t26h0")]
+stream = ExtResource("10_11512")
+blend_distance = 0.5
+
+[node name="CollisionShape3D" parent="MusicArea2" index="0" unique_id=1863019559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2880859, 0.5, -0.4280243)
+shape = SubResource("BoxShape3D_11512")
+
+[editable path="MusicArea"]
+[editable path="MusicArea2"]

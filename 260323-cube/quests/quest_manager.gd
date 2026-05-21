@@ -7,6 +7,9 @@ signal objective_updated(quest: Quest)
 var active_quests: Dictionary = {}
 var completed_quests: Dictionary = {}
 
+func _ready() -> void:
+	SaveManager.game_reset.connect(reset)
+
 func add_quest(quest: Quest) -> void:
 	if active_quests.has(quest.quest_id):
 		return
@@ -44,3 +47,7 @@ func is_quest_in_progress(quest_id: String) -> bool:
 
 func is_quest_completed(quest_id: String) -> bool:
 	return completed_quests.has(quest_id)
+
+func reset() -> void:
+	active_quests.clear()
+	completed_quests.clear()

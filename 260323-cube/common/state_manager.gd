@@ -12,6 +12,17 @@ var current_state: State = State.FREE
 
 func _ready() -> void:
 	_apply_state()
+	SaveManager.game_reset.connect(reset)
+
+func initialize() -> void:
+	current_state = State.FREE
+	_apply_state()
+	state_changed.emit(State.FREE)
+
+func reset() -> void:
+	current_state = State.FREE
+	_apply_state()
+	state_changed.emit(State.FREE)
 
 func set_state(new_state: State) -> void:
 	if current_state == new_state:

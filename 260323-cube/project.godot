@@ -14,6 +14,10 @@ config/name="260323-cube"
 run/main_scene="uid://yxw144axgrns"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout="uid://b84qg6ooebobd"
+
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
@@ -23,6 +27,7 @@ PlayerData="*uid://bdchb7si7e1m7"
 ScreenFade="*uid://bai2dd8smorfe"
 SaveManager="*uid://c0o0kjge36ofj"
 StateManager="*uid://crdhc5vctws5h"
+MusicManager="*uid://j582l2wwxjhr"
 
 [dialogic]
 

@@ -6,6 +6,7 @@ class_name Main extends Node
 
 
 func _ready() -> void:
+	StateManager.initialize()
 	await get_tree().process_frame
 	_connect_signals()
 	if SaveManager.save_exists():

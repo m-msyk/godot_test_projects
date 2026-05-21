@@ -9,6 +9,9 @@ var signature_givers: Array[String] = []
 
 var time_played_seconds: float = 0.0
 
+func _ready() -> void:
+	SaveManager.game_reset.connect(reset)
+
 func _process(delta: float) -> void:
 	time_played_seconds += delta
 
@@ -27,3 +30,8 @@ func has_received_signature_from(giver_id: String) -> bool:
 
 func _trigger_win() -> void:
 	get_tree().change_scene_to_file("res://ui/main_menu.tscn")
+
+func reset() -> void:
+	signatures = 0
+	signature_givers.clear()
+	time_played_seconds = 0.0

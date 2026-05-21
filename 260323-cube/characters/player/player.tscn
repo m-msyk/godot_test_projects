@@ -7,20 +7,22 @@
 [ext_resource type="Script" uid="uid://cc4jtpufjx5" path="res://components/camera_component.gd" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://d18uwmtvmm0ks" path="res://components/movement_component.gd" id="4_vgqql"]
 [ext_resource type="Script" uid="uid://dmjcduwvhj50c" path="res://components/menu_component.gd" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://ctnnqwvxwwvcc" path="res://components/FootstepsComponent.tscn" id="5_rpf03"]
 [ext_resource type="PackedScene" uid="uid://wxy2iefjdjte" path="res://ui/menu_ui.tscn" id="5_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://cxsucv7y8carn" path="res://assets/audio/sfx/footstep.mp3" id="6_3t07l"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_idpv6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x5dtk"]
 render_priority = 0
 shader = ExtResource("2_idpv6")
-shader_parameter/albedo = Color(1, 0, 0, 1)
+shader_parameter/albedo = Color(0.79476964, 0, 0, 1)
 shader_parameter/shading_steps = 2.0
-shader_parameter/shadow_softness = 0.05
-shader_parameter/ambient_light = 0.250000011875
+shader_parameter/shadow_softness = 0.0
+shader_parameter/ambient_light = 0.26800001273
 shader_parameter/rim_strength = 0.0
 shader_parameter/rim_sharpness = 3.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qhqgy"]
-material = SubResource("ShaderMaterial_idpv6")
+material = SubResource("ShaderMaterial_x5dtk")
 radius = 0.05
 height = 0.2
 
@@ -48,6 +50,12 @@ unique_name_in_owner = true
 script = ExtResource("4_vgqql")
 body = NodePath("..")
 model = NodePath("../MeshInstance3D")
+speed = 0.7
+
+[node name="FootstepsComponent" parent="." unique_id=1516163404 instance=ExtResource("5_rpf03")]
+unique_name_in_owner = true
+footstep_sound = ExtResource("6_3t07l")
+base_step_interval = 0.3
 
 [node name="InteractionComponent" type="Node" parent="." unique_id=1795884459 node_paths=PackedStringArray("model", "body")]
 unique_name_in_owner = true

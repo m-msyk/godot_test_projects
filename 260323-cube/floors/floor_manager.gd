@@ -5,6 +5,9 @@ signal floor_unlocked(floor_id: String)
 var unlocked_floors: Array[String] = ["b1"]
 var current_floor: String = "b1"
 
+func _ready() -> void:
+	SaveManager.game_reset.connect(reset)
+
 func unlock_floor(floor_id: String) -> void:
 	if not unlocked_floors.has(floor_id):
 		unlocked_floors.append(floor_id)
@@ -18,3 +21,7 @@ func set_current_floor(floor_id: String) -> void:
 
 func get_unlocked_floors() -> Array[String]:
 	return unlocked_floors
+
+func reset() -> void:
+	unlocked_floors = ["b1"]
+	current_floor = "b1"

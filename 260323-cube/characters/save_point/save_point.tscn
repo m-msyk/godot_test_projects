@@ -11,8 +11,8 @@ render_priority = 0
 shader = ExtResource("3_oyjsd")
 shader_parameter/albedo = Color(0.69135684, 0.6913568, 0.69135684, 1)
 shader_parameter/shading_steps = 2.0
-shader_parameter/shadow_softness = 0.270000012825
-shader_parameter/ambient_light = 0.50000002375
+shader_parameter/shadow_softness = 0.33200001577
+shader_parameter/ambient_light = 0.058000002755
 shader_parameter/rim_strength = 0.0
 shader_parameter/rim_sharpness = 3.0
 

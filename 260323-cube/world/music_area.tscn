@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bv7ut7bxvy7e0"]
+
+[ext_resource type="Script" uid="uid://bhvp15tdqsrri" path="res://world/music_area.gd" id="1_ugpgb"]
+
+[node name="MusicArea" type="Area3D" unique_id=304901294 groups=["music_area"]]
+script = ExtResource("1_ugpgb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1863019559]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1261687161]

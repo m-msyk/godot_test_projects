@@ -2,6 +2,12 @@ extends Node
 
 const SAVE_PATH := "user://savefile.json"
 
+signal game_reset
+
+func new_game() -> void:
+	delete_save()
+	game_reset.emit()
+
 func save_game(save_point_id: String, floor_id: String, area: String) -> void:
 	print("Saving game... save_point_id: ", save_point_id, " floor: ", floor_id, " area: ", area)
 	var save_data := {
@@ -99,3 +105,8 @@ func get_save_meta() -> Dictionary:
 	var json_string := file.get_as_text()
 	file.close()
 	return JSON.parse_string(json_string)["meta"]
+
+func delete_save() -> void:
+	if FileAccess.file_exists(SAVE_PATH):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(SAVE_PATH))
+	Dialogic.Save.delete_slot("slot_0")
