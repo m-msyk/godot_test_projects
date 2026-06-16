@@ -1,6 +1,7 @@
 class_name DialogicComponent extends Node
 
 signal dialogic_signal_received(argument: String)
+signal dialogue_ended()
 
 @export var timeline: DialogicTimeline
 
@@ -25,6 +26,7 @@ func _on_dialogue_ended() -> void:
 	if Dialogic.signal_event.is_connected(_on_dialogic_signal):
 		Dialogic.signal_event.disconnect(_on_dialogic_signal)
 	StateManager.set_state(StateManager.State.FREE)
+	dialogue_ended.emit()
 
 func _on_dialogic_signal(argument: String) -> void:
 	dialogic_signal_received.emit(argument)

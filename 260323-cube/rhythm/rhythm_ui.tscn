@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c8kjyhh8f6d4f"]
+
+[ext_resource type="Script" uid="uid://w7ptsl7kjiyg" path="res://rhythm/rhythm_ui.gd" id="1_pawf2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pawf2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubrw1"]
+bg_color = Color(0.48235294, 0.6039216, 0.34901962, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jnqu2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqyor"]
+bg_color = Color(0.8117647, 0.50980395, 0.39607844, 1)
+
+[node name="RhythmUI" type="CanvasLayer" unique_id=101484379]
+script = ExtResource("1_pawf2")
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="." unique_id=1207012350]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxEmpty_pawf2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ubrw1")
+
+[node name="NPCHealthBar" type="ProgressBar" parent="." unique_id=1802843583]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 20.0
+offset_right = 100.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_jnqu2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sqyor")
+
+[node name="ComboLabel" type="Label" parent="." unique_id=1943271456]
+offset_right = 40.0
+offset_bottom = 16.0

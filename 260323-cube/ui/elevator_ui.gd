@@ -23,13 +23,15 @@ func open() -> void:
 
 func close() -> void:
 	hide()
+	StateManager.set_state(StateManager.State.FREE)
 
 func _input(event: InputEvent) -> void:
 	if not visible:
 		return
-	if event is InputEventKey and event.keycode == KEY_E and event.pressed and not event.echo:
-		close()
-		get_viewport().set_input_as_handled()
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_E or event.keycode == KEY_ESCAPE:
+			close()
+			get_viewport().set_input_as_handled()
 
 func _populate_floors() -> void:
 	for child in floor_list.get_children():
@@ -56,6 +58,7 @@ func _populate_floors() -> void:
 	if enabled_buttons.size() > 0:
 		enabled_buttons[0].grab_focus()
 
+## Emits [signal ElevatorUI.floor_selected] for [main.gd] to receive
 func _on_floor_selected(floor_id: String) -> void:
 	floor_selected.emit(floor_id)
 	close()

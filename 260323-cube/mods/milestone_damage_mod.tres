@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MilestoneDamageMod" format=3 uid="uid://bvexjshg285ha"]
+
+[ext_resource type="Script" uid="uid://jqc51tall1ny" path="res://mods/milestone_damage_mod.gd" id="1_m63t0"]
+
+[resource]
+script = ExtResource("1_m63t0")
+metadata/_custom_type_script = "uid://jqc51tall1ny"

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://clmj8pv2pwncr"]
+
+[ext_resource type="Script" uid="uid://c0sntcupyipcf" path="res://rhythm/note.gd" id="1_us00w"]
+[ext_resource type="Texture2D" uid="uid://ewxnitmhm0" path="res://assets/2d_objects/single_white_pixel.png" id="2_1kh6q"]
+[ext_resource type="Texture2D" uid="uid://bciejqm6wg7yy" path="res://assets/2d_objects/note_light.png" id="3_naiyi"]
+
+[sub_resource type="Curve" id="Curve_1kh6q"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.3045822, 0), -9.187537, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_naiyi"]
+curve = SubResource("Curve_1kh6q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_naiyi"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2, 20, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 30.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 0, 0)
+damping_min = 2.5330002
+damping_max = 4.23
+alpha_curve = SubResource("CurveTexture_naiyi")
+hue_variation_min = -0.050000023
+hue_variation_max = 0.059999976
+
+[node name="Note" type="Node2D" unique_id=1006069722]
+script = ExtResource("1_us00w")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=983840720]
+offset_left = -2.0
+offset_top = -20.0
+offset_right = 2.0
+offset_bottom = 20.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=703999021]
+texture_filter = 1
+emitting = false
+amount = 12
+texture = ExtResource("2_1kh6q")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_naiyi")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1924315705]
+energy = 0.0
+texture = ExtResource("3_naiyi")
+texture_scale = 0.5

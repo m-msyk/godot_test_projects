@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://k0oyw5vr6fg6"]
 
 [ext_resource type="Script" uid="uid://dvmfxwqhfwvjb" path="res://characters/npc/npc.gd" id="1_4apfu"]
+[ext_resource type="Script" uid="uid://b4s0jjoquvchf" path="res://components/health_component.gd" id="2_7o1fx"]
 
 [node name="NPC" type="CharacterBody3D" unique_id=1894040314 groups=["interactable"]]
 script = ExtResource("1_4apfu")
 npc_name = "npc_1"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=2140427463]
+script = ExtResource("2_7o1fx")
+metadata/_custom_type_script = "uid://b4s0jjoquvchf"

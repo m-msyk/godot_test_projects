@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DamageBlockMod" format=3 uid="uid://st68su73md7i"]
+
+[ext_resource type="Script" uid="uid://cb57tbxnkk0w3" path="res://mods/damage_block_mod.gd" id="1_u1ti4"]
+
+[resource]
+script = ExtResource("1_u1ti4")
+metadata/_custom_type_script = "uid://cb57tbxnkk0w3"

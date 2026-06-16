@@ -24,9 +24,14 @@ func _on_sensitivity_changed(value: float) -> void:
 func _on_resolution_changed(size: Vector2i, fullscreen: bool) -> void:
 	if fullscreen:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		var screen_size := DisplayServer.screen_get_size()
+		var scale := screen_size.x / 360
+		CursorManager.set_cursor_for_scale(scale)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		DisplayServer.window_set_size(size)
+		var scale := size.x / 360
+		CursorManager.set_cursor_for_scale(scale)
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()

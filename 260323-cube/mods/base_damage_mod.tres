@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="BaseDamageMod" format=3 uid="uid://c50yp3p3gqgki"]
+
+[ext_resource type="Script" uid="uid://k0cpi05n6kai" path="res://mods/base_damage_mod.gd" id="1_pguie"]
+
+[resource]
+script = ExtResource("1_pguie")
+metadata/_custom_type_script = "uid://k0cpi05n6kai"

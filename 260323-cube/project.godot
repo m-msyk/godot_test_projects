@@ -28,6 +28,9 @@ ScreenFade="*uid://bai2dd8smorfe"
 SaveManager="*uid://c0o0kjge36ofj"
 StateManager="*uid://crdhc5vctws5h"
 MusicManager="*uid://j582l2wwxjhr"
+CursorManager="*uid://ckyo1dyt46gnt"
+TransitionManager="*uid://cin6tyv1uueem"
+WorldState="*uid://dy4qh6asotsq0"
 
 [dialogic]
 
@@ -40,6 +43,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "npc_1_01": "res://dialogue/npc_1_01.dtl",
+"npc_1_01_battle_end": "res://dialogue/npc_1_01_battle_end.dtl",
 "npc_2_01": "res://dialogue/npc_2_01.dtl",
 "npc_3_01": "res://dialogue/npc_3_01.dtl",
 "npc_4_01": "res://dialogue/npc_4_01.dtl",
@@ -87,7 +91,9 @@ audio/channel_defaults={
 }
 layout/style_list=["res://assets/styles/dialogue_style.tres"]
 layout/default_style="res://assets/styles/dialogue_style.tres"
-variables={}
+variables={
+"battle_outcome": "\"\""
+}
 glossary/default_case_sensitive=true
 text/input_action="dialogic_default_action"
 

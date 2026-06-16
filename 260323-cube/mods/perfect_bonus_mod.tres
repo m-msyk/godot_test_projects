@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PerfectBonusMod" format=3 uid="uid://cps1i7vs4rw7o"]
+
+[ext_resource type="Script" uid="uid://cccl8fhyn3p4n" path="res://mods/perfect_bonus_mod.gd" id="1_4ghps"]
+
+[resource]
+script = ExtResource("1_4ghps")
+mod_id = "perfect_bonus"
+display_name = "Perfection"
+description = "Increase max health by 5 if perfect combo is performed."
+base_cost = 1000
+cost_scaling = 3.0
+metadata/_custom_type_script = "uid://cccl8fhyn3p4n"

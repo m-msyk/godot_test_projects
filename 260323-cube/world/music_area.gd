@@ -1,35 +1,18 @@
 class_name MusicArea extends Area3D
 
+signal registered(area: MusicArea)
+signal unregistered(area: MusicArea)
+
 @export var stream: AudioStream
 @export var blend_distance: float = 2.0
 
-@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
-
 func _ready() -> void:
-	print("MusicArea ready, stream: ", stream)
-	add_to_group("music_area")
 	monitoring = false
 	monitorable = false
-	if stream:
-		audio_player.stream = stream
-		audio_player.bus = "Music"
-		audio_player.volume_db = -80.0
-		audio_player.play()
-		print("Audio playing: ", audio_player.playing)
-	else:
-		print("No stream assigned")
+	MusicManager.register(self)
+	tree_exiting.connect(func(): MusicManager.unregister(self))
 
-func update_volume(player_pos: Vector3) -> void:
-	var shape: Shape3D = $CollisionShape3D.shape
-	if shape is BoxShape3D:
-		print("player_pos: ", player_pos)
-		print("area_pos: ", global_position)
-		print("box_size: ", (shape as BoxShape3D).size)
-	var influence := _calculate_influence(player_pos)
-	print("influence: ", influence)
-	audio_player.volume_db = linear_to_db(influence) if influence > 0.0 else -80.0
-
-func _calculate_influence(player_pos: Vector3) -> float:
+func calculate_influence(player_pos: Vector3) -> float:
 	var collision_shape := $CollisionShape3D
 	var shape: Shape3D = collision_shape.shape
 	if shape == null:

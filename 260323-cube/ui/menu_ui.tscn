@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b778bog3nm08q" path="res://ui/mouse_sensitivity_option.tscn" id="1_ss6ke"]
 [ext_resource type="PackedScene" uid="uid://dsnq7fum1ass8" path="res://ui/resolution_option.tscn" id="2_d1qld"]
 [ext_resource type="PackedScene" uid="uid://c1wg54mkftaqf" path="res://ui/exit_option.tscn" id="3_rduqd"]
+[ext_resource type="PackedScene" uid="uid://cgk5v6d1qu5x2" path="res://ui/note_offset_option.tscn" id="4_ck7k3"]
 [ext_resource type="StyleBox" uid="uid://ld4235sl6muv" path="res://assets/styles/tooltip_panel_style.tres" id="6_vq5kd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g3ck"]
@@ -50,6 +51,7 @@ grow_vertical = 2
 script = ExtResource("1_2ptix")
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=855910631]
+z_index = 2
 layout_mode = 0
 offset_right = 216.0
 offset_bottom = 144.0
@@ -121,6 +123,9 @@ layout_mode = 2
 theme_override_constants/margin_top = 1
 
 [node name="MouseSensitivityOption" parent="Panel/TabContainer/Settings" unique_id=1718623433 instance=ExtResource("1_ss6ke")]
+layout_mode = 2
+
+[node name="NoteOffsetOption" parent="Panel/TabContainer/Settings" unique_id=1017682464 instance=ExtResource("4_ck7k3")]
 layout_mode = 2
 
 [node name="ResolutionOption" parent="Panel/TabContainer/Settings" unique_id=568983405 instance=ExtResource("2_d1qld")]

@@ -1,0 +1,19 @@
+if {battle_outcome} == "win":
+	You won!
+	[signal arg="battle_scene_end"]
+	[wait time="1.2"]
+	benebolant: You beat me, good job.
+	benebolant: Here's my signature, as promised.
+	[signal arg="signature_received:benebolant"]
+
+elif {battle_outcome} == "survive":
+	You held out.
+	You received 5 points.
+	[signal arg="points_received:5"]
+	[signal arg="battle_scene_end"]
+
+else:
+	Your vision grows dark...
+	[signal arg="battle_scene_end"]
+	[wait time="1.2"]
+	benebolant: Stop by again when you're ready.

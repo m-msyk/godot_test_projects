@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cgk5v6d1qu5x2"]
+
+[ext_resource type="Texture2D" uid="uid://bj6fayd6b8pxb" path="res://assets/ui/grabber.png" id="1_ixy1p"]
+[ext_resource type="Script" uid="uid://bktok7xde8qbl" path="res://ui/note_offset_option.gd" id="1_k2bgy"]
+[ext_resource type="Texture2D" uid="uid://jfhwfwy6sax3" path="res://assets/ui/grabber_highlight.png" id="2_k2bgy"]
+[ext_resource type="Texture2D" uid="uid://cev4f2yyht57m" path="res://assets/ui/tick.png" id="4_5b0sl"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ldn2x"]
+color = Color(1, 1, 1, 1)
+grow_begin = -1.0
+grow_end = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qf8dp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixy1p"]
+
+[node name="NoteOffsetOption" type="HBoxContainer" unique_id=1017682464]
+script = ExtResource("1_k2bgy")
+
+[node name="Label" type="Label" parent="." unique_id=421247214]
+layout_mode = 2
+text = "Note Offset"
+
+[node name="HSlider" type="HSlider" parent="." unique_id=635862920]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_icons/grabber = ExtResource("1_ixy1p")
+theme_override_icons/grabber_highlight = ExtResource("2_k2bgy")
+theme_override_icons/tick = ExtResource("4_5b0sl")
+theme_override_styles/slider = SubResource("StyleBoxLine_ldn2x")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_qf8dp")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_ixy1p")
+min_value = -0.25
+max_value = 0.25
+step = 0.01
+value = -0.25
+tick_count = 2
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="ValueLabel" type="Label" parent="." unique_id=1541603511]
+layout_mode = 2
+text = "0ms"

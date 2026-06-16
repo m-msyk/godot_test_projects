@@ -58,7 +58,7 @@ script = ExtResource("2_288lb")
 scene = ExtResource("8_sk8u0")
 overrides = {
 "boxes_offset": "Vector2(0, 94)",
-"boxes_stylebox_focused": "\"\"",
+"boxes_stylebox_focused": "\"\\\\\"",
 "text_color_focused": "Color(1, 1, 0, 1)",
 "text_color_hovered": "Color(1, 1, 0, 1)"
 }
@@ -86,4 +86,4 @@ layer_info = {
 "16": SubResource("Resource_abrqs"),
 "17": SubResource("Resource_nng68")
 }
-metadata/_latest_layer = "13"
+metadata/_latest_layer = "15"

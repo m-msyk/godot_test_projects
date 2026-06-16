@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MaxHealthMod" format=3 uid="uid://w1dt8jc152rj"]
+
+[ext_resource type="Script" uid="uid://wp8dk7h6luoa" path="res://mods/max_health_mod.gd" id="1_s0bky"]
+
+[resource]
+script = ExtResource("1_s0bky")
+metadata/_custom_type_script = "uid://wp8dk7h6luoa"

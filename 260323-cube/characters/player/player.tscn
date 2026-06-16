@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ctnnqwvxwwvcc" path="res://components/FootstepsComponent.tscn" id="5_rpf03"]
 [ext_resource type="PackedScene" uid="uid://wxy2iefjdjte" path="res://ui/menu_ui.tscn" id="5_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://cxsucv7y8carn" path="res://assets/audio/sfx/footstep.mp3" id="6_3t07l"]
+[ext_resource type="Script" uid="uid://b4s0jjoquvchf" path="res://components/health_component.gd" id="11_3t07l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x5dtk"]
 render_priority = 0
@@ -81,3 +82,7 @@ size = 2.0
 script = ExtResource("4_dqkch")
 input = NodePath("../InputComponent")
 menu = NodePath("../MenuComponent")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=97166983]
+script = ExtResource("11_3t07l")
+metadata/_custom_type_script = "uid://b4s0jjoquvchf"

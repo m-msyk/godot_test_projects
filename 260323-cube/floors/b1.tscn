@@ -62,6 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389909, 0.018945545, -0.619
 
 [node name="Elevator" parent="." unique_id=1808230940 instance=ExtResource("6_vtjup")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.047418952, 0.15, -0.4205583)
+destination = "res://floors/b2.tscn"
 
 [node name="wooden_chair-colonly" parent="." unique_id=67168505 instance=ExtResource("7_snpu7")]
 transform = Transform3D(0.05546847, 0, 0.083206065, 0, 0.1, 0, -0.083206065, 0, 0.05546847, 0.23187706, 2.992861e-07, -0.051709384)

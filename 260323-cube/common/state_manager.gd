@@ -32,13 +32,14 @@ func set_state(new_state: State) -> void:
 	state_changed.emit(new_state)
 
 func _apply_state() -> void:
+	print(current_state)
 	match current_state:
 		State.FREE:
 			get_tree().paused = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		State.PARTIAL:
 			get_tree().paused = false
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		State.FROZEN:
 			get_tree().paused = true
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

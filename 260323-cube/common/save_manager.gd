@@ -1,3 +1,5 @@
+## Manages save files.
+
 extends Node
 
 const SAVE_PATH := "user://savefile.json"
@@ -6,6 +8,7 @@ signal game_reset
 
 func new_game() -> void:
 	delete_save()
+	WorldState.reset()
 	game_reset.emit()
 
 func save_game(save_point_id: String, floor_id: String, area: String) -> void:
@@ -26,7 +29,13 @@ func save_game(save_point_id: String, floor_id: String, area: String) -> void:
 		},
 		"player_data": {
 			"signatures": PlayerData.signatures,
-			"signature_givers": PlayerData.signature_givers
+			"signature_givers": PlayerData.signature_givers,
+			"rhythm_points": PlayerData.rhythm_points,
+			"note_offset": PlayerData.note_offset,
+			"upgrades": PlayerData.upgrades
+		},
+		"world_state": {
+			"flags": WorldState.flags
 		}
 	}
 
@@ -75,6 +84,16 @@ func load_game() -> void:
 	for giver_id in save_data["player_data"]["signature_givers"]:
 		PlayerData.signature_givers.append(giver_id)
 	PlayerData.time_played_seconds = save_data["meta"]["time_played_seconds"]
+	PlayerData.rhythm_points = save_data["player_data"].get("rhythm_points", 0)
+	PlayerData.note_offset = save_data["player_data"].get("note_offset", 0.25)
+	var saved_upgrades: Dictionary = save_data["player_data"].get("upgrades", {})
+	for key in saved_upgrades:
+		PlayerData.upgrades[key] = saved_upgrades[key]
+
+	# Restore WorldState
+	var saved_flags: Dictionary = save_data.get("world_state", {}).get("flags", {})
+	for flag_id in saved_flags:
+		WorldState.flags[flag_id] = saved_flags[flag_id]
 
 	# Restore Dialogic variables
 	Dialogic.Save.load("slot_0")
@@ -82,6 +101,8 @@ func load_game() -> void:
 	print("Load complete. Current floor: ", FloorManager.current_floor)
 	print("Active quests: ", QuestManager.active_quests.keys())
 	print("Signatures: ", PlayerData.signatures)
+	print("Rhythm points: ", PlayerData.rhythm_points)
+	print("World flags: ", WorldState.flags)
 
 func _find_quest_resource(quest_id: String) -> Quest:
 	var dir := DirAccess.open("res://quests/")

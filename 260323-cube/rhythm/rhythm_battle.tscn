@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b0lkrbpv3afig"]
+
+[ext_resource type="Script" uid="uid://c3j1sfqqemyd8" path="res://rhythm/rhythm_battle.gd" id="1_6pffs"]
+[ext_resource type="PackedScene" uid="uid://c8kjyhh8f6d4f" path="res://rhythm/rhythm_ui.tscn" id="3_bqvvr"]
+
+[node name="RhythmBattle" type="Node2D" unique_id=633283224 groups=["rhythm_battle"]]
+script = ExtResource("1_6pffs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1258675253]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1980545217]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Lanes" type="Node2D" parent="." unique_id=782984386]
+
+[node name="Lane0" type="ColorRect" parent="Lanes" unique_id=1316505563]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.48677072, 0.66668326, 1, 0.2)
+
+[node name="Lane1" type="ColorRect" parent="Lanes" unique_id=1869393322]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(1, 0.48677072, 0.48677072, 0.2)
+
+[node name="TargetLine" type="ColorRect" parent="." unique_id=128797623]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Notes" type="Node2D" parent="." unique_id=561186279]
+
+[node name="DebugLabel" type="Label" parent="." unique_id=1333596574]
+offset_right = 40.0
+offset_bottom = 16.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1390676421]
+
+[node name="RhythmUI" parent="." unique_id=101484379 instance=ExtResource("3_bqvvr")]

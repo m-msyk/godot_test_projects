@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ComboMultiplierMod" format=3 uid="uid://cf2hi0l7eyist"]
+
+[ext_resource type="Script" uid="uid://dcyhig7eepjol" path="res://mods/combo_multiplier_mod.gd" id="1_uwfon"]
+
+[resource]
+script = ExtResource("1_uwfon")
+metadata/_custom_type_script = "uid://dcyhig7eepjol"
