@@ -12,7 +12,6 @@ signal battle_scene_end_requested()
 @export var timeline_battle_end: DialogicTimeline
 
 @onready var dialogic_component: DialogicComponent = $DialogicComponent
-@onready var health_component: HealthComponent = $HealthComponent
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -39,6 +38,7 @@ func _on_dialogue_ended() -> void:
 	dialogic_component.timeline = _get_current_timeline()
 
 func _on_dialogic_signal(argument: String) -> void:
+	print("dialogic signal: ", argument)
 	var parts := argument.split(":")
 	if parts.size() < 1:
 		return
@@ -70,7 +70,10 @@ func _on_dialogic_signal(argument: String) -> void:
 			battle_scene_end_requested.emit()
 
 func _start_quest(quest_id: String) -> void:
+	print("_start_quest: ", quest_id, " | quests: ", quests.size())
 	for quest in quests:
+		print("  checking quest: '", quest.quest_id, "'")
 		if quest.quest_id == quest_id:
 			QuestManager.add_quest(quest)
 			return
+	print("  no match found!")

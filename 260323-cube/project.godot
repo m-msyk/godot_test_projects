@@ -12,7 +12,7 @@ config_version=5
 
 config/name="260323-cube"
 run/main_scene="uid://yxw144axgrns"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 
 [audio]
 
@@ -39,6 +39,7 @@ directories/dch_directory={
 "benebolant": "res://characters/npc/profiles/benebolant.dch",
 "blockid": "res://characters/npc/profiles/blockid.dch",
 "hatch_41": "res://characters/npc/profiles/hatch_41.dch",
+"merchant": "res://characters/npc/profiles/merchant.dch",
 "perkins": "res://characters/npc/profiles/perkins.dch"
 }
 directories/dtl_directory={
@@ -50,7 +51,8 @@ directories/dtl_directory={
 "npc_5_01": "res://dialogue/npc_5_01.dtl",
 "save_point_1_01": "res://dialogue/save_point_1_01.dtl",
 "save_point_2_01": "res://dialogue/save_point_2_01.dtl",
-"save_point_3_01": "res://dialogue/save_point_3_01.dtl"
+"save_point_3_01": "res://dialogue/save_point_3_01.dtl",
+"shop_npc_1_01": "res://dialogue/shop_npc_1_01.dtl"
 }
 layout/style_directory={
 "": "res://assets/styles/dialogue_style.tres",
@@ -113,6 +115,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 [gui]
 
 theme/default_font_antialiasing=0
+theme/custom="uid://qdphcyaqiviw"
 theme/custom_font="uid://5t2xcsy5amb7"
 
 [input]

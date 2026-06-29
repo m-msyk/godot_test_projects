@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://drs5ydkmer1fr"]
+
+[ext_resource type="PackedScene" uid="uid://k0oyw5vr6fg6" path="res://characters/npc/npc.tscn" id="1_hlwcj"]
+[ext_resource type="Script" uid="uid://ba3mj1bxej46g" path="res://characters/npc/shop_npc.gd" id="2_4u85u"]
+[ext_resource type="Resource" uid="uid://cfvgakgssu10g" path="res://dialogue/npc_1_01.dtl" id="2_esu7s"]
+[ext_resource type="Resource" uid="uid://gwhqu4uofqeo" path="res://dialogue/shop_npc_1_01.dtl" id="3_hlwcj"]
+[ext_resource type="Script" uid="uid://cek6l3u2d1moi" path="res://components/shader_component.gd" id="5_4jny8"]
+[ext_resource type="Script" uid="uid://ccv8q7mx4d7vd" path="res://components/dialogic_component.gd" id="6_5ln46"]
+[ext_resource type="Script" uid="uid://by0q3rmthdibc" path="res://components/shop_component.gd" id="7_e7ij5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rwy4s"]
+size = Vector3(0.1, 0.2, 0.1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hadnd"]
+radius = 0.05
+height = 0.2
+
+[node name="ShopNPC" unique_id=1894040314 instance=ExtResource("1_hlwcj")]
+script = ExtResource("2_4u85u")
+npc_name = "Merchant"
+timeline_01 = ExtResource("3_hlwcj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=1172255665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("BoxMesh_rwy4s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=2075838128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("CapsuleShape3D_hadnd")
+
+[node name="ShaderComponent" type="Node" parent="." index="2" unique_id=2027534123]
+script = ExtResource("5_4jny8")
+metadata/_custom_type_script = "uid://cek6l3u2d1moi"
+
+[node name="DialogicComponent" type="Node" parent="." index="3" unique_id=2002659519]
+script = ExtResource("6_5ln46")
+timeline = ExtResource("2_esu7s")
+metadata/_custom_type_script = "uid://ccv8q7mx4d7vd"
+
+[node name="ShopComponent" type="Node" parent="." index="4" unique_id=1322000769]
+script = ExtResource("7_e7ij5")
+metadata/_custom_type_script = "uid://by0q3rmthdibc"

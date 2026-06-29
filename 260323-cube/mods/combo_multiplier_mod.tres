@@ -4,4 +4,9 @@
 
 [resource]
 script = ExtResource("1_uwfon")
+mod_id = "combo_multiplier"
+display_name = "Combo Multiplier"
+description = "Increases damage output of combos"
+base_cost = 10
+cost_scaling = 1.5
 metadata/_custom_type_script = "uid://dcyhig7eepjol"

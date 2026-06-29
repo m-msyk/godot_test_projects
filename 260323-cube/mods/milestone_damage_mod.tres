@@ -4,4 +4,9 @@
 
 [resource]
 script = ExtResource("1_m63t0")
+mod_id = "milestone_damage"
+display_name = "Milestone Damage"
+description = "Damage boost at 100-combo increments"
+base_cost = 10
+cost_scaling = 1.8
 metadata/_custom_type_script = "uid://jqc51tall1ny"

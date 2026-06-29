@@ -7,4 +7,4 @@ func on_battle_start(battle: RhythmBattle) -> void:
 	battle.damage_blocks_remaining = level * blocks_per_level
 
 func get_stat_display(level: int) -> String:
-	return "%d blocks per battle" % (level * blocks_per_level)
+	return "%d misses" % [level * blocks_per_level]

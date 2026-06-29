@@ -1,20 +1,23 @@
 [gd_scene format=3 uid="uid://cho160k1u1v36"]
 
 [ext_resource type="PackedScene" uid="uid://bc6h5ppdubfvw" path="res://characters/save_point/save_point.tscn" id="1_1cchm"]
-[ext_resource type="PackedScene" uid="uid://clni3qdxarl63" path="res://floors/cube.tscn" id="1_yxngq"]
 [ext_resource type="PackedScene" uid="uid://bh44pq583iwq8" path="res://characters/npc/benebolant.tscn" id="2_67mt2"]
 [ext_resource type="PackedScene" uid="uid://6kmj85gjwl3q" path="res://characters/player/player.tscn" id="2_in3r1"]
-[ext_resource type="Resource" uid="uid://dw07y4ojfms3u" path="res://dialogue/save_point_1_01.dtl" id="3_vtjup"]
-[ext_resource type="PackedScene" uid="uid://c1hdahcd2l5bv" path="res://assets/objects/elevator.tscn" id="6_vtjup"]
-[ext_resource type="PackedScene" uid="uid://g2awjo12ttpo" path="res://assets/objects/wooden_chair-colonly.glb" id="7_snpu7"]
+[ext_resource type="PackedScene" uid="uid://drs5ydkmer1fr" path="res://characters/npc/shop_npc.tscn" id="5_r7ple"]
+[ext_resource type="PackedScene" uid="uid://c1hdahcd2l5bv" path="res://assets/3d_objects/elevator.tscn" id="6_vtjup"]
 [ext_resource type="PackedScene" uid="uid://bv7ut7bxvy7e0" path="res://world/music_area.tscn" id="8_or05s"]
+[ext_resource type="PackedScene" uid="uid://3sww3aiuslc8" path="res://assets/3d_objects/hr_room.tscn" id="9_bb8li"]
 [ext_resource type="AudioStream" uid="uid://dc7p72lhow3" path="res://assets/audio/music/bass_01.wav" id="9_k7ked"]
+[ext_resource type="PackedScene" uid="uid://cf43fisanp52h" path="res://assets/3d_objects/clock.tscn" id="10_4qslu"]
 [ext_resource type="AudioStream" uid="uid://dxcqh8mpx0jqj" path="res://assets/audio/music/drums_01.wav" id="10_bb8li"]
+[ext_resource type="PackedScene" uid="uid://gajo8g36v5rf" path="res://assets/3d_objects/calendar.tscn" id="10_cva23"]
+[ext_resource type="PackedScene" uid="uid://5dbphl2exq80" path="res://assets/3d_objects/plastic_table.tscn" id="10_ibfeq"]
+[ext_resource type="PackedScene" uid="uid://d1kt8ybb0ako4" path="res://assets/3d_objects/plastic_chair.tscn" id="10_r7ple"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_67mt2"]
 sky_top_color = Color(0.16481471, 0.4787498, 0.87051576, 1)
 sky_horizon_color = Color(0.16470589, 0.47843137, 0.87058824, 1)
-ground_bottom_color = Color(0.7432249, 0.58523977, 0.19349772, 1)
+ground_bottom_color = Color(0.999314, 0.8391188, 0, 1)
 ground_horizon_color = Color(0.16470589, 0.47843137, 0.87058824, 1)
 
 [sub_resource type="Sky" id="Sky_67mt2"]
@@ -36,60 +39,85 @@ size = Vector3(1.7530518, 1, 4.1114807)
 
 [node name="B1" type="Node3D" unique_id=1651748059]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2022721108]
+[node name="World" type="Node" parent="." unique_id=1904124860]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=2022721108]
 environment = SubResource("Environment_vtjup")
 
-[node name="cube" parent="." unique_id=502648368 instance=ExtResource("1_yxngq")]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=345770663]
-transform = Transform3D(0.58070296, -0.64153177, 0.5012196, 0, 0.6156615, 0.7880107, -0.8141155, -0.45760015, 0.35751647, 0, 3.64, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=345770663]
+transform = Transform3D(0.58070296, -0.64153177, 0.5012196, 0, 0.6156615, 0.7880107, -0.8141155, -0.45760018, 0.35751647, 0, 3.64, 0)
+visible = false
 light_color = Color(1, 0.9607843, 0.8784314, 1)
-light_energy = 1.2
 shadow_enabled = true
 shadow_blur = 0.5
 
-[node name="SavePoint" parent="." unique_id=1894040314 instance=ExtResource("1_1cchm")]
-transform = Transform3D(0.85613185, 0, 0.5167575, 0, 1, 0, -0.5167575, 0, 0.85613185, 0.875, 0, -0.126)
+[node name="AreaLight3D" type="AreaLight3D" parent="World" unique_id=683250413]
+transform = Transform3D(-1, 3.821371e-15, 8.742278e-08, 8.742278e-08, 4.371139e-08, 1, 0, 1, -4.371139e-08, 0.3487025, 0.76474285, -0.32031733)
+light_color = Color(1, 0.9607843, 0.8784314, 1)
+light_energy = 2.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 0.11
+shadow_normal_bias = 3.5
+shadow_opacity = 0.5
+shadow_blur = 0.0
+
+[node name="Characters" type="Node" parent="." unique_id=272216530]
+
+[node name="SavePoint" parent="Characters" unique_id=1894040314 instance=ExtResource("1_1cchm")]
+transform = Transform3D(0.85613185, 0, 0.5167575, 0, 1, 0, -0.5167575, 0, 0.85613185, 0.56575733, 0, -0.08873981)
 save_point_id = "b1_savepoint_01"
 spawn_offset = 0.01
-timeline = ExtResource("3_vtjup")
 
-[node name="Benebolant" parent="." unique_id=1576881577 instance=ExtResource("2_67mt2")]
-transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 0.76484454, 0, -0.68462235)
+[node name="Benebolant" parent="Characters" unique_id=1576881577 instance=ExtResource("2_67mt2")]
+transform = Transform3D(0.81085616, 0, -0.58524543, 0, 1, 0, 0.58524543, 0, 0.81085616, 0.5097698, 0, -0.55415416)
 
-[node name="Player" parent="." unique_id=878661318 instance=ExtResource("2_in3r1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389909, 0.018945545, -0.61905056)
+[node name="ShopNPC" parent="Characters" unique_id=1943761564 instance=ExtResource("5_r7ple")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.077263415, 0, -0.5859514)
+npc_name = "Shop"
+
+[node name="Player" parent="Characters" unique_id=878661318 instance=ExtResource("2_in3r1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32549223, 0.018945545, -0.29198617)
 
 [node name="Elevator" parent="." unique_id=1808230940 instance=ExtResource("6_vtjup")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.047418952, 0.15, -0.4205583)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7574906, 0.15, -0.3244367)
 destination = "res://floors/b2.tscn"
 
-[node name="wooden_chair-colonly" parent="." unique_id=67168505 instance=ExtResource("7_snpu7")]
-transform = Transform3D(0.05546847, 0, 0.083206065, 0, 0.1, 0, -0.083206065, 0, 0.05546847, 0.23187706, 2.992861e-07, -0.051709384)
+[node name="Music" type="Node" parent="." unique_id=125923030]
 
-[node name="wooden_chair-colonly2" parent="." unique_id=1566941216 instance=ExtResource("7_snpu7")]
-transform = Transform3D(0.0019563884, 0, 0.099980876, 0, 0.10000002, 0, -0.099980876, 0, 0.0019563884, 0.55662274, 2.992861e-07, -0.051709384)
-
-[node name="wooden_chair-colonly3" parent="." unique_id=1474185226 instance=ExtResource("7_snpu7")]
-transform = Transform3D(-0.083211884, 0, -0.05545976, 0, 0.100000024, 0, 0.05545976, 0, -0.083211884, 0.8961123, 2.992861e-07, -0.51814914)
-
-[node name="MusicArea" parent="." unique_id=304901294 instance=ExtResource("8_or05s")]
+[node name="MusicArea" parent="Music" unique_id=304901294 instance=ExtResource("8_or05s")]
 audio_bus_name = &"Music"
 stream = ExtResource("9_k7ked")
 blend_distance = 0.0
 
-[node name="CollisionShape3D" parent="MusicArea" index="0" unique_id=1863019559]
+[node name="CollisionShape3D" parent="Music/MusicArea" index="0" unique_id=1863019559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5)
 shape = SubResource("BoxShape3D_k7ked")
 
-[node name="MusicArea2" parent="." unique_id=2088398000 instance=ExtResource("8_or05s")]
+[node name="MusicArea2" parent="Music" unique_id=2088398000 instance=ExtResource("8_or05s")]
 audio_bus_name = &"Music"
 stream = ExtResource("10_bb8li")
 blend_distance = 0.5
 
-[node name="CollisionShape3D" parent="MusicArea2" index="0" unique_id=1863019559]
+[node name="CollisionShape3D" parent="Music/MusicArea2" index="0" unique_id=1863019559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3765259, 0.5, -0.84165955)
 shape = SubResource("BoxShape3D_bb8li")
 
-[editable path="MusicArea"]
-[editable path="MusicArea2"]
+[node name="hr_room" parent="." unique_id=2958173 instance=ExtResource("9_bb8li")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6493655, 0, 0)
+
+[node name="Furniture" type="Node" parent="." unique_id=868649826]
+
+[node name="calendar" parent="Furniture" unique_id=247252407 instance=ExtResource("10_cva23")]
+transform = Transform3D(1.3113417e-08, 0, -0.1, 0, 0.1, 0, 0.1, 0, 1.3113417e-08, -0.0006595105, 0.24924758, -0.24567196)
+
+[node name="clock" parent="Furniture" unique_id=984131102 instance=ExtResource("10_4qslu")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.27325404, 0, -0.6526127)
+
+[node name="plastic_table" parent="Furniture" unique_id=1912189238 instance=ExtResource("10_ibfeq")]
+
+[node name="plastic_chair" parent="Furniture" unique_id=848503150 instance=ExtResource("10_r7ple")]
+transform = Transform3D(-0.09046117, 0, 0.042623665, 0, 0.1, 0, -0.042623665, 0, -0.09046117, 0.31873766, 0, -0.13884443)
+
+[editable path="Music/MusicArea"]
+[editable path="Music/MusicArea2"]

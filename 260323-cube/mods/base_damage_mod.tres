@@ -4,4 +4,9 @@
 
 [resource]
 script = ExtResource("1_pguie")
+mod_id = "base_damage"
+display_name = "Base Damage"
+description = "Increases base damage output"
+base_cost = 10
+cost_scaling = 2.5
 metadata/_custom_type_script = "uid://k0cpi05n6kai"

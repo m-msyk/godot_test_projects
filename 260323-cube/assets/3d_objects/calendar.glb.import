@@ -3,19 +3,21 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://g2awjo12ttpo"
-path="res://.godot/imported/wooden_chair-colonly.glb-a0df828cd1c67bb8623ce4ab05a4b6a1.scn"
+uid="uid://dl134cec1ety6"
+path="res://.godot/imported/calendar.glb-eaeb5231efa00e6f0a7902a824714f72.scn"
 
 [deps]
 
-source_file="res://assets/3d_objects/wooden_chair-colonly.glb"
-dest_files=["res://.godot/imported/wooden_chair-colonly.glb-a0df828cd1c67bb8623ce4ab05a4b6a1.scn"]
+source_file="res://assets/3d_objects/calendar.glb"
+dest_files=["res://.godot/imported/calendar.glb-eaeb5231efa00e6f0a7902a824714f72.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -33,10 +35,11 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path=""
+import_script/path="uid://d3dlakbjtabpa"
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
+gltf/texture_map_mode=1

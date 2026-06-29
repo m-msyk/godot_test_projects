@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_4ghps")
 mod_id = "perfect_bonus"
-display_name = "Perfection"
+display_name = "Perfection Bonus"
 description = "Increase max health by 5 if perfect combo is performed."
-base_cost = 1000
+base_cost = 10
 cost_scaling = 3.0
 metadata/_custom_type_script = "uid://cccl8fhyn3p4n"

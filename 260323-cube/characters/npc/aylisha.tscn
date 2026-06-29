@@ -3,10 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://k0oyw5vr6fg6" path="res://characters/npc/npc.tscn" id="1_idq0e"]
 [ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="3_erjnm"]
 [ext_resource type="Resource" uid="uid://b1ornu4cctwuh" path="res://quests/talk_to_blockid.tres" id="4_wtrk7"]
-[ext_resource type="PackedScene" uid="uid://bg1xclqtoxvpb" path="res://assets/objects/fella.glb" id="5_erjnm"]
+[ext_resource type="PackedScene" uid="uid://bg1xclqtoxvpb" path="res://assets/3d_objects/fella.glb" id="5_erjnm"]
 [ext_resource type="Script" uid="uid://cek6l3u2d1moi" path="res://components/shader_component.gd" id="5_wtrk7"]
 [ext_resource type="Script" uid="uid://ccv8q7mx4d7vd" path="res://components/dialogic_component.gd" id="6_s0u58"]
 [ext_resource type="Resource" uid="uid://chdtsfrmh2s4j" path="res://dialogue/npc_3_01.dtl" id="7_s0u58"]
+[ext_resource type="Script" uid="uid://b4s0jjoquvchf" path="res://components/health_component.gd" id="8_l7d5b"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wtrk7"]
 radius = 0.05
@@ -15,6 +16,7 @@ height = 0.2
 [node name="Aylisha" unique_id=1894040314 instance=ExtResource("1_idq0e")]
 npc_name = "Aylisha"
 quests = Array[ExtResource("3_erjnm")]([ExtResource("4_wtrk7")])
+timeline_01 = ExtResource("7_s0u58")
 
 [node name="fella" parent="." index="0" unique_id=969446320 instance=ExtResource("5_erjnm")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
@@ -32,3 +34,8 @@ metadata/_custom_type_script = "uid://cek6l3u2d1moi"
 script = ExtResource("6_s0u58")
 timeline = ExtResource("7_s0u58")
 metadata/_custom_type_script = "uid://ccv8q7mx4d7vd"
+
+[node name="HealthComponent" type="Node" parent="." index="4" unique_id=1975769744]
+script = ExtResource("8_l7d5b")
+max_health = 350
+metadata/_custom_type_script = "uid://b4s0jjoquvchf"

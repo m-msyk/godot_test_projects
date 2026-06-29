@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://tsd6w2mpux26"]
+
+[ext_resource type="Script" uid="uid://ddnayb1hqcsdw" path="res://ui/shop_ui.gd" id="1_h5uvh"]
+[ext_resource type="StyleBox" uid="uid://dju6jjih4557o" path="res://assets/styles/menu_ui_panel_style.tres" id="2_pe5jp"]
+[ext_resource type="PackedScene" uid="uid://dnuc13d387828" path="res://ui/tooltip_panel.tscn" id="3_pe5jp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_15kna"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sk8u0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6tsee"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w26sj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x70q1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x460b"]
+
+[node name="ShopUI" type="Control" unique_id=658228821]
+custom_minimum_size = Vector2(230, 144)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -72.0
+offset_right = 115.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h5uvh")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1705640594]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_pe5jp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1194779888]
+layout_mode = 2
+
+[node name="TopRow" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=385370277]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/TopRow" unique_id=643889002]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_15kna")
+text = "Shop"
+
+[node name="PointsLabel" type="Label" parent="Panel/VBoxContainer/TopRow" unique_id=930070300]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Panel/VBoxContainer/TopRow" unique_id=1952935956]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sk8u0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6tsee")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_w26sj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_x70q1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x460b")
+text = "Leave"
+
+[node name="ModList" type="GridContainer" parent="Panel/VBoxContainer" unique_id=1089366131]
+layout_mode = 2
+columns = 3
+
+[node name="TooltipPanel" parent="." unique_id=188384617 instance=ExtResource("3_pe5jp")]
+layout_mode = 0
+
+[editable path="TooltipPanel"]

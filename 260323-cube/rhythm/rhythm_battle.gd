@@ -96,13 +96,12 @@ func setup(player_hc: HealthComponent, npc_hc: HealthComponent) -> void:
 	npc_health_component = npc_hc
 	player_health_component.max_health = PlayerData.get_max_health()
 	player_health_component.reset()
-	npc_health_component.reset()
+	if npc_health_component:
+		npc_health_component.reset()
+		npc_health_component.defeated.connect(_on_npc_defeated)
 	player_health_component.defeated.connect(_on_player_defeated)
-	npc_health_component.defeated.connect(_on_npc_defeated)
 	rhythm_ui.setup(player_hc, npc_hc)
-	perfect_run = true
-	last_milestone = 0
-	damage_blocks_remaining = 0
+	# setup mods
 	for mod in PlayerData.MODS:
 		if PlayerData.upgrades.get(mod.mod_id, 0) > 0:
 			mod.on_battle_start(self)

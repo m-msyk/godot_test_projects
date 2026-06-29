@@ -29,7 +29,7 @@ height = 0.2
 script = ExtResource("2_if50t")
 save_point_id = ""
 spawn_offset = 2.0
-timeline = null
+timeline = ExtResource("4_s5dbg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=553461472]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)

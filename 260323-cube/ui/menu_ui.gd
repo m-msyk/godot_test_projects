@@ -4,7 +4,7 @@ const TASK_ENTRY = preload("res://ui/task_entry.tscn")
 
 @onready var tab_container: TabContainer = $Panel/TabContainer
 @onready var task_list: VBoxContainer = $Panel/TabContainer/Tasks/TaskList
-@onready var tooltip_panel: PanelContainer = $TooltipPanel
+@onready var tooltip_panel: TooltipPanel = $TooltipPanel
 @onready var tooltip_label: Label = $TooltipPanel/TooltipLabel
 
 var _focused_task_index: int = -1
@@ -44,6 +44,7 @@ func _input(event: InputEvent) -> void:
 					child.set_highlighted(is_hovering)
 					if is_hovering:
 						tooltip_label.text = child.get_description()
+						tooltip_panel.reset_size()
 						hovering_any = true
 		tooltip_panel.visible = hovering_any
 		
@@ -68,8 +69,8 @@ func _navigate_tasks(direction: int) -> void:
 	for i in tasks.size():
 		tasks[i].set_highlighted(i == _focused_task_index)
 	tooltip_label.text = tasks[_focused_task_index].get_description()
+	tooltip_panel.reset_size()
 	tooltip_panel.visible = true
-	tooltip_panel.position = tasks[_focused_task_index].get_global_rect().end + Vector2(10, 10)
 
 func _on_tab_changed(_tab: int) -> void:
 	tooltip_panel.visible = false

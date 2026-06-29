@@ -9,4 +9,4 @@ func on_song_complete(battle: RhythmBattle) -> void:
 		print("Perfect run! Max health increased by ", health_bonus)
 
 func get_stat_display(level: int) -> String:
-	return "Active — +%d max HP on perfect run" % health_bonus
+	return "+%d HP" % health_bonus

@@ -1,0 +1,52 @@
+[gd_resource type="Theme" format=3 uid="uid://qdphcyaqiviw"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_psubf"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_qbql7"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_wsveg"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_24ibd"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_41rka"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_y3nm7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsveg"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24ibd"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_41rka"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeom6"]
+content_margin_left = 3.0
+bg_color = Color(0, 0, 0, 0)
+
+[resource]
+VScrollBar/icons/decrement = SubResource("ImageTexture_psubf")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_qbql7")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_wsveg")
+VScrollBar/icons/increment = SubResource("ImageTexture_24ibd")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_41rka")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_y3nm7")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_wsveg")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_24ibd")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_41rka")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_eeom6")
+VScrollBar/styles/scroll_focus = null

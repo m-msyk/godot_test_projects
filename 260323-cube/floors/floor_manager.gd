@@ -9,6 +9,7 @@ func _ready() -> void:
 	SaveManager.game_reset.connect(reset)
 
 func unlock_floor(floor_id: String) -> void:
+	print("unlock_floor called: ", floor_id)
 	if not unlocked_floors.has(floor_id):
 		unlocked_floors.append(floor_id)
 		floor_unlocked.emit(floor_id)

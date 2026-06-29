@@ -22,6 +22,7 @@ func _ready() -> void:
 func _load_mods() -> void:
 	var dir := DirAccess.open("res://mods/")
 	if dir == null:
+		print("mods directory not found")
 		return
 	dir.list_dir_begin()
 	var file_name := dir.get_next()
@@ -29,9 +30,12 @@ func _load_mods() -> void:
 		if file_name.ends_with(".tres"):
 			var mod := load("res://mods/" + file_name) as Mod
 			if mod != null:
+				print("loaded mod: ", file_name, " | mod_id: '", mod.mod_id, "'")
 				MODS.append(mod)
 				if not upgrades.has(mod.mod_id):
 					upgrades[mod.mod_id] = 0
+			else:
+				print("failed to load as Mod: ", file_name)
 		file_name = dir.get_next()
 
 func _process(delta: float) -> void:

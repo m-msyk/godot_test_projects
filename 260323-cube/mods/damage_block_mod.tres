@@ -4,4 +4,8 @@
 
 [resource]
 script = ExtResource("1_u1ti4")
+mod_id = "damage_block"
+display_name = "Damage Block"
+description = "Blocks first X damage"
+base_cost = 10
 metadata/_custom_type_script = "uid://cb57tbxnkk0w3"

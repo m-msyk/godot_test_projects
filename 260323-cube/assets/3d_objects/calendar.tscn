@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://gajo8g36v5rf"]
+
+[ext_resource type="PackedScene" uid="uid://dl134cec1ety6" path="res://assets/3d_objects/calendar.glb" id="1_62a8j"]
+[ext_resource type="Script" uid="uid://db30ebc3gvqn1" path="res://assets/materials/wall_object.gd" id="2_u3h8n"]
+
+[node name="calendar" unique_id=247252407 instance=ExtResource("1_62a8j")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Calendar" parent="." index="0" unique_id=1493050878]
+transform = Transform3D(-1, 0, -2.6226834e-07, 0, 1, 0, 2.6226834e-07, 0, -1, 0, 0, 0)
+script = ExtResource("2_u3h8n")

@@ -28,6 +28,7 @@ func _on_dialogic_signal(argument: String) -> void:
 	match parts[0]:
 		"save_game":
 			if parts.size() >= 4:
+				await Dialogic.timeline_ended
 				save_requested.emit(parts[1], parts[2], parts[3])
 
 func get_spawn_position() -> Vector3:

@@ -4,9 +4,10 @@
 [ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="3_hlkeu"]
 [ext_resource type="Resource" uid="uid://whl0iomtgfu0" path="res://quests/talk_to_hatch_41.tres" id="4_0xorm"]
 [ext_resource type="Script" uid="uid://cek6l3u2d1moi" path="res://components/shader_component.gd" id="5_0xorm"]
-[ext_resource type="PackedScene" uid="uid://bg1xclqtoxvpb" path="res://assets/objects/fella.glb" id="5_hlkeu"]
+[ext_resource type="PackedScene" uid="uid://bg1xclqtoxvpb" path="res://assets/3d_objects/fella.glb" id="5_hlkeu"]
 [ext_resource type="Script" uid="uid://ccv8q7mx4d7vd" path="res://components/dialogic_component.gd" id="6_ghkc2"]
 [ext_resource type="Resource" uid="uid://bfto5201u3lxl" path="res://dialogue/npc_2_01.dtl" id="7_ghkc2"]
+[ext_resource type="Script" uid="uid://b4s0jjoquvchf" path="res://components/health_component.gd" id="8_j81mg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0xorm"]
 radius = 0.05
@@ -15,6 +16,7 @@ height = 0.2
 [node name="Perkins" unique_id=1894040314 instance=ExtResource("1_xc2co")]
 npc_name = "Perkins"
 quests = Array[ExtResource("3_hlkeu")]([ExtResource("4_0xorm")])
+timeline_01 = ExtResource("7_ghkc2")
 
 [node name="fella" parent="." index="0" unique_id=969446320 instance=ExtResource("5_hlkeu")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
@@ -32,3 +34,8 @@ metadata/_custom_type_script = "uid://cek6l3u2d1moi"
 script = ExtResource("6_ghkc2")
 timeline = ExtResource("7_ghkc2")
 metadata/_custom_type_script = "uid://ccv8q7mx4d7vd"
+
+[node name="HealthComponent" type="Node" parent="." index="4" unique_id=604479330]
+script = ExtResource("8_j81mg")
+max_health = 250
+metadata/_custom_type_script = "uid://b4s0jjoquvchf"

@@ -6,4 +6,5 @@ func get_combo_growth_bonus(level: int) -> float:
 	return level * growth_per_level
 
 func get_stat_display(level: int) -> String:
-	return "Combo Growth: %.2f" % (RhythmBattle.BASE_COMBO_GROWTH + get_combo_growth_bonus(level))
+	var bonus := level * growth_per_level
+	return "%.2f (+%.2f)" % [RhythmBattle.BASE_COMBO_GROWTH + bonus, bonus]

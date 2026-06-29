@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dawr0xuxwtobr"]
+
+[ext_resource type="Script" uid="uid://dflmh2lbfkrgq" path="res://mods/mod_row.gd" id="1_plsib"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hlwcj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_esu7s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4u85u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nixh4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4jny8"]
+
+[node name="ModRow" type="HBoxContainer" unique_id=1103331415]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_plsib")
+
+[node name="NameLabel" type="Label" parent="." unique_id=1426857679]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="." unique_id=1137684938]
+layout_mode = 2
+
+[node name="CostLabel" type="Label" parent="." unique_id=958510237]
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="." unique_id=561160086]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hlwcj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_esu7s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4u85u")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_nixh4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4jny8")

@@ -5,6 +5,7 @@ class_name Main extends Node
 @onready var current_level: Node = $CurrentLevel
 @onready var elevator_ui: ElevatorUI = $ElevatorUI
 @onready var save_confirm_menu: SaveConfirmMenu = $SaveConfirmMenu
+@onready var shop_ui: ShopUI = $ShopUI
 
 var _current_battle: RhythmBattle = null
 var _current_npc: NPC = null
@@ -18,6 +19,9 @@ func _ready() -> void:
 	_connect_signals()
 	if SaveManager.save_exists():
 		SaveManager.load_game()
+		print("rhythm_points: ", PlayerData.rhythm_points)
+		print("upgrades: ", PlayerData.upgrades)
+		print("note_offset: ", (PlayerData.note_offset - 0.25) * 1000)
 		_load_level_immediate(FloorManager.current_floor)
 		_spawn_player_at_save_point()
 	else:
@@ -46,6 +50,9 @@ func _connect_npcs() -> void:
 				npc.battle_requested.connect(_on_battle_requested)
 			if not npc.battle_scene_end_requested.is_connected(_on_battle_scene_end_requested):
 				npc.battle_scene_end_requested.connect(_on_battle_scene_end_requested)
+			var shop := npc.get_node_or_null("ShopComponent")
+			if shop and not shop.shop_requested.is_connected(_on_shop_requested):
+				shop.shop_requested.connect(_on_shop_requested)
 
 func _spawn_player_at_save_point() -> void:
 	var meta := SaveManager.get_save_meta()
@@ -76,8 +83,9 @@ func _load_battle_immediate(npc: NPC) -> void:
 	_current_battle.beatmap_path = npc.battle_beatmap_path
 	_current_battle.audio_path = npc.battle_song_path
 	add_child(_current_battle)
-	var player_hc := player.get_node("HealthComponent")
-	_current_battle.setup(player_hc, npc.health_component)
+	var player_hc := player.get_node("HealthComponent") as HealthComponent
+	var npc_hc := npc.get_node_or_null("HealthComponent") as HealthComponent
+	_current_battle.setup(player_hc, npc_hc)
 	_current_battle.player_defeated.connect(_on_player_defeated)
 	_current_battle.battle_complete.connect(_on_battle_complete)
 
@@ -129,3 +137,6 @@ func _on_player_defeated() -> void:
 
 func return_from_battle() -> void:
 	await TransitionManager.run(func(): _unload_battle())
+
+func _on_shop_requested() -> void:
+	shop_ui.open()

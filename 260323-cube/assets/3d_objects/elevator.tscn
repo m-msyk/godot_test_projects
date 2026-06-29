@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c1hdahcd2l5bv"]
 
-[ext_resource type="Script" uid="uid://ci0hm14jc5ngq" path="res://assets/objects/elevator.gd" id="1_mrqta"]
+[ext_resource type="Script" uid="uid://ci0hm14jc5ngq" path="res://assets/3d_objects/elevator.gd" id="1_mrqta"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_u1o51"]
-size = Vector3(0.2, 0.3, 0.2)
+size = Vector3(0.2, 0.46526185, 0.24414063)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u1o51"]
 size = Vector3(0.2, 0.3, 0.2)
@@ -13,6 +13,7 @@ script = ExtResource("1_mrqta")
 destination = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=609014753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.082630925, 0)
 mesh = SubResource("BoxMesh_u1o51")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=266933599]

@@ -17,4 +17,4 @@ func on_hit(battle: RhythmBattle) -> void:
 		print("Milestone %d! +%d damage" % [milestone, bonus_damage])
 
 func get_stat_display(level: int) -> String:
-	return "+%d damage every %d combo" % [bonus_damage, milestone_interval]
+	return "%d per %dc" % [bonus_damage, milestone_interval]

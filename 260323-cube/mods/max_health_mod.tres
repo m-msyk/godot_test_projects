@@ -4,4 +4,9 @@
 
 [resource]
 script = ExtResource("1_s0bky")
+mod_id = "max_health"
+display_name = "Max Health"
+description = "Increases max health"
+base_cost = 10
+cost_scaling = 1.2
 metadata/_custom_type_script = "uid://wp8dk7h6luoa"
