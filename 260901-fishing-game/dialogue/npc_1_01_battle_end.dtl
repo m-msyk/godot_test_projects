@@ -1,0 +1,9 @@
+if {battle_outcome} == "win":
+	You reeled it in!
+	[signal arg="battle_scene_end"]
+	[wait time="1.2"]
+	security: You beat me, good job.
+
+else:
+	It got away.
+	[signal arg="battle_scene_end"]

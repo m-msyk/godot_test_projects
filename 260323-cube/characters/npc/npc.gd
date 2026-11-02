@@ -2,16 +2,20 @@ class_name NPC extends CharacterBody3D
 
 signal battle_requested(npc: NPC)
 signal battle_scene_end_requested()
+signal shop_requested()
 
 @export var npc_name: String
 @export var quests: Array[Quest] = []
-@export var max_health: int = 100
 @export var battle_song_path: String = ""
 @export var battle_beatmap_path: String = ""
 @export var timeline_01: DialogicTimeline
 @export var timeline_battle_end: DialogicTimeline
 
 @onready var dialogic_component: DialogicComponent = $DialogicComponent
+
+var _is_active: bool = false
+var _pending_battle: bool = false
+var _pending_battle_scene_end: bool = false
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -26,19 +30,32 @@ func _get_current_timeline() -> DialogicTimeline:
 	return timeline_01
 
 func start_dialogue() -> void:
+	_is_active = true
 	dialogic_component.timeline = _get_current_timeline()
+	StateManager.set_state(StateManager.State.PARTIAL)
 	dialogic_component.start_dialogue()
 
 func start_battle_outcome_dialogue(outcome: String) -> void:
+	_is_active = true
 	Dialogic.VAR.battle_outcome = outcome
 	dialogic_component.timeline = timeline_battle_end
+	StateManager.set_state(StateManager.State.PARTIAL)
 	dialogic_component.start_dialogue()
 
 func _on_dialogue_ended() -> void:
+	if not _is_active:
+		return
+	_is_active = false
 	dialogic_component.timeline = _get_current_timeline()
+	StateManager.set_state(StateManager.State.FREE)
+	if _pending_battle:
+		_pending_battle = false
+		battle_requested.emit(self)
+	if _pending_battle_scene_end:
+		_pending_battle_scene_end = false
+		battle_scene_end_requested.emit()
 
 func _on_dialogic_signal(argument: String) -> void:
-	print("dialogic signal: ", argument)
 	var parts := argument.split(":")
 	if parts.size() < 1:
 		return
@@ -54,9 +71,6 @@ func _on_dialogic_signal(argument: String) -> void:
 			FloorManager.unlock_floor(signal_value)
 		"signature_received":
 			PlayerData.add_signature(signal_value)
-		"save_game":
-			if parts.size() >= 4:
-				SaveManager.save_game(parts[1], parts[2], parts[3])
 		"points_received":
 			PlayerData.add_rhythm_points(int(signal_value))
 		"purchase_upgrade":
@@ -65,15 +79,12 @@ func _on_dialogic_signal(argument: String) -> void:
 			WorldState.set_flag(signal_value)
 		"battle_accepted":
 			Dialogic.VAR.battle_outcome = ""
-			battle_requested.emit(self)
+			_pending_battle = true
 		"battle_scene_end":
-			battle_scene_end_requested.emit()
+			_pending_battle_scene_end = true
 
 func _start_quest(quest_id: String) -> void:
-	print("_start_quest: ", quest_id, " | quests: ", quests.size())
 	for quest in quests:
-		print("  checking quest: '", quest.quest_id, "'")
 		if quest.quest_id == quest_id:
 			QuestManager.add_quest(quest)
 			return
-	print("  no match found!")

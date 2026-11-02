@@ -40,6 +40,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.keycode == KEY_ESCAPE and event.pressed:
 		if Dialogic.current_timeline != null:
 			return
+		if StateManager.current_state == StateManager.State.FROZEN:
+			return
 		toggle_pause()
 
 func toggle_pause() -> void:

@@ -10,7 +10,9 @@ func open_with_data(save_point_id: String, floor_id: String, area: String) -> vo
 	_area = area
 	populate(floor_id, area, PlayerData.time_played_seconds)
 	open()
+	print("save confirm opened, setting FROZEN")
 	StateManager.set_state(StateManager.State.FROZEN)
+	print("state is now: ", StateManager.current_state)
 
 func _on_primary_pressed() -> void:
 	SaveManager.save_game(_save_point_id, _floor, _area)

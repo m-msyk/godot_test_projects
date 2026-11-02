@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://6gph6ikcnlny"]
+
+[ext_resource type="Script" uid="uid://cxnfdb6ffospl" path="res://assets/materials/floor_environment.gd" id="1_5alle"]
+[ext_resource type="PackedScene" uid="uid://bfs0wjenq27v6" path="res://assets/3d_objects/b1_lobby_col.tscn" id="1_d626p"]
+[ext_resource type="Texture2D" uid="uid://c3xsk7aduhtpm" path="res://assets/2d_objects/b1_ceiling.png" id="2_d626p"]
+[ext_resource type="PackedScene" uid="uid://bh44pq583iwq8" path="res://characters/npc/security.tscn" id="2_jo5oy"]
+[ext_resource type="PackedScene" uid="uid://bc6h5ppdubfvw" path="res://characters/save_point/save_point.tscn" id="3_d626p"]
+[ext_resource type="PackedScene" uid="uid://drs5ydkmer1fr" path="res://characters/npc/shop_npc.tscn" id="4_vgk4i"]
+[ext_resource type="PackedScene" uid="uid://6kmj85gjwl3q" path="res://characters/player/player.tscn" id="5_qvd57"]
+[ext_resource type="PackedScene" uid="uid://c1hdahcd2l5bv" path="res://assets/3d_objects/elevator.tscn" id="6_ttmht"]
+[ext_resource type="PackedScene" uid="uid://bv7ut7bxvy7e0" path="res://world/music_area.tscn" id="7_gglsy"]
+[ext_resource type="AudioStream" uid="uid://dc7p72lhow3" path="res://assets/audio/music/bass_01.wav" id="8_35at2"]
+[ext_resource type="AudioStream" uid="uid://dxcqh8mpx0jqj" path="res://assets/audio/music/drums_01.wav" id="9_234f2"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rwy4s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mu10"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_d626p")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w48nd"]
+sky_top_color = Color(0.16481471, 0.4787498, 0.87051576, 1)
+sky_horizon_color = Color(0.16470589, 0.47843137, 0.87058824, 1)
+ground_bottom_color = Color(0.06891811, 0.078194045, 0.1423516, 1)
+ground_horizon_color = Color(0.16470589, 0.47843137, 0.87058824, 1)
+energy_multiplier = 0.4
+
+[sub_resource type="Sky" id="Sky_67mt2"]
+sky_material = SubResource("ProceduralSkyMaterial_w48nd")
+
+[sub_resource type="Environment" id="Environment_uw57a"]
+background_mode = 2
+sky = SubResource("Sky_67mt2")
+ambient_light_color = Color(0.16470589, 0.47843137, 0.87058824, 1)
+reflected_light_source = 2
+tonemap_mode = 2
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.41
+glow_strength = 1.2
+glow_bloom = 0.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fw5wi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s2j21"]
+size = Vector3(1.7530518, 1, 4.1114807)
+
+[node name="B1Lobby" type="Node3D" unique_id=1254196140]
+
+[node name="b1_lobby-col" parent="." unique_id=349483997 instance=ExtResource("1_d626p")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.0197492, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=95342577]
+transform = Transform3D(3.1643639, 0, -7.347571, 0, 8, 0, 7.347571, 0, 3.1643639, -2.0595598, 1.8391261, -0.10853431)
+cast_shadow = 3
+mesh = SubResource("PlaneMesh_rwy4s")
+surface_material_override/0 = SubResource("StandardMaterial3D_1mu10")
+
+[node name="World" type="Node" parent="." unique_id=1680285259]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=1287821833]
+environment = SubResource("Environment_uw57a")
+script = ExtResource("1_5alle")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=1395039824]
+transform = Transform3D(0.99454105, -0.10418536, 0.005784004, 0.006609485, 0.11821929, 0.9929655, -0.10413625, -0.98750675, 0.11826256, 0, 3.64, 0)
+light_color = Color(0.9906549, 0.8316517, 0.56902164, 1)
+light_energy = 8.0
+light_indirect_energy = 0.0
+light_cull_mask = 4294967293
+shadow_enabled = true
+shadow_blur = 2.139
+
+[node name="Characters" type="Node" parent="." unique_id=1035484770]
+
+[node name="Security" parent="Characters" unique_id=1894040314 instance=ExtResource("2_jo5oy")]
+transform = Transform3D(0.6148913, 0, 0.78861195, 0, 1, 0, -0.78861195, 0, 0.6148913, -3.2371604, 0.19695807, -0.91498303)
+visible = false
+
+[node name="SavePoint" parent="Characters" unique_id=1099453634 instance=ExtResource("3_d626p")]
+transform = Transform3D(0.85613185, 0, 0.5167575, 0, 1, 0, -0.5167575, 0, 0.85613185, 0.56575733, 0, -0.08873981)
+save_point_id = "b1_savepoint_01"
+spawn_offset = 0.01
+
+[node name="ShopNPC" parent="Characters" unique_id=640097572 instance=ExtResource("4_vgk4i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.077263415, 0, -0.5859514)
+npc_name = "Shop"
+
+[node name="Player" parent="Characters" unique_id=878661318 instance=ExtResource("5_qvd57")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32549223, 0.026820987, -0.29198617)
+
+[node name="Elevator" parent="." unique_id=1808230940 instance=ExtResource("6_ttmht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7574906, 0.15, -0.3244367)
+destination = "res://floors/b2.tscn"
+
+[node name="Music" type="Node" parent="." unique_id=945611223]
+
+[node name="MusicArea" parent="Music" unique_id=304901294 instance=ExtResource("7_gglsy")]
+audio_bus_name = &"Music"
+stream = ExtResource("8_35at2")
+blend_distance = 0.0
+
+[node name="CollisionShape3D" parent="Music/MusicArea" index="0" unique_id=1863019559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5)
+shape = SubResource("BoxShape3D_fw5wi")
+
+[node name="MusicArea2" parent="Music" unique_id=201850930 instance=ExtResource("7_gglsy")]
+audio_bus_name = &"Music"
+stream = ExtResource("9_234f2")
+blend_distance = 0.5
+
+[node name="CollisionShape3D" parent="Music/MusicArea2" index="0" unique_id=1863019559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3765259, 0.5, -0.84165955)
+shape = SubResource("BoxShape3D_s2j21")
+
+[editable path="Music/MusicArea"]
+[editable path="Music/MusicArea2"]

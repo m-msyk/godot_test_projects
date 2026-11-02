@@ -1,5 +1,7 @@
 class_name FootstepsComponent extends Node
 
+signal footstep_played(global_position: Vector3)
+
 @export var footstep_sound: AudioStream
 @export var footstep_bus: String = "SFX"
 @export var min_pitch: float = 0.8
@@ -35,3 +37,4 @@ func tick(delta: float, velocity: Vector3, base_speed: float) -> void:
 func _play_footstep() -> void:
 	audio_player.pitch_scale = randf_range(min_pitch, max_pitch)
 	audio_player.play()
+	footstep_played.emit((get_parent() as Node3D).global_position)

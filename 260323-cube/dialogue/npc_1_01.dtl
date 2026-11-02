@@ -1,37 +1,37 @@
-if QuestManager.is_quest_not_started("talk_to_perkins"):
-	benebolant: You're talking to me before you've gotten a quest.
-	benebolant: Are you ready to receive a quest?
+if QuestManager.is_quest_not_started("talk_to_researcher_1"):
+	security: You're talking to me before you've gotten a quest.
+	security: Are you ready to receive a quest?
 	- Yes
-		benebolant: Great.
+		security: Great.
 	- No, but yes
-		benebolant: This is my response when you say no but yes.
-	benebolant: I'm now giving you explanatory dialogue about the quest.
-	benebolant: Or maybe just some additional dialogue for fun.
-	You now feel ready to take on the quest.
+		security: This is my response when you say no but yes.
+	security: I'm now giving you explanatory dialogue about the quest.
+	security: Or maybe just some additional dialogue for fun.
+	security: You now feel ready to take on the quest.
 	[signal arg="quest_started:talk_to_perkins"]
 	[signal arg="floor_unlocked:b2"]
 
-elif QuestManager.is_quest_in_progress("talk_to_benebolant") == true:
-	benebolant: Oh Hatch 41 needs me? I'll bring my toolkit.
-	[signal arg="objective_completed:talk_to_benebolant:talk_to_benebolant_objective"]
+elif QuestManager.is_quest_in_progress("talk_to_security") == true:
+	security: Oh Hatch 41 needs me? I'll bring my toolkit.
+	[signal arg="objective_completed:talk_to_security:talk_to_benebolant_objective"]
 
-elif QuestManager.is_quest_in_progress("talk_to_perkins") == true:
-	benebolant: You're talking to me after you've gotten a quest.
+elif QuestManager.is_quest_in_progress("talk_to_researcher_1") == true:
+	security: You're talking to me after you've gotten a quest.
 
-elif QuestManager.is_quest_completed("talk_to_perkins") and not PlayerData.has_received_signature_from("benebolant"):
+elif QuestManager.is_quest_completed("talk_to_researcher_1") and not PlayerData.has_received_signature_from("security"):
 	if {battle_outcome} == "lose" or {battle_outcome} == "survive":
-		benebolant: Ready to try again?
+		security: Ready to try again?
 		- Yes
 			[signal arg="battle_accepted"]
 		- No
-			benebolant: Come back when you're ready.
+			security: Come back when you're ready.
 	else:
-		benebolant: Thank you for talking to Perkins.
-		benebolant: I'll give you my signature... but only if you can defeat me in a rhythm battle
+		security: Thank you for talking to Perkins.
+		security: I'll give you my signature... but only if you can defeat me in a rhythm battle
 		- Yes
 			[signal arg="battle_accepted"]
 		- No
-			benebolant: Come back when you're ready.
+			security: Come back when you're ready.
 
 else:
-	benebolant: No more talking, phew!
+	security: No more talking, phew!

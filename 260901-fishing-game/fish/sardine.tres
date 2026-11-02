@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FishSpecies" format=3]
+
+[ext_resource type="Script" path="res://fish/fish_species.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://lnkrjjmgp4ng" path="res://assets/2d_objects/fish/sardine.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "sardine"
+display_name = "Sardine"
+description = "A small, quick sardine. Easy to reel in."
+icon = ExtResource("2")
+catch_weight = 30.0
+display_scale = 0.6
+average_length_cm = 15.0
+base_value = 5.0

@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://yxw144axgrns"]
+
+[ext_resource type="StyleBox" uid="uid://dju6jjih4557o" path="res://assets/styles/menu_ui_panel_style.tres" id="1_t7e0r"]
+[ext_resource type="Script" uid="uid://droeyxo2d0odm" path="res://ui/main_menu.gd" id="1_wk0pr"]
+[ext_resource type="PackedScene" uid="uid://dnttuh7av0n0t" path="res://ui/floor_button.tscn" id="2_0dkrt"]
+[ext_resource type="PackedScene" uid="uid://d3vr6ava25ug0" path="res://ui/save_load_menu.tscn" id="4_rmr83"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmr83"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uxxo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ei257"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p8ri8"]
+
+[node name="MainMenu" type="Control" unique_id=1495048823]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wk0pr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1786562348]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74509805, 0.58431375, 0.19215687, 1)
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1822764025]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -30.0
+offset_right = 55.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_t7e0r")
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Panel" unique_id=942485178]
+layout_mode = 2
+alignment = 1
+
+[node name="StartButton" parent="Panel/ButtonContainer" unique_id=1909310485 instance=ExtResource("2_0dkrt")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../NewGameButton")
+text = "Start Game"
+
+[node name="NewGameButton" type="Button" parent="Panel/ButtonContainer" unique_id=119443877]
+visible = false
+layout_mode = 2
+focus_neighbor_top = NodePath("../StartButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rmr83")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8uxxo")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ei257")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p8ri8")
+text = "New Game"
+
+[node name="ExitButton" parent="Panel/ButtonContainer" unique_id=662591015 instance=ExtResource("2_0dkrt")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../NewGameButton")
+focus_neighbor_bottom = NodePath("../StartButton")
+text = "Exit"
+
+[node name="SaveLoadMenu" parent="." unique_id=904528767 instance=ExtResource("4_rmr83")]
+visible = false
+layout_mode = 1

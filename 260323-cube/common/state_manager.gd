@@ -32,7 +32,7 @@ func set_state(new_state: State) -> void:
 	state_changed.emit(new_state)
 
 func _apply_state() -> void:
-	print(current_state)
+	print("applying state: ", current_state)
 	match current_state:
 		State.FREE:
 			get_tree().paused = false

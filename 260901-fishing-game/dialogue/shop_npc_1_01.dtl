@@ -1,0 +1,4 @@
+vending_machine: would u like to upgrade your gear?
+- yes
+	[signal arg="shop_open"]
+- no

@@ -1,0 +1,19 @@
+if QuestManager.is_quest_in_progress("talk_to_echo") == true:
+	echo: THAT PERKINS WANTED ME TO COME UP THERE DID HE
+	echo: FINE
+	[signal arg="objective_completed:talk_to_echo:talk_to_hatch_41_objective"]
+	elif QuestManager.is_quest_not_started("talk_to_security"):
+		echo: BUT FIRST
+		echo: PLEASE TELL MY CREATOR TO COME REPAIR ME
+		[signal arg="quest_started:talk_to_benebolant"]
+
+elif QuestManager.is_quest_not_started("talk_to_security") == true:
+	echo: HELLO THERE
+	echo: PLEASE TELL MY CREATOR TO COME REPAIR ME
+	[signal arg="quest_started:talk_to_benebolant"]
+elif QuestManager.is_quest_in_progress("talk_to_security") == true:
+	echo: YOU MUST BRING ME MY CREATOR
+elif QuestManager.is_quest_completed("talk_to_security"):
+	echo: THANK YOU FOR TELLING MY CREATOR TO COME REPAIR ME
+else:
+	echo: IM CHILLING NOW

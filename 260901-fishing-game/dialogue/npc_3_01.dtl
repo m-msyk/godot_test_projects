@@ -1,0 +1,20 @@
+if QuestManager.is_quest_not_started("talk_to_researcher_2") and QuestManager.is_quest_not_started("talk_to_vicky"):
+	vicky: Talk to Blockid.
+	[signal arg="quest_started:talk_to_blockid"]
+	if QuestManager.is_quest_not_started("talk_to_hatch_41")
+		vicky: Here, I'll give you access to B3.
+		vicky: Best of luck.
+		[signal arg="floor_unlocked:b3"]
+elif QuestManager.is_quest_in_progress("talk_to_vicky"):
+	vicky: Oh, Blockid wanted you to see me?
+	vicky: Thanks for letting me know.
+	[signal arg="objective_completed:talk_to_vicky:talk_to_aylisha_objective"]
+	if QuestManager.is_quest_not_started("talk_to_researcher_2") == true:
+		vicky: Actually, do you mind going back and asking them to come see me?
+		[signal arg="quest_started:talk_to_blockid"]
+elif QuestManager.is_quest_in_progress("talk_to_researcher_2"):
+	vicky: You're talking to me after starting the quest.
+elif QuestManager.is_quest_completed("talk_to_researcher_2"):
+	vicky: Thanks for talking to Blockid.
+else:
+	vicky: No more talking, phew.

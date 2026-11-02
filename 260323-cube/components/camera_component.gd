@@ -21,6 +21,7 @@ func _on_sensitivity_changed(value: float) -> void:
 func _process(_delta: float) -> void:
 	if StateManager.current_state == StateManager.State.FREE:
 		orbit_angle += deg_to_rad(input.mouse_delta.x * rotation_speed)
+		input.mouse_delta = Vector2.ZERO  # reset after reading
 	_update_camera_transform()
 
 func _update_camera_transform() -> void:

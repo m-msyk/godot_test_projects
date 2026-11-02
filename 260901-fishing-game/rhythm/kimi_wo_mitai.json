@@ -1,0 +1,609 @@
+{
+  "title": "Kimi wo Mitai",
+  "artist": "Yunosuke",
+  "bpm": 126.0,
+  "offset": 246.0,
+  "ms_per_beat": 476.1905,
+  "hit_objects": [
+    {
+      "lane": 0,
+      "time": 246.0,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 722.1905,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 1198.381,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 1674.5714,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 1793.619,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 1912.6667,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 2031.7143,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 2388.8571,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 2746.0,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 3103.1429,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 3222.1905,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 3341.2381,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 3460.2857,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 3698.381,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 3817.4286,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 4055.5238,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 4531.7143,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 5007.9048,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 5484.0952,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 5603.1429,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 5722.1905,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 5841.2381,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 6198.381,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 6555.5238,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 6912.6667,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 7031.7143,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 7150.7619,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 7269.8095,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 7507.9048,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 7626.9524,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 7865.0476,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 8341.2381,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 8817.4286,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 9293.619,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 9412.6667,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 9531.7143,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 9650.7619,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 10007.9048,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 10365.0476,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 10722.1905,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 10841.2381,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 10960.2857,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 11079.3333,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 11317.4286,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 11436.4762,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 11674.5714,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 12150.7619,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 12626.9524,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 13103.1429,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 13222.1905,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 13341.2381,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 13460.2857,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 13817.4286,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 14174.5714,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 14531.7143,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 14650.7619,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 14769.8095,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 14888.8571,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 15126.9524,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 15246.0,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 15484.0952,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 15960.2857,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 16436.4762,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 16912.6667,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 17031.7143,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 17150.7619,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 17269.8095,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 17626.9524,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 17984.0952,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 18341.2381,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 18460.2857,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 18579.3333,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 18698.381,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 18936.4762,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 19055.5238,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 19293.619,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 19769.8095,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 20246.0,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 20722.1905,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 20841.2381,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 20960.2857,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 21079.3333,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 21436.4762,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 21793.619,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 22150.7619,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 22269.8095,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 22388.8571,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 22507.9048,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 22746.0,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 22865.0476,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 23103.1429,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 23579.3333,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 24055.5238,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 24531.7143,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 24650.7619,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 24769.8095,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 24888.8571,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 25246.0,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 25603.1429,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 25960.2857,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 26079.3333,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 26198.381,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 26317.4286,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 26555.5238,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 26674.5714,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 26912.6667,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 27388.8571,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 27865.0476,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 28341.2381,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 28460.2857,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 28579.3333,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 28698.381,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 29055.5238,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 29412.6667,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 29769.8095,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 29888.8571,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 30007.9048,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 30126.9524,
+      "type": "note"
+    },
+    {
+      "lane": 1,
+      "time": 30365.0476,
+      "type": "note"
+    },
+    {
+      "lane": 0,
+      "time": 30484.0952,
+      "type": "note"
+    }
+  ]
+}

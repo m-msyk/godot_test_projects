@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cmuux3u05vr0p" path="res://characters/npc/hatch_41.tscn" id="2_o5k66"]
 [ext_resource type="PackedScene" uid="uid://6kmj85gjwl3q" path="res://characters/player/player.tscn" id="2_y8mrh"]
 [ext_resource type="Resource" uid="uid://n02pl8jnnc7w" path="res://dialogue/save_point_3_01.dtl" id="3_2dtq6"]
-[ext_resource type="PackedScene" uid="uid://bbetk325coars" path="res://characters/npc/blockid.tscn" id="3_l3kjc"]
-[ext_resource type="PackedScene" uid="uid://c1hdahcd2l5bv" path="res://assets/objects/elevator.tscn" id="5_apdle"]
+[ext_resource type="PackedScene" uid="uid://bbetk325coars" path="res://characters/npc/researcher_2.tscn" id="3_l3kjc"]
+[ext_resource type="PackedScene" uid="uid://c1hdahcd2l5bv" path="res://assets/3d_objects/elevator.tscn" id="5_apdle"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l3kjc"]
 sky_top_color = Color(0.40884992, 0.63746977, 0.5064003, 1)

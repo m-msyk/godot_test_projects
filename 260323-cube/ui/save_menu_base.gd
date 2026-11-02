@@ -7,12 +7,21 @@ class_name SaveMenuBase extends Control
 @onready var secondary_button: Button = $Panel/Content/ButtonRow/SecondaryButton
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	hide()
 	_connect_signals()
 
 func _connect_signals() -> void:
 	primary_button.pressed.connect(_on_primary_pressed)
 	secondary_button.pressed.connect(_on_secondary_pressed)
+
+func _input(event: InputEvent) -> void:
+	if not visible:
+		return
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_ESCAPE:
+			_on_secondary_pressed()
+			get_viewport().set_input_as_handled()
 
 func populate(floor_id: String, area: String, time_seconds: float) -> void:
 	floor_label.text = floor_id

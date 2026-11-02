@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://5dbphl2exq80"]
+
+[ext_resource type="PackedScene" uid="uid://qwi2hc4nu11b" path="res://assets/3d_objects/plastic_table.glb" id="1_hye72"]
+
+[node name="plastic_table" unique_id=1912189238 instance=ExtResource("1_hye72")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

@@ -1,0 +1,35 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cs2joj2wductl"]
+
+[ext_resource type="Shader" uid="uid://cwq772qc7fbgw" path="res://assets/materials/cel_shader_water.gdshader" id="1_ys6ge"]
+[ext_resource type="Texture2D" uid="uid://c3xsk7aduhtpm" path="res://assets/2d_objects/b1_ceiling.png" id="2_uks5a"]
+[ext_resource type="Texture2D" uid="uid://bxsj226uecb2w" path="res://assets/2d_objects/water_ripple_normal.png" id="3_cpldc"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ys6ge")
+shader_parameter/wave_normal_map = ExtResource("3_cpldc")
+shader_parameter/light_pattern = ExtResource("2_uks5a")
+shader_parameter/wave_speed_1 = Vector2(0.01, 0.005)
+shader_parameter/wave_speed_2 = Vector2(-0.01, 0.01)
+shader_parameter/wave_scale = 0.2
+shader_parameter/distortion_strength = 0.001
+shader_parameter/water_color = Color(0.2, 0.4, 0.8, 1)
+shader_parameter/light_color = Color(0.9156691, 0.8457651, 0.76350427, 1)
+shader_parameter/light_pattern_scale = 0.135
+shader_parameter/light_pattern_offset = Vector2(0.438, 0.412)
+shader_parameter/light_pattern_rotation = 22.77200108167
+shader_parameter/flip_horizontal = true
+shader_parameter/light_threshold = 0.5
+shader_parameter/ripple_origins = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/ripple_start_times = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/game_time = 0.0
+shader_parameter/ripple_duration = 1.5
+shader_parameter/ripple_wavelength = 1.6
+shader_parameter/ripple_speed = 6.0
+shader_parameter/ripple_falloff = 3.0
+shader_parameter/ripple_strength = 0.08
+shader_parameter/ripple_glow_strength = 0.15
+shader_parameter/ripple_glow_threshold = 0.3
+shader_parameter/ripple_noise_strength = 0.7
+shader_parameter/ripple_echo_delay = 0.3
+shader_parameter/ripple_echo_strength = 0.5

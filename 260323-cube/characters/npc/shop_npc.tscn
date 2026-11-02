@@ -15,9 +15,9 @@ size = Vector3(0.1, 0.2, 0.1)
 radius = 0.05
 height = 0.2
 
-[node name="ShopNPC" unique_id=1894040314 instance=ExtResource("1_hlwcj")]
+[node name="VendingMachine" unique_id=1894040314 instance=ExtResource("1_hlwcj")]
 script = ExtResource("2_4u85u")
-npc_name = "Merchant"
+npc_name = "VendingMachine"
 timeline_01 = ExtResource("3_hlwcj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=1172255665]

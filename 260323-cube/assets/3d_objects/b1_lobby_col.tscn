@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bfs0wjenq27v6"]
+
+[ext_resource type="PackedScene" uid="uid://cjnnm4orfx7aw" path="res://assets/3d_objects/b1_lobby-col.glb" id="1_ba81x"]
+[ext_resource type="Material" uid="uid://cs2joj2wductl" path="res://assets/materials/b1_lobby_pool_water_surface_settings.tres" id="2_aomd2"]
+
+[node name="b1_lobby-col" unique_id=349483997 instance=ExtResource("1_ba81x")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="water" parent="." index="3" unique_id=210121920 groups=["water"]]
+layers = 2
+surface_material_override/0 = ExtResource("2_aomd2")

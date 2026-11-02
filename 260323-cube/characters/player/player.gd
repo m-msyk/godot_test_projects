@@ -5,6 +5,7 @@ class_name Player extends CharacterBody3D
 @onready var interaction_component: InteractionComponent = %InteractionComponent
 @onready var camera: CameraComponent = %CameraComponent
 @onready var footsteps_component: FootstepsComponent = %FootstepsComponent
+@onready var water_ripple_component: WaterRippleComponent = %WaterRippleComponent
 
 func _ready() -> void:
 	add_to_group("player")
@@ -22,3 +23,4 @@ func _physics_process(delta: float) -> void:
 	movement_component.wants_jump = input_component.jump_pressed
 	movement_component.tick(delta, camera.orbit_angle)
 	footsteps_component.tick(delta, movement_component.body.velocity, movement_component.speed)
+	water_ripple_component.tick(delta)

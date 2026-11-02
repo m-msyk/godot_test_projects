@@ -1,0 +1,16 @@
+if QuestManager.is_quest_completed("talk_to_echo"):
+	researcher_1: Thanks for talking to that hunk of metal.
+elif QuestManager.is_quest_in_progress("talk_to_echo") == true:
+	researcher_1: Find Hatch.
+elif QuestManager.is_quest_completed("talk_to_researcher_1") and not QuestManager.is_quest_completed("talk_to_echo"):
+	researcher_1: Now that you've completed Benebolant's task of talking to me, I'll give you my task.
+	researcher_1: I'll give you the key to B3. Go talk to the robot down there.
+	[signal arg="quest_started:talk_to_hatch_41"]
+	[signal arg="floor_unlocked:b3"]
+elif QuestManager.is_quest_in_progress("talk_to_researcher_1") == true:
+	researcher_1: This dialogue shows if you're currently on the "talk to Perkins" quest.
+	researcher_1: Because the condition for completing the quest is talking to me, you've just completed it.
+	You feel that you now understand Dialogic a little better.
+	[signal arg="objective_completed:talk_to_researcher_1:talk_to_perkins_objective"]
+else:
+	researcher_1: Now you're talking to me outside the quest.

@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://d0154mp1357y1"]
+
+[ext_resource type="Script" uid="uid://hva3alao7b11" path="res://ui/save_menu_base.gd" id="1_ocid2"]
+[ext_resource type="StyleBox" uid="uid://dju6jjih4557o" path="res://assets/styles/menu_ui_panel_style.tres" id="2_bclv8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ocid2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bclv8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6hpqi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_teril"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g37b4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tb1nw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jl5xs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_54i6v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjih0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aq46r"]
+
+[node name="SaveMenuBase" type="Control" unique_id=904528767]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ocid2")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1666640296]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -30.0
+offset_right = 50.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_bclv8")
+
+[node name="Content" type="VBoxContainer" parent="Panel" unique_id=1661056484]
+layout_mode = 2
+
+[node name="LocationRow" type="HBoxContainer" parent="Panel/Content" unique_id=2116862187]
+layout_mode = 2
+
+[node name="FloorLabel" type="Label" parent="Panel/Content/LocationRow" unique_id=2055788926]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AreaLabel" type="Label" parent="Panel/Content/LocationRow" unique_id=779998020]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="TimeRow" type="HBoxContainer" parent="Panel/Content" unique_id=1846475775]
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="Panel/Content/TimeRow" unique_id=1958475943]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="ButtonRow" type="HBoxContainer" parent="Panel/Content" unique_id=1841752020]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="PrimaryButton" type="Button" parent="Panel/Content/ButtonRow" unique_id=1026665083]
+layout_mode = 2
+focus_neighbor_left = NodePath("../SecondaryButton")
+focus_neighbor_right = NodePath("../SecondaryButton")
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ocid2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bclv8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6hpqi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_teril")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g37b4")
+
+[node name="SecondaryButton" type="Button" parent="Panel/Content/ButtonRow" unique_id=1225871177]
+layout_mode = 2
+focus_neighbor_left = NodePath("../PrimaryButton")
+focus_neighbor_right = NodePath("../PrimaryButton")
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tb1nw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jl5xs")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_54i6v")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jjih0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aq46r")

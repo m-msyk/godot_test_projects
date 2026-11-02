@@ -1,0 +1,28 @@
+class_name Player extends CharacterBody3D
+
+@onready var input_component: InputComponent = %InputComponent
+@onready var movement_component: MovementComponent = %MovementComponent
+@onready var interaction_component: InteractionComponent = %InteractionComponent
+@onready var camera: CameraComponent = %CameraComponent
+@onready var footsteps_component: FootstepsComponent = %FootstepsComponent
+@onready var water_ripple_component: WaterRippleComponent = %WaterRippleComponent
+@onready var fishing_component: FishingComponent = %FishingComponent
+
+func _ready() -> void:
+	add_to_group("player")
+	_connect_signals()
+
+func _connect_signals() -> void:
+	interaction_component.interacted_with_npc.connect(_on_interacted_with_npc)
+
+func _on_interacted_with_npc(_npc: NPC) -> void:
+	pass
+
+func _physics_process(delta: float) -> void:
+	input_component.update()
+	movement_component.direction = input_component.move_dir
+	movement_component.wants_jump = input_component.jump_pressed
+	movement_component.tick(delta, camera.orbit_angle)
+	footsteps_component.tick(delta, movement_component.body.velocity, movement_component.speed)
+	water_ripple_component.tick(delta)
+	fishing_component.tick(delta)

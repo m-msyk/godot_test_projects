@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ctnnqwvxwwvcc"]
+
+[ext_resource type="Script" uid="uid://db44r0attljva" path="res://components/footsteps_component.gd" id="1_dttq4"]
+
+[node name="FootstepsComponent" type="Node" unique_id=1516163404]
+script = ExtResource("1_dttq4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=307593054]

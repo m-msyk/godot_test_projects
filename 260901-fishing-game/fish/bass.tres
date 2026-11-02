@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FishSpecies" format=3]
+
+[ext_resource type="Script" path="res://fish/fish_species.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://chk4flvaqb13b" path="res://assets/2d_objects/fish/bass.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "bass"
+display_name = "Bass"
+description = "A common bass, usually the first fish you'll reel in."
+icon = ExtResource("2")
+catch_weight = 40.0
+display_scale = 1.0
+average_length_cm = 35.0
+base_value = 15.0

@@ -35,12 +35,29 @@ WorldState="*uid://dy4qh6asotsq0"
 [dialogic]
 
 directories/dch_directory={
-"aylisha": "res://characters/npc/profiles/aylisha.dch",
-"benebolant": "res://characters/npc/profiles/benebolant.dch",
-"blockid": "res://characters/npc/profiles/blockid.dch",
-"hatch_41": "res://characters/npc/profiles/hatch_41.dch",
-"merchant": "res://characters/npc/profiles/merchant.dch",
-"perkins": "res://characters/npc/profiles/perkins.dch"
+"accounting_manager": "res://characters/npc/profiles/accounting_manager.dch",
+"assistant": "res://characters/npc/profiles/assistant.dch",
+"ceo": "res://characters/npc/profiles/ceo.dch",
+"database_admin": "res://characters/npc/profiles/database_admin.dch",
+"echo": "res://characters/npc/profiles/echo.dch",
+"financial_analyst": "res://characters/npc/profiles/financial_analyst.dch",
+"graphic_designer": "res://characters/npc/profiles/graphic_designer.dch",
+"intern": "res://characters/npc/profiles/intern.dch",
+"it_manager": "res://characters/npc/profiles/it_manager.dch",
+"janitor": "res://characters/npc/profiles/janitor.dch",
+"marketing_manager": "res://characters/npc/profiles/marketing_manager.dch",
+"marketing_strategist": "res://characters/npc/profiles/marketing_strategist.dch",
+"nicollete": "res://characters/npc/profiles/nicollete.dch",
+"project_manager": "res://characters/npc/profiles/project_manager.dch",
+"researcher_1": "res://characters/npc/profiles/researcher_1.dch",
+"researcher_2": "res://characters/npc/profiles/researcher_2.dch",
+"researcher_3": "res://characters/npc/profiles/researcher_3.dch",
+"security": "res://characters/npc/profiles/security.dch",
+"social_media_manager": "res://characters/npc/profiles/social_media_manager.dch",
+"supply_chain_manager": "res://characters/npc/profiles/supply_chain_manager.dch",
+"tech_support": "res://characters/npc/profiles/tech_support.dch",
+"vending_machine": "res://characters/npc/profiles/vending_machine.dch",
+"vicky": "res://characters/npc/profiles/vicky.dch"
 }
 directories/dtl_directory={
 "npc_1_01": "res://dialogue/npc_1_01.dtl",

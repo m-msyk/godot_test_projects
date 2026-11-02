@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bbetk325coars"]
+
+[ext_resource type="PackedScene" uid="uid://k0oyw5vr6fg6" path="res://characters/npc/npc.tscn" id="1_cmx16"]
+[ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="2_axclp"]
+[ext_resource type="Resource" uid="uid://dqnqwxeyc2omf" path="res://quests/talk_to_aylisha.tres" id="3_0mtnh"]
+[ext_resource type="Resource" uid="uid://b85ljwkf8co3y" path="res://dialogue/npc_5_01.dtl" id="4_refti"]
+[ext_resource type="PackedScene" uid="uid://bg1xclqtoxvpb" path="res://assets/3d_objects/fella.glb" id="5_ws30o"]
+[ext_resource type="Script" uid="uid://cek6l3u2d1moi" path="res://components/shader_component.gd" id="6_qgjft"]
+[ext_resource type="Script" uid="uid://ccv8q7mx4d7vd" path="res://components/dialogic_component.gd" id="7_v0vxn"]
+[ext_resource type="Script" uid="uid://b4s0jjoquvchf" path="res://components/health_component.gd" id="8_ovnm0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u1vvr"]
+radius = 0.05
+height = 0.2
+
+[node name="Researcher2" unique_id=1894040314 instance=ExtResource("1_cmx16")]
+npc_name = "Reseacher2"
+quests = Array[ExtResource("2_axclp")]([ExtResource("3_0mtnh")])
+timeline_01 = ExtResource("4_refti")
+
+[node name="fella" parent="." index="0" unique_id=969446320 instance=ExtResource("5_ws30o")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1179143907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("CapsuleShape3D_u1vvr")
+
+[node name="ShaderComponent" type="Node" parent="." index="2" unique_id=1619866453 node_paths=PackedStringArray("model")]
+script = ExtResource("6_qgjft")
+model = NodePath("../fella")
+metadata/_custom_type_script = "uid://cek6l3u2d1moi"
+
+[node name="DialogicComponent" type="Node" parent="." index="3" unique_id=1660114880]
+script = ExtResource("7_v0vxn")
+timeline = ExtResource("4_refti")
+metadata/_custom_type_script = "uid://ccv8q7mx4d7vd"
+
+[node name="HealthComponent" type="Node" parent="." index="4" unique_id=1955633483]
+script = ExtResource("8_ovnm0")
+max_health = 500
+metadata/_custom_type_script = "uid://b4s0jjoquvchf"

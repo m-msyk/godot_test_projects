@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://dqv1snsctla3"]
+
+[ext_resource type="Script" uid="uid://bulc65caybomy" path="res://quests/objectives.gd" id="1_rp2j3"]
+[ext_resource type="Script" uid="uid://dfan1wl5a813k" path="res://quests/rewards.gd" id="2_mi6kd"]
+[ext_resource type="Script" uid="uid://bt8alh5pghjl5" path="res://quests/quests.gd" id="3_7b1u1"]
+
+[sub_resource type="Resource" id="Resource_rp2j3"]
+script = ExtResource("1_rp2j3")
+id = "talk_to_benebolant_objective"
+description = "Find Benebolant"
+target_id = "benebolant"
+target_type = "talk_to"
+metadata/_custom_type_script = "uid://bulc65caybomy"
+
+[resource]
+script = ExtResource("3_7b1u1")
+quest_id = "talk_to_benebolant"
+quest_name = "Talk to Benebolant"
+quest_description = "Find Hatch 41's creator"
+objectives = Array[ExtResource("1_rp2j3")]([SubResource("Resource_rp2j3")])
+metadata/_custom_type_script = "uid://bt8alh5pghjl5"

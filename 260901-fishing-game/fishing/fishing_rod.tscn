@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://doxbrw4djwy7b"]
+
+[ext_resource type="Script" uid="uid://c0408l6h3s3nw" path="res://fishing/fishing_line.gd" id="1_line"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rod"]
+shading_mode = 0
+albedo_color = Color(0.35, 0.25, 0.15, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rod"]
+material = SubResource("StandardMaterial3D_rod")
+top_radius = 0.0015
+bottom_radius = 0.004
+height = 0.18
+
+[node name="FishingRod" type="Node3D" unique_id=470610477]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0.025, 0.02, -0.02)
+
+[node name="RodMesh" type="MeshInstance3D" parent="." unique_id=2109531273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09, 0)
+mesh = SubResource("CylinderMesh_rod")
+
+[node name="RodTip" type="Marker3D" parent="." unique_id=740883837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
+
+[node name="FishingLine" type="MeshInstance3D" parent="." unique_id=1692328643 node_paths=PackedStringArray("start_point")]
+script = ExtResource("1_line")
+start_point = NodePath("../RodTip")
+slack_amount = 0.04
+line_width = 0.004

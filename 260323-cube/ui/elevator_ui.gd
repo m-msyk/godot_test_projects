@@ -6,10 +6,10 @@ const FLOOR_BUTTON = preload("res://ui/floor_button.tscn")
 
 @onready var floor_list: VBoxContainer = $Panel/FloorList
 
-const FLOOR_NAMES: Dictionary = {
-	"b1": "B1",
-	"b2": "B2",
-	"b3": "B3",
+const FLOORS: Dictionary = {
+	"b1": {"display": "B1", "scene": "b1_office"},
+	"b2": {"display": "B2", "scene": "b2_lobby"},
+	"b3": {"display": "B3", "scene": "b3_server"},
 }
 
 func _ready() -> void:
@@ -38,15 +38,15 @@ func _populate_floors() -> void:
 		child.queue_free()
 	var buttons: Array = []
 	var enabled_buttons: Array = []
-	for floor_id in FLOOR_NAMES.keys():
+	for floor_id in FLOORS.keys():
 		var button := FLOOR_BUTTON.instantiate()
-		button.text = FLOOR_NAMES[floor_id]
+		button.text = FLOORS[floor_id]["display"]
 		button.process_mode = Node.PROCESS_MODE_ALWAYS
-		var is_current = floor_id == FloorManager.current_floor
-		var is_unlocked = FloorManager.is_floor_unlocked(floor_id)
+		var is_current: bool = floor_id == FloorManager.current_floor
+		var is_unlocked: bool = FloorManager.is_floor_unlocked(floor_id)
 		button.disabled = is_current or not is_unlocked
 		if not button.disabled:
-			button.pressed.connect(_on_floor_selected.bind(floor_id))
+			button.pressed.connect(_on_floor_selected.bind(FLOORS[floor_id]["scene"]))
 			enabled_buttons.append(button)
 		floor_list.add_child(button)
 		buttons.append(button)

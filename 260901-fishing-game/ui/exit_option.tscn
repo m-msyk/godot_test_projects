@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c1wg54mkftaqf"]
+
+[ext_resource type="Script" uid="uid://chelbgvtyo4n1" path="res://ui/exit_option.gd" id="1_6xhgp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s8ysl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rwcer"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0phve"]
+
+[node name="ExitOption" type="Button" unique_id=1998191692]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s8ysl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rwcer")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0phve")
+text = "Exit Game"
+script = ExtResource("1_6xhgp")

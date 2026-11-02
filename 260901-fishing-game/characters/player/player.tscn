@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://6kmj85gjwl3q"]
+
+[ext_resource type="Script" uid="uid://tbn0x5v8mwy8" path="res://characters/player/player.gd" id="1_6t5aa"]
+[ext_resource type="Shader" uid="uid://dpmeckvtx4aq" path="res://assets/materials/cel_shader.gdshader" id="2_idpv6"]
+[ext_resource type="Script" uid="uid://cl830i8dbho3e" path="res://components/input_component.gd" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://c33kxgd6y8dsa" path="res://components/interaction_component.gd" id="4_dirf7"]
+[ext_resource type="Script" uid="uid://cc4jtpufjx5" path="res://components/camera_component.gd" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://d18uwmtvmm0ks" path="res://components/movement_component.gd" id="4_vgqql"]
+[ext_resource type="Script" uid="uid://dmjcduwvhj50c" path="res://components/menu_component.gd" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://ctnnqwvxwwvcc" path="res://components/FootstepsComponent.tscn" id="5_rpf03"]
+[ext_resource type="PackedScene" uid="uid://wxy2iefjdjte" path="res://ui/menu_ui.tscn" id="5_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://cxsucv7y8carn" path="res://assets/audio/sfx/footstep.mp3" id="6_3t07l"]
+[ext_resource type="Script" uid="uid://r6cl8a0xd73x" path="res://components/water_ripple_component.gd" id="12_on558"]
+[ext_resource type="Script" uid="uid://dsvwyq5xuny4x" path="res://components/fishing_component.gd" id="13_fishn"]
+[ext_resource type="PackedScene" path="res://fishing/fishing_rod.tscn" id="14_rod"]
+[ext_resource type="Script" uid="uid://ccv8q7mx4d7vd" path="res://components/dialogic_component.gd" id="15_dlgc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x5dtk"]
+render_priority = 0
+shader = ExtResource("2_idpv6")
+shader_parameter/albedo = Color(0.79476964, 0, 0, 1)
+shader_parameter/use_texture = false
+shader_parameter/shading_steps = 2.0
+shader_parameter/shadow_softness = 0.0
+shader_parameter/ambient_light = 0.26800001273
+shader_parameter/rim_strength = 0.0
+shader_parameter/rim_sharpness = 3.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qhqgy"]
+material = SubResource("ShaderMaterial_x5dtk")
+radius = 0.05
+height = 0.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cvnsp"]
+radius = 0.05
+height = 0.2
+
+[node name="Player" type="CharacterBody3D" unique_id=878661318]
+script = ExtResource("1_6t5aa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2031690714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("CapsuleMesh_qhqgy")
+
+[node name="FishingRod" parent="MeshInstance3D" instance=ExtResource("14_rod")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=57808218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("CapsuleShape3D_cvnsp")
+
+[node name="InputComponent" type="Node" parent="." unique_id=1860400574]
+unique_name_in_owner = true
+script = ExtResource("2_qhqgy")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1853126737 node_paths=PackedStringArray("body", "model")]
+unique_name_in_owner = true
+script = ExtResource("4_vgqql")
+body = NodePath("..")
+model = NodePath("../MeshInstance3D")
+speed = 0.7
+
+[node name="FootstepsComponent" parent="." unique_id=1516163404 instance=ExtResource("5_rpf03")]
+unique_name_in_owner = true
+footstep_sound = ExtResource("6_3t07l")
+base_step_interval = 0.3
+
+[node name="InteractionComponent" type="Node" parent="." unique_id=1795884459 node_paths=PackedStringArray("model", "body")]
+unique_name_in_owner = true
+script = ExtResource("4_dirf7")
+interaction_radius = 0.3
+interaction_angle = 65.0
+model = NodePath("../MeshInstance3D")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://c33kxgd6y8dsa"
+
+[node name="MenuComponent" type="Node" parent="." unique_id=589649678]
+unique_name_in_owner = true
+script = ExtResource("5_qlg0r")
+metadata/_custom_type_script = "uid://dmjcduwvhj50c"
+
+[node name="MenuUI" parent="MenuComponent" unique_id=331454349 instance=ExtResource("5_tuyoq")]
+
+[node name="CameraComponent" type="Camera3D" parent="." unique_id=468448109 node_paths=PackedStringArray("menu")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 6.381359e-08, -1.3684867e-07, 0, 0.90630776, 0.4226183, 1.509958e-07, 0.4226183, -0.90630776, 0, 0, 0)
+fov = 50.0
+size = 2.0
+script = ExtResource("4_dqkch")
+menu = NodePath("../MenuComponent")
+
+[node name="WaterRippleComponent" type="Node" parent="." unique_id=2146181639 node_paths=PackedStringArray("footsteps")]
+unique_name_in_owner = true
+script = ExtResource("12_on558")
+footsteps = NodePath("../FootstepsComponent")
+metadata/_custom_type_script = "uid://r6cl8a0xd73x"
+
+[node name="FishingComponent" type="Node" parent="." unique_id=-982522086 node_paths=PackedStringArray("body", "model", "fishing_line", "interaction_component", "dialogic_component")]
+unique_name_in_owner = true
+script = ExtResource("13_fishn")
+body = NodePath("..")
+model = NodePath("../MeshInstance3D")
+fishing_line = NodePath("../MeshInstance3D/FishingRod/FishingLine")
+interaction_component = NodePath("../InteractionComponent")
+dialogic_component = NodePath("DialogicComponent")
+throw_horizontal_speed = 2.0
+throw_vertical_speed = 2.0
+max_bobber_distance = 5.0
+
+[node name="DialogicComponent" type="Node" parent="FishingComponent" unique_id=1372177301]
+script = ExtResource("15_dlgc")
+metadata/_custom_type_script = "uid://ccv8q7mx4d7vd"

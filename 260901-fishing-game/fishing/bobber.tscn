@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b8ewddjoxbbfx"]
+
+[ext_resource type="Script" uid="uid://ddwpfr1psl8tn" path="res://fishing/bobber.gd" id="1_bobber"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bobber"]
+friction = 0.1
+bounce = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bobber"]
+shading_mode = 0
+albedo_color = Color(1, 0.1, 0.1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_bobber"]
+material = SubResource("StandardMaterial3D_bobber")
+radius = 0.01
+height = 0.02
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bobber"]
+radius = 0.012
+
+[node name="Bobber" type="RigidBody3D" unique_id=1736818848]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 0.05
+physics_material_override = SubResource("PhysicsMaterial_bobber")
+continuous_cd = true
+linear_damp = 0.3
+angular_damp = 0.3
+script = ExtResource("1_bobber")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1947150369]
+mesh = SubResource("SphereMesh_bobber")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1372177297]
+shape = SubResource("SphereShape3D_bobber")
+
+[node name="FishSprite" type="Sprite3D" parent="." unique_id=1372177298]
+visible = false
+pixel_size = 0.0025
+billboard = 1
+shaded = false
+texture_filter = 0

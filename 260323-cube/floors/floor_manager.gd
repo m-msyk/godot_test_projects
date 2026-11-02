@@ -5,6 +5,12 @@ signal floor_unlocked(floor_id: String)
 var unlocked_floors: Array[String] = ["b1"]
 var current_floor: String = "b1"
 
+const FLOOR_SCENES: Dictionary = {
+	"b1": "b1_office",
+	"b2": "b2_lobby",
+	"b3": "b3_server",
+}
+
 func _ready() -> void:
 	SaveManager.game_reset.connect(reset)
 
@@ -19,6 +25,9 @@ func is_floor_unlocked(floor_id: String) -> bool:
 
 func set_current_floor(floor_id: String) -> void:
 	current_floor = floor_id
+
+func get_current_scene() -> String:
+	return FLOOR_SCENES.get(current_floor, "b1_office")
 
 func get_unlocked_floors() -> Array[String]:
 	return unlocked_floors

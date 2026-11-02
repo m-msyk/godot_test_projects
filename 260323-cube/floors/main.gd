@@ -1,5 +1,3 @@
-## 
-
 class_name Main extends Node
 
 @onready var current_level: Node = $CurrentLevel
@@ -9,10 +7,8 @@ class_name Main extends Node
 
 var _current_battle: RhythmBattle = null
 var _current_npc: NPC = null
+var _pre_battle_player_position: Vector3
 
-var _pre_battle_player_position: Vector3 # Saves player position to know where to return to after battle
-
-## Calls [method SaveManager.load_game].
 func _ready() -> void:
 	StateManager.initialize()
 	await get_tree().process_frame
@@ -22,13 +18,12 @@ func _ready() -> void:
 		print("rhythm_points: ", PlayerData.rhythm_points)
 		print("upgrades: ", PlayerData.upgrades)
 		print("note_offset: ", (PlayerData.note_offset - 0.25) * 1000)
-		_load_level_immediate(FloorManager.current_floor)
+		_load_level_immediate(FloorManager.get_current_scene())
 		_spawn_player_at_save_point()
 	else:
-		_load_level_immediate("b1")
+		_load_level_immediate("b1_office")
 	await ScreenFade.fade_from_black()
 
-## Connects to signals emitted by [ElevatorUI.floor_selected]
 func _connect_signals() -> void:
 	elevator_ui.floor_selected.connect(_on_floor_selected)
 
@@ -64,8 +59,9 @@ func _spawn_player_at_save_point() -> void:
 				player.global_position = sp.get_spawn_position()
 			return
 
-func _load_level_immediate(floor_id: String) -> void:
-	var path := "res://floors/" + floor_id + ".tscn"
+func _load_level_immediate(scene_name: String) -> void:
+	var path := "res://floors/" + scene_name + ".tscn"
+	var floor_id := scene_name.split("_")[0]
 	FloorManager.set_current_floor(floor_id)
 	for child in current_level.get_children():
 		child.queue_free()
@@ -99,8 +95,8 @@ func _unload_battle() -> void:
 	player.global_position = _pre_battle_player_position
 	MusicManager.resume_all()
 
-func _on_floor_selected(floor_id: String) -> void:
-	await TransitionManager.run(func(): _load_level_immediate(floor_id))
+func _on_floor_selected(scene_name: String) -> void:
+	await TransitionManager.run(func(): _load_level_immediate(scene_name))
 
 func _on_elevator_opened() -> void:
 	elevator_ui.open()
@@ -127,7 +123,6 @@ func _on_battle_complete(npc_defeated: bool) -> void:
 		_current_npc.start_battle_outcome_dialogue(outcome)
 
 func _on_battle_scene_end_requested() -> void:
-	print("battle_scene_end_requested received")
 	await return_from_battle()
 	_current_npc = null
 

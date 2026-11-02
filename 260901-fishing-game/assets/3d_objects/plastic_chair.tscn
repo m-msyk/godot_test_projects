@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d1kt8ybb0ako4"]
+
+[ext_resource type="PackedScene" uid="uid://c80w04o1ipcxb" path="res://assets/3d_objects/plastic_chair.glb" id="1_vne83"]
+
+[node name="plastic_chair" unique_id=848503150 instance=ExtResource("1_vne83")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

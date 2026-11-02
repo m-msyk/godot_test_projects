@@ -1,22 +1,22 @@
-if QuestManager.is_quest_not_started("talk_to_blockid") and QuestManager.is_quest_not_started("talk_to_aylisha"):
-	aylisha: Talk to Blockid.
+if QuestManager.is_quest_not_started("talk_to_researcher_2") and QuestManager.is_quest_not_started("talk_to_vicky"):
+	vicky: Talk to Blockid.
 	[signal arg="quest_started:talk_to_blockid"]
 	if QuestManager.is_quest_not_started("talk_to_hatch_41")
-		aylisha: Here, I'll give you access to B3.
-		aylisha: Best of luck.
+		vicky: Here, I'll give you access to B3.
+		vicky: Best of luck.
 		[signal arg="floor_unlocked:b3"]
-elif QuestManager.is_quest_in_progress("talk_to_aylisha"):
-	aylisha: Oh, Blockid wanted you to see me?
-	aylisha: Thanks for letting me know.
-	[signal arg="objective_completed:talk_to_aylisha:talk_to_aylisha_objective"]
-	if QuestManager.is_quest_not_started("talk_to_blockid") == true:
-		aylisha: Actually, do you mind going back and asking them to come see me?
+elif QuestManager.is_quest_in_progress("talk_to_vicky"):
+	vicky: Oh, Blockid wanted you to see me?
+	vicky: Thanks for letting me know.
+	[signal arg="objective_completed:talk_to_vicky:talk_to_aylisha_objective"]
+	if QuestManager.is_quest_not_started("talk_to_researcher_2") == true:
+		vicky: Actually, do you mind going back and asking them to come see me?
 		[signal arg="quest_started:talk_to_blockid"]
-elif QuestManager.is_quest_in_progress("talk_to_blockid"):
-	aylisha: You're talking to me after starting the quest.
-elif QuestManager.is_quest_completed("talk_to_blockid") and not PlayerData.has_received_signature_from("aylisha"):
-	aylisha: Thanks for talking to Blockid.
-	aylisha: Here's the signature you need.
+elif QuestManager.is_quest_in_progress("talk_to_researcher_2"):
+	vicky: You're talking to me after starting the quest.
+elif QuestManager.is_quest_completed("talk_to_researcher_2") and not PlayerData.has_received_signature_from("vicky"):
+	vicky: Thanks for talking to Blockid.
+	vicky: Here's the signature you need.
 	[signal arg="signature_received:aylisha"]
 else:
-	aylisha: No more talking, phew.
+	vicky: No more talking, phew.

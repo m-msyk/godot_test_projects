@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b0lkrbpv3afig"]
+
+[ext_resource type="Script" uid="uid://c3j1sfqqemyd8" path="res://rhythm/rhythm_battle.gd" id="1_6pffs"]
+[ext_resource type="PackedScene" uid="uid://c8kjyhh8f6d4f" path="res://rhythm/rhythm_ui.tscn" id="3_bqvvr"]
+
+[node name="RhythmBattle" type="Node2D" unique_id=633283224 groups=["rhythm_battle"]]
+script = ExtResource("1_6pffs")
+
+[node name="Lanes" type="Node2D" parent="." unique_id=782984386]
+
+[node name="Lane0" type="ColorRect" parent="Lanes" unique_id=1316505563]
+mouse_filter = 2
+
+[node name="Lane1" type="ColorRect" parent="Lanes" unique_id=1869393322]
+mouse_filter = 2
+
+[node name="LeftEdge" type="ColorRect" parent="Lanes" unique_id=1316505564]
+mouse_filter = 2
+
+[node name="RightEdge" type="ColorRect" parent="Lanes" unique_id=1316505565]
+mouse_filter = 2
+
+[node name="CenterDivider" type="ColorRect" parent="Lanes" unique_id=1316505566]
+mouse_filter = 2
+
+[node name="TargetLine" type="ColorRect" parent="." unique_id=128797623]
+offset_right = 40.0
+offset_bottom = 4.0
+
+[node name="Notes" type="Node2D" parent="." unique_id=561186279]
+
+[node name="DebugLabel" type="Label" parent="." unique_id=1333596574]
+offset_left = 240.0
+offset_right = 360.0
+offset_bottom = 16.0
+
+[node name="RhythmUI" parent="." unique_id=101484379 instance=ExtResource("3_bqvvr")]

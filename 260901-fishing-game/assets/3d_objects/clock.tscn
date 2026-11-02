@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cf43fisanp52h"]
+
+[ext_resource type="PackedScene" uid="uid://u077ylhkc5ga" path="res://assets/3d_objects/clock.glb" id="1_jgwkc"]
+[ext_resource type="Script" uid="uid://db30ebc3gvqn1" path="res://assets/materials/wall_object.gd" id="2_712bv"]
+
+[node name="clock" unique_id=984131102 instance=ExtResource("1_jgwkc")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Clock" parent="." index="0" unique_id=731973503]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 3.75, 0)
+script = ExtResource("2_712bv")

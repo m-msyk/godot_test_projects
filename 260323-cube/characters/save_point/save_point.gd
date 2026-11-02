@@ -8,6 +8,9 @@ signal save_requested(save_point_id: String, floor_id: String, area: String)
 
 @onready var dialogic_component: DialogicComponent = $DialogicComponent
 
+var _is_active: bool = false
+var _pending_save: Array = []
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	add_to_group("interactable")
@@ -17,9 +20,21 @@ func _ready() -> void:
 
 func _connect_signals() -> void:
 	dialogic_component.dialogic_signal_received.connect(_on_dialogic_signal)
+	dialogic_component.dialogue_ended.connect(_on_dialogue_ended)
 
 func start_dialogue() -> void:
+	_is_active = true
+	StateManager.set_state(StateManager.State.PARTIAL)
 	dialogic_component.start_dialogue()
+
+func _on_dialogue_ended() -> void:
+	if not _is_active:
+		return
+	_is_active = false
+	StateManager.set_state(StateManager.State.FREE)
+	if _pending_save.size() > 0:
+		save_requested.emit(_pending_save[0], _pending_save[1], _pending_save[2])
+		_pending_save.clear()
 
 func _on_dialogic_signal(argument: String) -> void:
 	var parts = argument.split(":")
@@ -28,8 +43,7 @@ func _on_dialogic_signal(argument: String) -> void:
 	match parts[0]:
 		"save_game":
 			if parts.size() >= 4:
-				await Dialogic.timeline_ended
-				save_requested.emit(parts[1], parts[2], parts[3])
+				_pending_save = [parts[1], parts[2], parts[3]]
 
 func get_spawn_position() -> Vector3:
 	return global_position + (-global_basis.z * spawn_offset)
