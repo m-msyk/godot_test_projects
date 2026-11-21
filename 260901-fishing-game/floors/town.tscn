@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://dhsk4y0l0ny6q"]
+
+[ext_resource type="PackedScene" uid="uid://b1fdldgff2kph" path="res://assets/3d_objects/town.glb" id="1_dvvgp"]
+[ext_resource type="Texture2D" uid="uid://c3xsk7aduhtpm" path="res://assets/2d_objects/b1_ceiling.png" id="2_pbnk0"]
+[ext_resource type="Script" uid="uid://cxnfdb6ffospl" path="res://assets/materials/floor_environment.gd" id="3_naeah"]
+[ext_resource type="PackedScene" uid="uid://bh44pq583iwq8" path="res://characters/npc/security.tscn" id="4_xj77d"]
+[ext_resource type="PackedScene" uid="uid://bc6h5ppdubfvw" path="res://characters/save_point/save_point.tscn" id="5_dq0lj"]
+[ext_resource type="PackedScene" uid="uid://drs5ydkmer1fr" path="res://characters/npc/shop_npc.tscn" id="6_m17to"]
+[ext_resource type="PackedScene" uid="uid://6kmj85gjwl3q" path="res://characters/player/player.tscn" id="7_5qchf"]
+[ext_resource type="PackedScene" uid="uid://bv7ut7bxvy7e0" path="res://world/music_area.tscn" id="9_shyh5"]
+[ext_resource type="AudioStream" uid="uid://dc7p72lhow3" path="res://assets/audio/music/bass_01.wav" id="10_1lt1i"]
+[ext_resource type="AudioStream" uid="uid://dxcqh8mpx0jqj" path="res://assets/audio/music/drums_01.wav" id="11_01ksk"]
+[ext_resource type="Script" uid="uid://bdj87id5x5p5r" path="res://world/grass_scatter.gd" id="12_grass"]
+[ext_resource type="Script" uid="uid://rlayyo168xly" path="res://world/cloud_shadows.gd" id="13_clouds"]
+[ext_resource type="Script" uid="uid://6bqyjch2mwip" path="res://world/doorway.gd" id="14_door"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_convdoor"]
+size = Vector3(1.66, 3, 1.8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rwy4s"]
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mu10"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_pbnk0")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w48nd"]
+sky_top_color = Color(0.13562799, 0.4653471, 0.9151387, 1)
+sky_horizon_color = Color(0.9720108, 0.93232936, 0.9227885, 1)
+ground_bottom_color = Color(0.89818877, 0.78561956, 0.69994086, 1)
+ground_horizon_color = Color(0.63797563, 0.4317425, 0.28102487, 1)
+energy_multiplier = 0.4
+
+[sub_resource type="Sky" id="Sky_67mt2"]
+sky_material = SubResource("ProceduralSkyMaterial_w48nd")
+
+[sub_resource type="Environment" id="Environment_uw57a"]
+background_mode = 2
+sky = SubResource("Sky_67mt2")
+ambient_light_color = Color(0.16470589, 0.47843137, 0.87058824, 1)
+reflected_light_source = 2
+tonemap_mode = 4
+glow_normalized = true
+glow_intensity = 0.41
+glow_strength = 1.2
+glow_bloom = 0.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fw5wi"]
+size = Vector3(47.157715, 9, 35.544067)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s2j21"]
+size = Vector3(19.26178, 9, 20.651224)
+
+[node name="Town" type="Node3D" unique_id=1254196140]
+
+[node name="town" parent="." unique_id=1603864190 instance=ExtResource("1_dvvgp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="GrassScatter" type="Node3D" parent="." unique_id=385505838]
+script = ExtResource("12_grass")
+source_root = NodePath("../town")
+min_height = 0.7
+max_height = 1.2
+
+[node name="CloudShadows" type="Node" parent="." unique_id=2059506162]
+script = ExtResource("13_clouds")
+
+[node name="ConvenienceDoor" type="Area3D" parent="." unique_id=824692222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.885, 44.88, 6.1)
+script = ExtResource("14_door")
+target_scene = "convenience_store"
+target_spawn = "from_town"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConvenienceDoor" unique_id=1696664348]
+shape = SubResource("BoxShape3D_convdoor")
+
+[node name="Spawns" type="Node" parent="." unique_id=1892452189]
+
+[node name="from_convenience" type="Marker3D" parent="Spawns" unique_id=1912627864 groups=["spawn_point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.885, 43.6, 9.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=95342577]
+transform = Transform3D(28.479275, 0, -66.128136, 0, 72, 0, 66.128136, 0, 28.479275, -18.429218, 125.136894, -1.0022615)
+visible = false
+cast_shadow = 3
+mesh = SubResource("PlaneMesh_rwy4s")
+surface_material_override/0 = SubResource("StandardMaterial3D_1mu10")
+
+[node name="World" type="Node" parent="." unique_id=1680285259]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=1287821833]
+environment = SubResource("Environment_uw57a")
+script = ExtResource("3_naeah")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=1395039824]
+transform = Transform3D(0.43051115, -0.9008042, 0.05667378, 0, 0.0627905, 0.9980267, -0.90258527, -0.42966163, 0.02703201, 0, 73.67079, 0)
+light_color = Color(0.9906549, 0.8316517, 0.56902164, 1)
+light_energy = 8.0
+light_indirect_energy = 0.0
+light_cull_mask = 4294967293
+shadow_enabled = true
+shadow_blur = 2.139
+directional_shadow_max_distance = 900.0
+
+[node name="Characters" type="Node" parent="." unique_id=1035484770]
+
+[node name="Security" parent="Characters" unique_id=1894040314 instance=ExtResource("4_xj77d")]
+transform = Transform3D(0.6148913, 0, 0.78861195, 0, 1, 0, -0.78861195, 0, 0.6148913, -29.134443, 1.7726226, -8.234847)
+
+[node name="SavePoint" parent="Characters" unique_id=1099453634 instance=ExtResource("5_dq0lj")]
+transform = Transform3D(0.85613185, 0, 0.5167575, 0, 1, 0, -0.5167575, 0, 0.85613185, 5.091816, 0, -0.7986583)
+save_point_id = "b1_savepoint_01"
+spawn_offset = 0.09
+
+[node name="ShopNPC" parent="Characters" unique_id=640097572 instance=ExtResource("6_m17to")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69537073, 0, -5.2735624)
+npc_name = "Shop"
+
+[node name="Player" parent="Characters" unique_id=878661318 instance=ExtResource("7_5qchf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74611473, 44.020912, 15.631096)
+
+[node name="Music" type="Node" parent="." unique_id=945611223]
+
+[node name="MusicArea" parent="Music" unique_id=304901294 instance=ExtResource("9_shyh5")]
+audio_bus_name = &"Music"
+stream = ExtResource("10_1lt1i")
+blend_distance = 0.0
+
+[node name="CollisionShape3D" parent="Music/MusicArea" index="0" unique_id=1863019559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.578857, 4.5, -4.0775757)
+shape = SubResource("BoxShape3D_fw5wi")
+
+[node name="MusicArea2" parent="Music" unique_id=201850930 instance=ExtResource("9_shyh5")]
+audio_bus_name = &"Music"
+stream = ExtResource("11_01ksk")
+blend_distance = 4.5
+
+[node name="CollisionShape3D" parent="Music/MusicArea2" index="0" unique_id=1863019559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.224582, 4.5, -2.820995)
+shape = SubResource("BoxShape3D_s2j21")
+
+[editable path="Music/MusicArea"]
+[editable path="Music/MusicArea2"]

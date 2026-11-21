@@ -8,6 +8,7 @@ cull_mode = 1
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ufek"]
 
 [node name="cube" unique_id=502648368 instance=ExtResource("1_7ufek")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 0, 0, 0)
 
 [node name="Mesh" parent="." index="0" unique_id=870190758]
 surface_material_override/0 = SubResource("StandardMaterial3D_aehwe")

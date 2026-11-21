@@ -14,7 +14,7 @@ func _on_slider_changed(value: float) -> void:
 	sensitivity_changed.emit(value)
 
 func set_highlighted(highlighted: bool) -> void:
-	label.add_theme_color_override("font_color", Color.YELLOW if highlighted else Color.WHITE)
+	label.add_theme_color_override("font_color", UIPalette.ACCENT if highlighted else UIPalette.TEXT)
 
 func adjust(direction: int) -> void:
 	slider.value += direction * slider.step

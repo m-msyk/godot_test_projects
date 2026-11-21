@@ -18,4 +18,4 @@ func get_description() -> String:
 
 func set_highlighted(highlighted: bool) -> void:
 	fish_name_label.add_theme_color_override("font_color",
-		Color.YELLOW if highlighted else Color.WHITE)
+		UIPalette.ACCENT if highlighted else UIPalette.TEXT)

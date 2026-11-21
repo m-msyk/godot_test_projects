@@ -28,11 +28,12 @@ alignment = 1
 custom_minimum_size = Vector2(5, 7)
 layout_mode = 2
 size_flags_vertical = 4
+self_modulate = Color(0.42, 0.176, 0.149, 1)
 texture = ExtResource("2_arrowl")
 
 [node name="OptionButton" type="OptionButton" parent="ValueRow"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.66, 0.28, 0.18, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qmfmq")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_kq2qp")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_04oat")
@@ -41,4 +42,5 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_04oat")
 custom_minimum_size = Vector2(5, 7)
 layout_mode = 2
 size_flags_vertical = 4
+self_modulate = Color(0.42, 0.176, 0.149, 1)
 texture = ExtResource("3_arrowr")

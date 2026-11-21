@@ -17,7 +17,7 @@ content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0.42, 0.176, 0.149, 1)
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24ibd"]
@@ -25,20 +25,43 @@ content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(1, 1, 0, 1)
+bg_color = Color(0.66, 0.28, 0.18, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_41rka"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(1, 1, 0, 1)
+bg_color = Color(0.66, 0.28, 0.18, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeom6"]
 content_margin_left = 3.0
 bg_color = Color(0, 0, 0, 0)
 
 [resource]
+Button/colors/font_color = Color(0.42, 0.176, 0.149, 1)
+Button/colors/font_disabled_color = Color(0.62, 0.45, 0.38, 1)
+Button/colors/font_focus_color = Color(0.66, 0.28, 0.18, 1)
+Button/colors/font_hover_color = Color(0.66, 0.28, 0.18, 1)
+Button/colors/font_hover_pressed_color = Color(0.66, 0.28, 0.18, 1)
+Button/colors/font_pressed_color = Color(0.66, 0.28, 0.18, 1)
+CheckBox/colors/font_color = Color(0.42, 0.176, 0.149, 1)
+CheckBox/colors/font_focus_color = Color(0.66, 0.28, 0.18, 1)
+CheckBox/colors/font_hover_color = Color(0.66, 0.28, 0.18, 1)
+CheckBox/colors/font_pressed_color = Color(0.66, 0.28, 0.18, 1)
+Label/colors/font_color = Color(0.42, 0.176, 0.149, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 0)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+LineEdit/colors/font_color = Color(0.42, 0.176, 0.149, 1)
+OptionButton/colors/font_color = Color(0.42, 0.176, 0.149, 1)
+OptionButton/colors/font_disabled_color = Color(0.62, 0.45, 0.38, 1)
+OptionButton/colors/font_focus_color = Color(0.66, 0.28, 0.18, 1)
+OptionButton/colors/font_hover_color = Color(0.66, 0.28, 0.18, 1)
+OptionButton/colors/font_pressed_color = Color(0.66, 0.28, 0.18, 1)
+RichTextLabel/colors/default_color = Color(0.42, 0.176, 0.149, 1)
+TabContainer/colors/font_hovered_color = Color(0.42, 0.176, 0.149, 1)
+TabContainer/colors/font_selected_color = Color(0.66, 0.28, 0.18, 1)
+TabContainer/colors/font_unselected_color = Color(0.62, 0.45, 0.38, 1)
 VScrollBar/icons/decrement = SubResource("ImageTexture_psubf")
 VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_qbql7")
 VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_wsveg")

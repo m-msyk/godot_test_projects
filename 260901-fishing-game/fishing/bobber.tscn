@@ -12,11 +12,11 @@ albedo_color = Color(1, 0.1, 0.1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_bobber"]
 material = SubResource("StandardMaterial3D_bobber")
-radius = 0.01
-height = 0.02
+radius = 0.09
+height = 0.18
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bobber"]
-radius = 0.012
+radius = 0.108
 
 [node name="Bobber" type="RigidBody3D" unique_id=1736818848]
 axis_lock_angular_x = true
@@ -37,7 +37,7 @@ shape = SubResource("SphereShape3D_bobber")
 
 [node name="FishSprite" type="Sprite3D" parent="." unique_id=1372177298]
 visible = false
-pixel_size = 0.0025
+pixel_size = 0.0225
 billboard = 1
 shaded = false
 texture_filter = 0

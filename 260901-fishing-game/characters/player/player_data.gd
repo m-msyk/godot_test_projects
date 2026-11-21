@@ -48,6 +48,24 @@ func get_species(species_id: String) -> FishSpecies:
 func get_inventory_count(species_id: String) -> int:
 	return inventory.get(species_id, 0)
 
+## True if the player is holding at least one of this fish (usable from dialogue conditions:
+## "if PlayerData.has_fish("bass"):").
+func has_fish(species_id: String) -> bool:
+	return get_inventory_count(species_id) > 0
+
+## Takes one of this fish out of the inventory (handing it to an NPC). The encyclopedia
+## still remembers having caught it. Returns false if the player had none.
+func consume_fish(species_id: String) -> bool:
+	var held := get_inventory_count(species_id)
+	if held <= 0:
+		return false
+	if held == 1:
+		inventory.erase(species_id)
+	else:
+		inventory[species_id] = held - 1
+	fish_caught_changed.emit()
+	return true
+
 func get_largest_catch(species_id: String) -> float:
 	return largest_catch_cm.get(species_id, 0.0)
 

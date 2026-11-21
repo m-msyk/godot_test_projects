@@ -18,25 +18,25 @@ shader_parameter/rim_sharpness = 3.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xy5p0"]
 material = SubResource("ShaderMaterial_p077b")
-radius = 0.05
-height = 0.2
+radius = 0.45
+height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u5x8u"]
-radius = 0.05
-height = 0.2
+radius = 0.45
+height = 1.8
 
 [node name="SavePoint" unique_id=1894040314 instance=ExtResource("1_u5x8u")]
 script = ExtResource("2_if50t")
 save_point_id = ""
-spawn_offset = 2.0
+spawn_offset = 18.0
 timeline = ExtResource("4_s5dbg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=553461472]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 mesh = SubResource("CapsuleMesh_xy5p0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=434259082]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_u5x8u")
 
 [node name="DialogicComponent" type="Node" parent="." index="2" unique_id=480949643]

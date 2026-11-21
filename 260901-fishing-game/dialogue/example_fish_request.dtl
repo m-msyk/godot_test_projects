@@ -1,0 +1,17 @@
+# EXAMPLE of the progression pattern: information -> a fish for a favour -> a gate opens.
+# Copy it for a real NPC. Needs: a FlagGate (or a Doorway with required_flag) using the flag
+# "apartment_gate_open", and the NPC's timeline_01 pointing at this file.
+if WorldState.get_flag("apartment_gate_open"):
+	neighbor: The gate's open. Go right through.
+elif PlayerData.has_fish("bass"):
+	neighbor: Is that a bass?! I haven't had one in years.
+	neighbor: Trade you. A bass for the key to the gate behind my apartment.
+	- Hand over the bass
+		[signal arg="give_fish:bass"]
+		[signal arg="set_flag:apartment_gate_open"]
+		neighbor: Wonderful! The gate is open. There's a pond back there that nobody knows about.
+	- Not yet
+		neighbor: Take your time.
+else:
+	neighbor: I'd give anything for a bass. Funny, there's a little pond behind my apartment. It's easy to miss.
+	[signal arg="set_flag:heard_about_hidden_pond"]

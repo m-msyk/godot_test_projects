@@ -3,13 +3,13 @@ class_name Bobber extends RigidBody3D
 signal landed(position: Vector3, in_water: bool)
 signal retrieved()
 
-const BOB_AMPLITUDE: float = 0.01
+const BOB_AMPLITUDE: float = 0.09
 const BOB_SPEED: float = 2.5
-const WATER_SNAP_TOLERANCE: float = 0.03
-const FLOAT_HEIGHT_OFFSET: float = 0.012  # keeps the sphere's body above the surface
+const WATER_SNAP_TOLERANCE: float = 0.27
+const FLOAT_HEIGHT_OFFSET: float = 0.108  # keeps the sphere's body above the surface
 const WATER_DRAG: float = 5.5
-const SLIDE_STOP_SPEED: float = 0.02
-const BASE_SPRITE_PIXEL_SIZE: float = 0.005
+const SLIDE_STOP_SPEED: float = 0.18
+const BASE_SPRITE_PIXEL_SIZE: float = 0.045
 
 @onready var fish_sprite: Sprite3D = $FishSprite
 @onready var mesh_instance: MeshInstance3D = $MeshInstance3D
@@ -18,6 +18,8 @@ var _resolved: bool = false
 var _floating: bool = false
 var _touched_water: bool = false
 var _water_surface_y: float = 0.0
+## The body of water (MeshInstance3D in group "water") this bobber is floating on, or null.
+var current_water: MeshInstance3D = null
 var _bob_phase: float = 0.0
 
 func _ready() -> void:
@@ -32,6 +34,7 @@ func launch(start_position: Vector3, initial_velocity: Vector3) -> void:
 	_resolved = false
 	_floating = false
 	_touched_water = false
+	current_water = null
 	_bob_phase = 0.0
 	sleeping = false
 
@@ -48,6 +51,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 
 	if not _touched_water:
 		_touched_water = true
+		current_water = water
 		gravity_scale = 0.0
 		_water_surface_y = surface_y
 

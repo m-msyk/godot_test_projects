@@ -59,6 +59,7 @@ directories/dch_directory={
 "vicky": "res://characters/npc/profiles/vicky.dch"
 }
 directories/dtl_directory={
+"example_fish_request": "res://dialogue/example_fish_request.dtl",
 "fish_caught": "res://dialogue/fish_caught.dtl",
 "npc_1_01": "res://dialogue/npc_1_01.dtl",
 "npc_1_01_battle_end": "res://dialogue/npc_1_01_battle_end.dtl",
@@ -234,10 +235,14 @@ camera_rotate_right={
 
 3d_physics/layer_1="world"
 3d_physics/layer_2="interaction"
+3d_physics/layer_20="occluders"
 
 [physics]
 
 3d/physics_engine="Jolt Physics"
+jolt_physics_3d/simulation/bounce_velocity_threshold=9.0
+jolt_physics_3d/simulation/sleep_velocity_threshold=0.27
+3d/default_gravity=88.2
 
 [rendering]
 
@@ -245,3 +250,30 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 lights_and_shadows/directional_shadow/size=8192
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=0
+
+[shader_globals]
+
+cel_cloud_strength={
+"type": "float",
+"value": 0.0
+}
+cel_cloud_scale={
+"type": "float",
+"value": 0.05
+}
+cel_cloud_threshold={
+"type": "float",
+"value": 0.62
+}
+cel_cloud_speed={
+"type": "vec2",
+"value": Vector2(0.8, 0.3)
+}
+cel_reveal_radius={
+"type": "float",
+"value": 0.0
+}
+cel_reveal_center={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}

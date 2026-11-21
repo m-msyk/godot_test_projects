@@ -1,10 +1,10 @@
 class_name FishingLine extends MeshInstance3D
 
 @export var start_point: Node3D
-@export var slack_amount: float = 0.03
+@export var slack_amount: float = 0.27
 @export var segment_count: int = 12
 @export var line_color: Color = Color(1, 1, 1, 1)
-@export var line_width: float = 0.0015
+@export var line_width: float = 0.0135
 @export var taut_tween_duration: float = 0.2
 
 var _target: Node3D = null

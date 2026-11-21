@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://i2sfaof3j3j"]
+
+[ext_resource type="PackedScene" uid="uid://n2kvidb27yyr" path="res://assets/3d_objects/convenience_store.glb" id="1_store"]
+[ext_resource type="PackedScene" uid="uid://6kmj85gjwl3q" path="res://characters/player/player.tscn" id="2_player"]
+[ext_resource type="Script" uid="uid://6bqyjch2mwip" path="res://world/doorway.gd" id="3_door"]
+
+[sub_resource type="Environment" id="Environment_store"]
+background_mode = 1
+background_color = Color(0.2788, 0.29206, 0.34, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.5, 0.5, 0.6, 1)
+tonemap_mode = 4
+tonemap_exposure = 1.7
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_door"]
+size = Vector3(1.6, 4, 7.3)
+
+[node name="ConvenienceStore" type="Node3D" unique_id=1923775602]
+
+[node name="convenience_store" parent="." unique_id=96030681 instance=ExtResource("1_store")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.252381, 0, -6.0091343)
+
+[node name="World" type="Node" parent="." unique_id=651425703]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=470822551]
+environment = SubResource("Environment_store")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=446129319]
+transform = Transform3D(0.8660254, -0.43301272, 0.24999999, 0, 0.49999997, 0.86602545, -0.5, -0.75, 0.43301266, 0, 0, 0)
+light_indirect_energy = 0.0
+light_cull_mask = 4294967293
+
+[node name="Spawns" type="Node" parent="." unique_id=201031169]
+
+[node name="from_town" type="Marker3D" parent="Spawns" unique_id=1711682168 groups=["spawn_point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.3, -10.11)
+
+[node name="Player" parent="." unique_id=1979665347 instance=ExtResource("2_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9578257, 0.3, -11.073791)
+
+[node name="ToTown" type="Area3D" parent="." unique_id=1982168427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6, 2, -10.11)
+script = ExtResource("3_door")
+target_scene = "town"
+target_spawn = "from_convenience"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ToTown" unique_id=428986584]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.92967844, 0, -0.93882656)
+shape = SubResource("BoxShape3D_door")

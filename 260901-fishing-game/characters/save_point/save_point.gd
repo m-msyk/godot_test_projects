@@ -3,7 +3,7 @@ class_name SavePoint extends CharacterBody3D
 signal save_requested(save_point_id: String, floor_id: String, area: String)
 
 @export var save_point_id: String = ""
-@export var spawn_offset: float = 0.01
+@export var spawn_offset: float = 0.09
 @export var timeline: DialogicTimeline
 
 @onready var dialogic_component: DialogicComponent = $DialogicComponent

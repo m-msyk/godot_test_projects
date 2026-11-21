@@ -34,28 +34,29 @@ environment = SubResource("Environment_y8mrh")
 [node name="cube" parent="." unique_id=502648368 instance=ExtResource("1_l3kjc")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=898310217]
-transform = Transform3D(0.58070296, -0.64153177, 0.5012196, 0, 0.6156615, 0.7880107, -0.8141155, -0.45760018, 0.35751647, 0, 3.64, 0)
+transform = Transform3D(0.58070296, -0.64153177, 0.5012196, 0, 0.6156615, 0.7880107, -0.8141155, -0.45760018, 0.35751647, 0, 32.76, 0)
 light_color = Color(1, 0.9607843, 0.8784314, 1)
 light_energy = 1.2
 shadow_enabled = true
 shadow_opacity = 0.6
 shadow_blur = 0.5
+directional_shadow_max_distance = 900.0
 
 [node name="SavePoint" parent="." unique_id=1894040314 instance=ExtResource("2_2dtq6")]
-transform = Transform3D(0.5866551, 0, -0.8098369, 0, 1, 0, 0.8098369, 0, 0.5866551, 0.14082277, 0, -0.126)
+transform = Transform3D(0.5866551, 0, -0.8098369, 0, 1, 0, 0.8098369, 0, 0.5866551, 1.26740491, 0, -1.134)
 save_point_id = "b3_savepoint_01"
-spawn_offset = 0.01
+spawn_offset = 0.09
 timeline = ExtResource("3_2dtq6")
 
 [node name="Hatch41" parent="." unique_id=1973371176 instance=ExtResource("2_o5k66")]
-transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 0.7571554, 0, -0.21449919)
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 6.814399, 0, -1.93049276)
 
 [node name="Blockid" parent="." unique_id=19733738 instance=ExtResource("3_l3kjc")]
-transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 0.8108457, 0, -0.67767286)
+transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 7.297611, 0, -6.099056)
 
 [node name="Player" parent="." unique_id=878661318 instance=ExtResource("2_y8mrh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39361572, 0.040405273, -0.5563965)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5425415, 0.363647461, -5.00756836)
 
 [node name="Elevator" parent="." unique_id=1808230940 instance=ExtResource("5_apdle")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.046181023, 0.15, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4156292, 1.35, -4.5)
 destination = "res://floors/b2.tscn"

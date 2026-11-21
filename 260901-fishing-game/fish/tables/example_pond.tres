@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="FishTable" format=3]
+
+[ext_resource type="Script" path="res://fish/fish_table.gd" id="1_table"]
+[ext_resource type="Script" path="res://fish/fish_table_entry.gd" id="2_entry"]
+[ext_resource type="Resource" path="res://fish/sardine.tres" id="3_sardine"]
+[ext_resource type="Resource" path="res://fish/bass.tres" id="4_bass"]
+[ext_resource type="Resource" path="res://fish/catfish.tres" id="5_catfish"]
+[ext_resource type="Resource" path="res://fish/salmon.tres" id="6_salmon"]
+[ext_resource type="Resource" path="res://fish/tuna.tres" id="7_tuna"]
+
+[sub_resource type="Resource" id="Resource_sardine"]
+script = ExtResource("2_entry")
+species = ExtResource("3_sardine")
+weight = 6.0
+
+[sub_resource type="Resource" id="Resource_bass"]
+script = ExtResource("2_entry")
+species = ExtResource("4_bass")
+weight = 4.0
+
+[sub_resource type="Resource" id="Resource_catfish"]
+script = ExtResource("2_entry")
+species = ExtResource("5_catfish")
+weight = 3.0
+
+[sub_resource type="Resource" id="Resource_salmon"]
+script = ExtResource("2_entry")
+species = ExtResource("6_salmon")
+weight = 1.5
+rare = true
+
+[sub_resource type="Resource" id="Resource_tuna"]
+script = ExtResource("2_entry")
+species = ExtResource("7_tuna")
+weight = 0.5
+rare = true
+
+[resource]
+script = ExtResource("1_table")
+table_name = "example_pond"
+entries = Array[ExtResource("2_entry")]([SubResource("Resource_sardine"), SubResource("Resource_bass"), SubResource("Resource_catfish"), SubResource("Resource_salmon"), SubResource("Resource_tuna")])

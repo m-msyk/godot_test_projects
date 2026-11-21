@@ -1,18 +1,15 @@
-[gd_resource type="StyleBoxFlat" format=3 uid="uid://ld4235sl6muv"]
+[gd_resource type="StyleBox" script_class="WobblyStyleBox" format=3 uid="uid://ld4235sl6muv"]
+
+[ext_resource type="Script" path="res://ui/wobbly_style_box.gd" id="1_wobbly"]
 
 [resource]
-content_margin_left = 4.0
-content_margin_top = 0.0
-content_margin_right = 4.0
-content_margin_bottom = 1.0
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-anti_aliasing = false
+content_margin_left = 7.0
+content_margin_top = 3.0
+content_margin_right = 7.0
+content_margin_bottom = 4.0
+script = ExtResource("1_wobbly")
+color = Color(0.929, 0.878, 0.761, 1)
+corner_radius = 5.0
+wobble_amount = 1.0
+wobble_length = 36.0
+wobble_seed = 3

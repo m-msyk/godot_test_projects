@@ -1,5 +1,7 @@
 shader_type spatial;
 
+#include "res://assets/materials/cel_ramp.gdshaderinc"
+
 uniform sampler2D wave_normal_map;
 uniform sampler2D light_pattern;
 uniform vec2 wave_speed_1 = vec2(0.02, 0.01);
@@ -13,6 +15,19 @@ uniform vec2 light_pattern_offset = vec2(0.0, 0.0);
 uniform float light_pattern_rotation : hint_range(0.0, 360.0) = 0.0;
 uniform bool flip_horizontal = false;
 uniform float light_threshold : hint_range(0.0, 1.0) = 0.5;
+uniform bool light_pattern_enabled = true; // the lobby's reflection of the ceiling lights; off for outdoor water
+uniform bool light_always_on = false; // the whole surface takes the lit tone, no light/dark split
+
+// World-space mode (used by water imported from Blender, see cel_shader_import.gd).
+// The default (off) takes waves and the light pattern from the mesh UVs and the ripples
+// from the mesh's local coordinates, which is how the lobby pool is tuned. That breaks on
+// meshes without a proper UV map, and ripple sizes change with the mesh's scale. In
+// world-space mode everything is measured in metres instead, the colour is a flat
+// emissive water_color (not tinted by ambient light or washed out by the sun), and cloud
+// shadows from a CloudShadows node darken it.
+uniform bool world_space = false;
+uniform float world_uv_per_metre = 0.05; // pattern repeats once per 1 / this many metres
+uniform float cloud_darkness : hint_range(0.0, 1.0) = 0.35; // how much a cloud shadow darkens the water
 
 // footstep ripples
 const int MAX_RIPPLES = 8;
@@ -31,16 +46,22 @@ uniform float ripple_echo_delay = 0.3; // seconds after the main ripple before t
 uniform float ripple_echo_strength = 0.5; // echo amplitude as a fraction of the main ripple's strength (0-1)
 
 varying vec2 local_xz;
+varying vec2 world_xz;
 
 void vertex() {
 	local_xz = VERTEX.xz;
+	world_xz = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xz;
 }
 
 void fragment() {
 	vec2 base_uv = UV;
-	if (flip_horizontal) {
+	if (world_space) {
+		base_uv = world_xz * world_uv_per_metre;
+	} else if (flip_horizontal) {
 		base_uv.x = 1.0 - base_uv.x;
 	}
+	// where footstep ripples are measured: local units (lobby) or world metres
+	vec2 ripple_xz = world_space ? world_xz : local_xz;
 
 	vec2 uv1 = base_uv * wave_scale + TIME * wave_speed_1;
 	vec2 uv2 = base_uv * wave_scale + TIME * wave_speed_2;
@@ -58,9 +79,9 @@ void fragment() {
 			continue;
 		}
 		// bend this ripple's sampling position away from a perfect circle
-		vec2 noise_uv = local_xz * 0.15 + ripple_origins[i] * 0.05;
+		vec2 noise_uv = ripple_xz * 0.15 + ripple_origins[i] * 0.05;
 		vec2 warp = (texture(wave_normal_map, noise_uv).rg - vec2(0.5)) * ripple_noise_strength;
-		vec2 warped_xz = local_xz + warp;
+		vec2 warped_xz = ripple_xz + warp;
 
 		float d = distance(warped_xz, ripple_origins[i]);
 		float ring = sin(d * ripple_freq - age * ripple_speed);
@@ -96,9 +117,21 @@ void fragment() {
 	float light_mask = 1.0 - texture(light_pattern, distorted_uv).a;
 
 	// hard 2-step cutoff, no gradient
-	float lit = step(light_threshold, light_mask);
+	float lit = light_always_on ? 1.0 : (light_pattern_enabled ? step(light_threshold, light_mask) : 0.0);
 	float ripple_lit = step(ripple_glow_threshold, ripple_light);
 
-	ALBEDO = water_color.rgb;
-	EMISSION = light_color.rgb * lit + light_color.rgb * ripple_lit * ripple_glow_strength;
+	vec3 light_emission = light_color.rgb * lit + light_color.rgb * ripple_lit * ripple_glow_strength;
+	if (world_space) {
+		// flat colour straight from Blender: nothing but emission, so the sun and ambient
+		// light can't wash it out or tint it
+		float sun = cel_cloud_lit(1.0, vec3(world_xz.x, 0.0, world_xz.y), TIME); // 1 clear .. 0 cloud
+		float shade = mix(1.0 - cloud_darkness, 1.0, sun);
+		ALBEDO = vec3(0.0);
+		SPECULAR = 0.0;
+		ROUGHNESS = 1.0;
+		EMISSION = water_color.rgb * shade + light_emission * sun;
+	} else {
+		ALBEDO = water_color.rgb;
+		EMISSION = light_emission;
+	}
 }

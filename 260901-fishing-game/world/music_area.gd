@@ -4,7 +4,7 @@ signal registered(area: MusicArea)
 signal unregistered(area: MusicArea)
 
 @export var stream: AudioStream
-@export var blend_distance: float = 2.0
+@export var blend_distance: float = 18.0
 
 func _ready() -> void:
 	monitoring = false

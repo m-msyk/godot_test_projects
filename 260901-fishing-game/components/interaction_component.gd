@@ -2,7 +2,7 @@ class_name InteractionComponent extends Node
 
 signal interacted_with_npc(npc: NPC)
 
-@export var interaction_radius: float = 2.0
+@export var interaction_radius: float = 18.0
 @export var interaction_angle: float = 60.0
 @export var model: Node3D
 @export var body: CharacterBody3D

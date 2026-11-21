@@ -29,7 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.74509805, 0.58431375, 0.19215687, 1)
+color = Color(0.678, 0.757, 0.686, 1)
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=1822764025]
 layout_mode = 1
@@ -61,10 +61,10 @@ visible = false
 layout_mode = 2
 focus_neighbor_top = NodePath("../StartButton")
 focus_neighbor_bottom = NodePath("../ExitButton")
-theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0.66, 0.28, 0.18, 1)
+theme_override_colors/font_pressed_color = Color(0.66, 0.28, 0.18, 1)
+theme_override_colors/font_hover_color = Color(0.66, 0.28, 0.18, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.66, 0.28, 0.18, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_rmr83")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8uxxo")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ei257")

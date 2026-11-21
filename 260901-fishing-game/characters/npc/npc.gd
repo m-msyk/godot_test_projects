@@ -71,6 +71,9 @@ func _on_dialogic_signal(argument: String) -> void:
 			PlayerData.catch_fish(signal_value)
 		"set_flag":
 			WorldState.set_flag(signal_value)
+		"give_fish":
+			# hands one fish from the player's inventory to this NPC: [signal arg="give_fish:bass"]
+			PlayerData.consume_fish(signal_value)
 		"battle_accepted":
 			Dialogic.VAR.battle_outcome = ""
 			_pending_battle = true

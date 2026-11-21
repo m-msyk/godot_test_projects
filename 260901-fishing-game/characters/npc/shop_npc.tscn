@@ -9,11 +9,11 @@
 [ext_resource type="Script" uid="uid://b421ocq6cwmcn" path="res://components/shop_component.gd" id="7_e7ij5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rwy4s"]
-size = Vector3(0.1, 0.2, 0.1)
+size = Vector3(0.9, 1.8, 0.9)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hadnd"]
-radius = 0.05
-height = 0.2
+radius = 0.45
+height = 1.8
 
 [node name="VendingMachine" unique_id=1894040314 instance=ExtResource("1_hlwcj")]
 script = ExtResource("2_4u85u")
@@ -21,11 +21,11 @@ npc_name = "VendingMachine"
 timeline_01 = ExtResource("3_hlwcj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=1172255665]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 mesh = SubResource("BoxMesh_rwy4s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=2075838128]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_hadnd")
 
 [node name="ShaderComponent" type="Node" parent="." index="2" unique_id=2027534123]

@@ -23,6 +23,7 @@ text = "Camera Sensitivity"
 
 [node name="HSlider" type="HSlider" parent="."]
 layout_mode = 2
+self_modulate = Color(0.42, 0.176, 0.149, 1)
 size_flags_horizontal = 3
 theme_override_icons/grabber = ExtResource("2_f8f0r")
 theme_override_icons/grabber_highlight = ExtResource("3_70rxu")

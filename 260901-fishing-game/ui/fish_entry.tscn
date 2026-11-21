@@ -3,17 +3,11 @@
 [ext_resource type="Script" path="res://ui/fish_entry.gd" id="1_gai7r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_highlight"]
-bg_color = Color(1, 1, 1, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 1
-corner_radius_top_right = 1
-corner_radius_bottom_right = 1
-corner_radius_bottom_left = 1
-anti_aliasing = false
+bg_color = Color(0.42, 0.176, 0.149, 0.16)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="FishEntry" type="Control" unique_id=1175965745]
 custom_minimum_size = Vector2(44, 44)

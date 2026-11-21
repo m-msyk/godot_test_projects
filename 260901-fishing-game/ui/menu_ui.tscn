@@ -9,34 +9,29 @@
 [ext_resource type="PackedScene" uid="uid://dnuc13d387828" path="res://ui/tooltip_panel.tscn" id="8_ceemc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g3ck"]
-bg_color = Color(0.004024883, 0.004024883, 0.004024883, 1)
-anti_aliasing = false
+bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ptix"]
-bg_color = Color(0.004024883, 0.004024883, 0.004024883, 1)
-anti_aliasing = false
+bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq5kd"]
-bg_color = Color(0.004024883, 0.004024883, 0.004024883, 1)
-anti_aliasing = false
+bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ck7k3"]
-bg_color = Color(0.004024883, 0.004024883, 0.004024883, 1)
+bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ceemc"]
-bg_color = Color(0, 0, 0, 1)
-border_width_top = 1
-border_color = Color(1, 1, 0, 1)
-anti_aliasing = false
+bg_color = Color(0.859, 0.792, 0.647, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlhdk"]
-bg_color = Color(0.004024883, 0.004024883, 0.004024883, 1)
-anti_aliasing = false
+bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8sdg"]
-bg_color = Color(0.004024883, 0.004024883, 0.004024883, 1)
-border_width_top = 1
-anti_aliasing = false
+bg_color = Color(0, 0, 0, 0)
 
 [node name="MenuUI" type="Control" unique_id=331454349]
 custom_minimum_size = Vector2(230, 144)
@@ -72,9 +67,9 @@ theme_override_styles/panel = ExtResource("1_1g3ck")
 
 [node name="TabContainer" type="TabContainer" parent="Panel" unique_id=1184710817]
 layout_mode = 2
-theme_override_colors/font_selected_color = Color(1, 1, 0, 1)
-theme_override_colors/font_hovered_color = Color(0.95, 0.95, 0.95, 1)
-theme_override_colors/font_unselected_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_colors/font_selected_color = Color(0.66, 0.28, 0.18, 1)
+theme_override_colors/font_hovered_color = Color(0.42, 0.176, 0.149, 1)
+theme_override_colors/font_unselected_color = Color(0.62, 0.45, 0.38, 1)
 theme_override_constants/side_margin = 4
 theme_override_constants/tab_separation = 25
 theme_override_styles/panel = SubResource("StyleBoxFlat_1g3ck")
@@ -160,9 +155,9 @@ layout_mode = 2
 
 [node name="ExitOption" parent="Panel/TabContainer/Settings" unique_id=1998191692 instance=ExtResource("3_rduqd")]
 layout_mode = 2
-theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0.66, 0.28, 0.18, 1)
+theme_override_colors/font_pressed_color = Color(0.66, 0.28, 0.18, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.66, 0.28, 0.18, 1)
 
 [node name="TooltipPanel" parent="." unique_id=188384617 instance=ExtResource("8_ceemc")]
 layout_mode = 0

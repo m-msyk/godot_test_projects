@@ -33,21 +33,14 @@ func _hide_dropdown_arrow() -> void:
 func _style_popup() -> void:
 	var popup := option_button.get_popup()
 
-	var panel_style := StyleBoxFlat.new()
-	panel_style.bg_color = Color.BLACK
-	panel_style.border_color = Color.WHITE
-	panel_style.set_border_width_all(1)
-	panel_style.set_corner_radius_all(0)
-
 	var hover_style := StyleBoxFlat.new()
-	hover_style.bg_color = Color.TRANSPARENT
-	hover_style.border_color = Color.TRANSPARENT
-	hover_style.set_border_width_all(0)
+	hover_style.bg_color = UIPalette.PAPER_DARK
+	hover_style.set_corner_radius_all(4)
 
-	popup.add_theme_stylebox_override("panel", panel_style)
+	popup.add_theme_stylebox_override("panel", load("res://assets/styles/menu_ui_panel_style.tres") as StyleBox)
 	popup.add_theme_stylebox_override("hover", hover_style)
-	popup.add_theme_color_override("font_color", Color.WHITE)
-	popup.add_theme_color_override("font_hover_color", Color.YELLOW)
+	popup.add_theme_color_override("font_color", UIPalette.TEXT)
+	popup.add_theme_color_override("font_hover_color", UIPalette.ACCENT)
 
 	var img := Image.create(1, 1, false, Image.FORMAT_RGBA8)
 	img.fill(Color(0, 0, 0, 0))
@@ -75,7 +68,7 @@ func _on_item_selected(index: int) -> void:
 		resolution_changed.emit(RESOLUTIONS[index], false)
 
 func set_highlighted(highlighted: bool) -> void:
-	label.add_theme_color_override("font_color", Color.YELLOW if highlighted else Color.WHITE)
+	label.add_theme_color_override("font_color", UIPalette.ACCENT if highlighted else UIPalette.TEXT)
 
 func adjust(direction: int) -> void:
 	var count := option_button.item_count

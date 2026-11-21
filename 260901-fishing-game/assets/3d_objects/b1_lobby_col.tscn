@@ -4,8 +4,8 @@
 [ext_resource type="Material" uid="uid://cs2joj2wductl" path="res://assets/materials/b1_lobby_pool_water_surface_settings.tres" id="2_aomd2"]
 
 [node name="b1_lobby-col" unique_id=349483997 instance=ExtResource("1_ba81x")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 
-[node name="water" parent="." index="3" unique_id=210121920 groups=["water"]]
+[node name="water" parent="." index="3" unique_id=1060620302 groups=["water"]]
 layers = 2
 surface_material_override/0 = ExtResource("2_aomd2")

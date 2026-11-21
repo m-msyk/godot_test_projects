@@ -2,8 +2,8 @@ class_name MovementComponent extends Node
 
 @export var body: CharacterBody3D
 @export var model: Node3D
-@export var speed := 1.0
-@export var jump_velocity := 3.0
+@export var speed := 9.0
+@export var jump_velocity := 27.0
 @export var gravity_multiplier := 1.0
 @export var turn_speed := 8.0
 var direction: Vector2 = Vector2.ZERO

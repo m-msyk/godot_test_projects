@@ -1,0 +1,15 @@
+[gd_resource type="StyleBox" script_class="WobblyStyleBox" format=3]
+
+[ext_resource type="Script" path="res://ui/wobbly_style_box.gd" id="1_wobbly"]
+
+[resource]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+script = ExtResource("1_wobbly")
+color = Color(0.859, 0.792, 0.647, 1)
+corner_radius = 8.0
+wobble_amount = 1.3
+wobble_length = 44.0
+wobble_seed = 5

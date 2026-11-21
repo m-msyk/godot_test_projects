@@ -23,7 +23,7 @@ albedo_texture = ExtResource("2_d626p")
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w48nd"]
 sky_top_color = Color(0.16481471, 0.4787498, 0.87051576, 1)
 sky_horizon_color = Color(0.16470589, 0.47843137, 0.87058824, 1)
-ground_bottom_color = Color(0.06891811, 0.078194045, 0.1423516, 1)
+ground_bottom_color = Color(0.07058824, 0.078431375, 0.14117648, 1)
 ground_horizon_color = Color(0.16470589, 0.47843137, 0.87058824, 1)
 energy_multiplier = 0.4
 
@@ -43,18 +43,18 @@ glow_strength = 1.2
 glow_bloom = 0.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fw5wi"]
-size = Vector3(5.239746, 1, 3.9493408)
+size = Vector3(47.157715, 9, 35.544067)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s2j21"]
-size = Vector3(2.1401978, 1, 2.2945805)
+size = Vector3(19.26178, 9, 20.651224)
 
 [node name="B1Lobby" type="Node3D" unique_id=1254196140]
 
 [node name="b1_lobby-col" parent="." unique_id=349483997 instance=ExtResource("1_d626p")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.0197492, 0, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 9.177743, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=95342577]
-transform = Transform3D(3.1643639, 0, -7.347571, 0, 8, 0, 7.347571, 0, 3.1643639, -2.0595257, 1.8361526, -0.105930895)
+transform = Transform3D(28.479275, 0, -66.128136, 0, 72, 0, 66.128136, 0, 28.479275, -18.429218, 16.511927, -1.0022615)
 cast_shadow = 3
 mesh = SubResource("PlaneMesh_rwy4s")
 surface_material_override/0 = SubResource("StandardMaterial3D_1mu10")
@@ -66,33 +66,34 @@ environment = SubResource("Environment_uw57a")
 script = ExtResource("1_5alle")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=1395039824]
-transform = Transform3D(0.99454105, -0.10418536, 0.005784004, 0.006609485, 0.11821929, 0.9929655, -0.10413625, -0.98750675, 0.11826256, 0, 3.64, 0)
+transform = Transform3D(0.99454105, -0.10418536, 0.005784004, 0.006609485, 0.11821929, 0.9929655, -0.10413625, -0.98750675, 0.11826256, 0, 32.76, 0)
 light_color = Color(0.9906549, 0.8316517, 0.56902164, 1)
 light_energy = 8.0
 light_indirect_energy = 0.0
 light_cull_mask = 4294967293
 shadow_enabled = true
 shadow_blur = 2.139
+directional_shadow_max_distance = 900.0
 
 [node name="Characters" type="Node" parent="." unique_id=1035484770]
 
 [node name="Security" parent="Characters" unique_id=1894040314 instance=ExtResource("2_jo5oy")]
-transform = Transform3D(0.6148913, 0, 0.78861195, 0, 1, 0, -0.78861195, 0, 0.6148913, -3.2371604, 0.19695807, -0.91498303)
+transform = Transform3D(0.6148913, 0, 0.78861195, 0, 1, 0, -0.78861195, 0, 0.6148913, -29.134443, 1.7726226, -8.234847)
 
 [node name="SavePoint" parent="Characters" unique_id=1099453634 instance=ExtResource("3_d626p")]
-transform = Transform3D(0.85613185, 0, 0.5167575, 0, 1, 0, -0.5167575, 0, 0.85613185, 0.56575733, 0, -0.08873981)
+transform = Transform3D(0.85613185, 0, 0.5167575, 0, 1, 0, -0.5167575, 0, 0.85613185, 5.091816, 0, -0.7986583)
 save_point_id = "b1_savepoint_01"
-spawn_offset = 0.01
+spawn_offset = 0.09
 
 [node name="ShopNPC" parent="Characters" unique_id=640097572 instance=ExtResource("4_vgk4i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.077263415, 0, -0.5859514)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69537073, 0, -5.2735624)
 npc_name = "Shop"
 
 [node name="Player" parent="Characters" unique_id=878661318 instance=ExtResource("5_qvd57")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32549223, 0.034921557, -0.29198617)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92943, 0.314294, -2.6278756)
 
 [node name="Elevator" parent="." unique_id=1808230940 instance=ExtResource("6_ttmht")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7574906, 0.15, -0.3244367)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.817415, 1.35, -2.9199302)
 destination = "res://floors/b2.tscn"
 
 [node name="Music" type="Node" parent="." unique_id=945611223]
@@ -103,16 +104,16 @@ stream = ExtResource("8_35at2")
 blend_distance = 0.0
 
 [node name="CollisionShape3D" parent="Music/MusicArea" index="0" unique_id=1863019559]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.619873, 0.5, -0.45306396)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.578857, 4.5, -4.0775757)
 shape = SubResource("BoxShape3D_fw5wi")
 
 [node name="MusicArea2" parent="Music" unique_id=201850930 instance=ExtResource("7_gglsy")]
 audio_bus_name = &"Music"
 stream = ExtResource("9_234f2")
-blend_distance = 0.5
+blend_distance = 4.5
 
 [node name="CollisionShape3D" parent="Music/MusicArea2" index="0" unique_id=1863019559]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6916202, 0.5, -0.3134439)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.224582, 4.5, -2.820995)
 shape = SubResource("BoxShape3D_s2j21")
 
 [editable path="Music/MusicArea"]

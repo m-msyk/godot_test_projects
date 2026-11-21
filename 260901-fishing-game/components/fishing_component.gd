@@ -10,21 +10,25 @@ const CATCH_DIALOGUE_TIMELINE = preload("res://dialogue/fish_caught.dtl")
 
 enum State { IDLE, CASTING, WAITING, HOOKED, BATTLING, RETRIEVING }
 
-const HOLD_FORWARD_DISTANCE: float = 0.09
-const HOLD_HEIGHT: float = 0.13
+const HOLD_FORWARD_DISTANCE: float = 0.81
+const HOLD_HEIGHT: float = 1.17
 
 @export var body: CharacterBody3D
 @export var model: Node3D
 @export var fishing_line: FishingLine
 @export var interaction_component: InteractionComponent
 @export var dialogic_component: DialogicComponent
-@export var throw_horizontal_speed: float = 0.4
-@export var throw_vertical_speed: float = 0.5
-@export var cast_forward_offset: float = 0.1
-@export var cast_height_offset: float = 0.15
-@export var max_bobber_distance: float = 0.6
+@export var throw_horizontal_speed: float = 3.6
+@export var throw_vertical_speed: float = 4.5
+@export var cast_forward_offset: float = 0.9
+@export var cast_height_offset: float = 1.35
+@export var max_bobber_distance: float = 5.4
 @export var min_bite_wait: float = 2.0
 @export var max_bite_wait: float = 10.0
+## Hooks for rod and bait upgrades (nothing sets them yet). luck boosts the odds of the
+## fish marked rare in a water's FishTable; bite_speed_scale 2.0 halves the wait for a bite.
+@export var luck: float = 0.0
+@export var bite_speed_scale: float = 1.0
 @export var hook_reaction_window: float = 2.0
 @export var retrieve_duration: float = 0.4
 @export var catch_turn_duration: float = 0.4
@@ -93,11 +97,14 @@ func _cast() -> void:
 
 func _on_bobber_landed(_position: Vector3, in_water: bool) -> void:
 	state = State.WAITING
-	_bite_timer = randf_range(min_bite_wait, max_bite_wait) if in_water else 0.0
+	_bite_timer = randf_range(min_bite_wait, max_bite_wait) / maxf(bite_speed_scale, 0.01) if in_water else 0.0
 	bobber_landed.emit()
 
 func _hook_fish() -> void:
-	var species := PlayerData.pick_random_fish()
+	# the fish come from the table of the water the bobber landed in; water with no table
+	# falls back to every species by their own catch_weight
+	var table: FishTable = WaterTables.table_for(_bobber.current_water) if _bobber != null else null
+	var species: FishSpecies = table.pick(luck) if table != null else PlayerData.pick_random_fish()
 	if species == null:
 		return
 	_hooked_species = species

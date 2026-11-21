@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func tick(delta: float, velocity: Vector3, base_speed: float) -> void:
 	var horizontal_speed = Vector2(velocity.x, velocity.z).length()
-	_is_moving = horizontal_speed > 0.1
+	_is_moving = horizontal_speed > 0.9
 
 	if not _is_moving:
 		_step_timer = 0.0

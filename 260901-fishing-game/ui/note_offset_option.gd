@@ -27,7 +27,7 @@ func _update_label(value: float) -> void:
 	value_label.text = "%+.0fms" % relative
 
 func set_highlighted(highlighted: bool) -> void:
-	label.add_theme_color_override("font_color", Color.YELLOW if highlighted else Color.WHITE)
+	label.add_theme_color_override("font_color", UIPalette.ACCENT if highlighted else UIPalette.TEXT)
 
 func adjust(direction: int) -> void:
 	slider.value += direction * slider.step

@@ -2,6 +2,7 @@ class_name Main extends Node
 
 const FISH_BATTLE_BEATMAP := "res://rhythm/rhythm_battle_01_normal.json"
 const FISH_CATCH_THRESHOLD: int = 200
+const WALL_OBJECT_BAKER = preload("res://assets/materials/wall_object_baker.gd")
 
 @onready var current_level: Node = $CurrentLevel
 @onready var elevator_ui: ElevatorUI = $ElevatorUI
@@ -22,7 +23,7 @@ func _ready() -> void:
 		_load_level_immediate(FloorManager.get_current_scene())
 		_spawn_player_at_save_point()
 	else:
-		_load_level_immediate("b1_lobby")
+		_load_level_immediate(FloorManager.DEFAULT_SCENE)
 	await ScreenFade.fade_from_black()
 
 func _connect_signals() -> void:
@@ -47,14 +48,37 @@ func _connect_npcs() -> void:
 			if not npc.battle_scene_end_requested.is_connected(_on_battle_scene_end_requested):
 				npc.battle_scene_end_requested.connect(_on_battle_scene_end_requested)
 
-func _connect_fishing() -> void:
-	var player := get_tree().get_first_node_in_group("player")
+func _connect_fishing(level: Node = null) -> void:
+	var player := _find_player(level)
 	if player == null:
 		return
 	var fishing := player.get_node_or_null("FishingComponent") as FishingComponent
 	if fishing and not fishing.fish_hooked.is_connected(_on_fish_hooked):
 		fishing.fish_hooked.connect(_on_fish_hooked)
 
+## Every Doorway in the loaded levels: walking into one loads its target scene.
+func _connect_doorways() -> void:
+	for door in get_tree().get_nodes_in_group("doorway"):
+		if door is Doorway and not door.door_entered.is_connected(_on_door_entered):
+			door.door_entered.connect(_on_door_entered)
+
+## The player inside level (or the first one in the tree when level is null). A level
+## swap leaves the old level in the tree until the end of the frame, so asking the whole
+## tree could return the old player.
+func _find_player(level: Node = null) -> Node3D:
+	for candidate in get_tree().get_nodes_in_group("player"):
+		if level == null or level.is_ancestor_of(candidate):
+			return candidate as Node3D
+	return null
+
+## Puts the level's player on the Marker3D (group "spawn_point") named spawn_id.
+func _move_player_to_spawn(level: Node, spawn_id: String) -> void:
+	var player := _find_player(level)
+	for marker in get_tree().get_nodes_in_group("spawn_point"):
+		if marker.name == spawn_id and level.is_ancestor_of(marker) and player != null:
+			player.global_position = (marker as Node3D).global_position
+			return
+	push_warning("No spawn point '%s' in %s" % [spawn_id, level.name])
 func _spawn_player_at_save_point() -> void:
 	var meta := SaveManager.get_save_meta()
 	var save_point_id: String = meta["save_point_id"]
@@ -65,17 +89,24 @@ func _spawn_player_at_save_point() -> void:
 				player.global_position = sp.get_spawn_position()
 			return
 
-func _load_level_immediate(scene_name: String) -> void:
+## spawn_id: name of a Marker3D (group "spawn_point") in the new level to put the player on;
+## empty keeps the player where the level places it.
+func _load_level_immediate(scene_name: String, spawn_id: String = "") -> void:
 	var path := "res://floors/" + scene_name + ".tscn"
 	var floor_id := scene_name.split("_")[0]
 	FloorManager.set_current_floor(floor_id)
 	for child in current_level.get_children():
 		child.queue_free()
-	current_level.add_child(load(path).instantiate())
+	var level: Node = load(path).instantiate()
+	WALL_OBJECT_BAKER.bake_tree(level)
+	current_level.add_child(level)
+	if not spawn_id.is_empty():
+		_move_player_to_spawn(level, spawn_id)
 	_connect_elevators()
 	_connect_save_points()
 	_connect_npcs()
-	_connect_fishing()
+	_connect_doorways()
+	_connect_fishing(level)
 
 ## Battles overlay directly on top of the running world (with the overworld
 ## music continuing uninterrupted) instead of swapping to a separate scene.
@@ -106,6 +137,15 @@ func _unload_battle() -> void:
 
 func _on_floor_selected(scene_name: String) -> void:
 	await TransitionManager.run(func(): _load_level_immediate(scene_name))
+
+var _door_busy: bool = false
+
+func _on_door_entered(scene_name: String, spawn_id: String) -> void:
+	if _door_busy:
+		return
+	_door_busy = true
+	await TransitionManager.run(func(): _load_level_immediate(scene_name, spawn_id))
+	_door_busy = false
 
 func _on_elevator_opened() -> void:
 	elevator_ui.open()

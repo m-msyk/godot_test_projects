@@ -1,8 +1,8 @@
 class_name CameraComponent extends Camera3D
 
 @export var rotation_speed: float = 90.0  # degrees per second
-@export var orbit_distance: float = 1.5
-@export var orbit_height: float = 1.5
+@export var orbit_distance: float = 13.5
+@export var orbit_height: float = 13.5
 @export var menu: MenuComponent
 
 var orbit_angle: float = 0.0
